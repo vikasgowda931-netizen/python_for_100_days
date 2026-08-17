@@ -1,0 +1,370 @@
+========================================================
+                 PYTHON LEARNING - DAY 01
+========================================================
+
+Learning Platform:
+W3Schools - Python
+
+Topics Covered:
+1. Python Introduction
+2. Python Syntax
+3. Python Output
+4. Python Comments
+5. Python Variables
+
+I also practiced examples and exercises related to
+each topic.
+
+
+========================================================
+1. PYTHON INTRODUCTION
+========================================================
+
+Python is a high-level, interpreted, general-purpose
+programming language.
+
+Python is popular because it has simple and readable
+syntax and can be used in many different fields.
+
+Python is commonly used for:
+
+- Web Development
+- Data Science
+- Artificial Intelligence
+- Machine Learning
+- Cybersecurity
+- Automation
+- Software Development
+- Scripting
+
+
+PRACTICE:
+
+I started by writing a simple Python program.
+
+Code:
+
+print("Hello, World!")
+
+Output:
+
+Hello, World!
+
+
+Another practice:
+
+print("I am learning Python")
+print("Python is easy to learn")
+
+
+WHAT I UNDERSTOOD:
+
+Python programs can be created using simple statements
+and Python's syntax is designed to be readable.
+
+
+========================================================
+2. PYTHON SYNTAX
+========================================================
+
+Syntax refers to the rules used to write Python code.
+
+Example:
+
+print("Hello, Python!")
+
+
+Python is case-sensitive.
+
+Example:
+
+name = "Niranjan"
+
+print(name)
+
+The following would be different:
+
+name
+Name
+NAME
+
+
+INDENTATION PRACTICE:
+
+Example:
+
+if 10 > 5:
+    print("10 is greater than 5")
+
+
+I learned that indentation is important in Python.
+
+Incorrect indentation can cause an error.
+
+
+PRACTICE:
+
+age = 20
+
+if age >= 18:
+    print("You are an adult")
+
+
+WHAT I UNDERSTOOD:
+
+Python uses indentation to identify blocks of code.
+
+
+========================================================
+3. PYTHON OUTPUT
+========================================================
+
+The print() function is used to display information
+on the screen.
+
+Basic example:
+
+print("Hello World!")
+
+
+Printing numbers:
+
+print(10)
+print(25)
+print(100)
+
+
+Printing multiple values:
+
+name = "Niranjan"
+age = 20
+
+print(name, age)
+
+
+Output:
+
+Niranjan 20
+
+
+PRACTICE:
+
+print("My name is Niranjan")
+print("I am learning Python")
+print(10 + 20)
+
+
+Output:
+
+My name is Niranjan
+I am learning Python
+30
+
+
+I also practiced using expressions inside print():
+
+print(10 + 5)
+print(20 - 5)
+print(5 * 5)
+
+
+WHAT I UNDERSTOOD:
+
+print() is used whenever I want Python to display
+something as output.
+
+
+========================================================
+4. PYTHON COMMENTS
+========================================================
+
+Comments are used to write notes inside Python code.
+
+Python does not execute comments.
+
+Single-line comment:
+
+# This is a comment
+
+Example:
+
+# Display a message
+print("Hello Python!")
+
+
+COMMENTS IN PRACTICE:
+
+# Store the user's age
+age = 20
+
+# Display the age
+print(age)
+
+
+I learned that comments help:
+
+- Explain code
+- Improve readability
+- Make programs easier to understand
+- Leave notes for future reference
+
+
+PRACTICE:
+
+# This program calculates two numbers
+
+a = 10
+b = 20
+
+print(a + b)
+
+
+========================================================
+5. PYTHON VARIABLES
+========================================================
+
+A variable is a name used to store a value.
+
+Example:
+
+name = "Niranjan"
+age = 20
+
+
+Here:
+
+name → variable
+"Niranjan" → value
+
+age → variable
+20 → value
+
+
+VARIABLE PRACTICE:
+
+name = "Niranjan"
+age = 20
+country = "India"
+
+print(name)
+print(age)
+print(country)
+
+
+MULTIPLE VARIABLES:
+
+x = 10
+y = 20
+z = 30
+
+print(x)
+print(y)
+print(z)
+
+
+CHANGING VARIABLE VALUES:
+
+age = 20
+
+print(age)
+
+age = 21
+
+print(age)
+
+
+Output:
+
+20
+21
+
+
+MULTIPLE ASSIGNMENT:
+
+name, age, height = "Niranjan", 20, 5.8
+
+print(name)
+print(age)
+print(height)
+
+
+PRACTICE WITH CALCULATIONS:
+
+a = 10
+b = 20
+
+sum = a + b
+
+print(sum)
+
+
+Output:
+
+30
+
+
+REAL-WORLD STYLE PRACTICE:
+
+product = "Laptop"
+price = 50000
+quantity = 2
+
+total = price * quantity
+
+print(product)
+print(total)
+
+
+Output:
+
+Laptop
+100000
+
+
+WHAT I UNDERSTOOD:
+
+Variables allow me to store information and use that
+information later in my program.
+
+
+========================================================
+                 DAY 01 PRACTICE
+========================================================
+
+During Day 01, I practiced:
+
+1. Printing text
+2. Printing numbers
+3. Performing basic calculations
+4. Writing comments
+5. Creating variables
+6. Changing variable values
+7. Assigning multiple variables
+8. Using variables in calculations
+9. Using indentation
+10. Writing simple Python programs
+
+
+========================================================
+                 DAY 01 SUMMARY
+========================================================
+
+Today I learned the basic structure of Python.
+
+Main concepts:
+
+Python
+  ↓
+Syntax
+  ↓
+Output
+  ↓
+Comments
+  ↓
+Variables
+
+I also practiced writing simple Python programs and
+solved exercises related to these topics.
+
+Next, I learned about Python data types, numbers,
+and type casting.

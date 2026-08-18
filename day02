@@ -1,0 +1,382 @@
+========================================================
+                 PYTHON LEARNING - DAY 02
+========================================================
+
+Learning Platform:
+W3Schools - Python
+
+Topics Covered:
+1. Python Data Types
+2. Python Numbers
+3. Python Casting
+
+I also practiced examples and exercises related to
+each topic.
+
+
+========================================================
+1. PYTHON DATA TYPES
+========================================================
+
+A data type defines what type of value a variable stores.
+
+Some common Python data types are:
+
+str      → String
+int      → Integer
+float    → Floating-point number
+complex  → Complex number
+bool     → Boolean
+list     → List
+tuple    → Tuple
+set      → Set
+dict     → Dictionary
+
+
+BASIC PRACTICE:
+
+name = "Niranjan"
+age = 20
+height = 5.8
+is_student = True
+
+
+CHECKING DATA TYPES:
+
+print(type(name))
+print(type(age))
+print(type(height))
+print(type(is_student))
+
+
+Expected types:
+
+str
+int
+float
+bool
+
+
+PRACTICE:
+
+x = 10
+y = 10.5
+z = "Python"
+a = True
+
+print(type(x))
+print(type(y))
+print(type(z))
+print(type(a))
+
+
+WHAT I UNDERSTOOD:
+
+Python automatically identifies the type of a value
+stored in a variable.
+
+
+========================================================
+2. PYTHON NUMBERS
+========================================================
+
+Python has three main numeric types:
+
+1. int
+2. float
+3. complex
+
+
+INTEGER PRACTICE:
+
+age = 20
+marks = 95
+temperature = -5
+
+print(age)
+print(marks)
+print(temperature)
+
+
+FLOAT PRACTICE:
+
+price = 99.50
+height = 5.8
+temperature = 36.5
+
+print(price)
+print(height)
+print(temperature)
+
+
+COMPLEX NUMBER PRACTICE:
+
+x = 3 + 5j
+
+print(x)
+
+
+========================================================
+BASIC ARITHMETIC PRACTICE
+========================================================
+
+I practiced different mathematical operators.
+
+a = 10
+b = 3
+
+
+ADDITION:
+
+print(a + b)
+
+
+SUBTRACTION:
+
+print(a - b)
+
+
+MULTIPLICATION:
+
+print(a * b)
+
+
+DIVISION:
+
+print(a / b)
+
+
+MODULUS:
+
+print(a % b)
+
+
+EXPONENTIATION:
+
+print(a ** b)
+
+
+FLOOR DIVISION:
+
+print(a // b)
+
+
+I practiced these operators with different numbers
+to understand how Python performs calculations.
+
+
+========================================================
+REAL-WORLD NUMBER PRACTICE
+========================================================
+
+Example: Shopping calculation
+
+price = 500
+quantity = 3
+
+total = price * quantity
+
+print("Total:", total)
+
+
+Output:
+
+Total: 1500
+
+
+Another example:
+
+marks1 = 80
+marks2 = 90
+marks3 = 70
+
+average = (marks1 + marks2 + marks3) / 3
+
+print("Average:", average)
+
+
+This helped me understand how numeric data can be
+used in real-world calculations.
+
+
+========================================================
+3. PYTHON CASTING
+========================================================
+
+Casting means converting a value from one data type
+to another.
+
+Common casting functions:
+
+int()
+float()
+str()
+bool()
+
+
+INTEGER CASTING:
+
+age = "20"
+
+age = int(age)
+
+print(age)
+print(type(age))
+
+
+"20" → int() → 20
+
+
+FLOAT CASTING:
+
+price = "99.50"
+
+price = float(price)
+
+print(price)
+print(type(price))
+
+
+"99.50" → float() → 99.5
+
+
+STRING CASTING:
+
+age = 20
+
+age = str(age)
+
+print(age)
+print(type(age))
+
+
+20 → str() → "20"
+
+
+BOOLEAN CASTING:
+
+x = 10
+
+print(bool(x))
+
+
+Output:
+
+True
+
+
+========================================================
+CASTING WITH USER INPUT
+========================================================
+
+The input() function returns data as a string.
+
+Example:
+
+age = input("Enter your age: ")
+
+To use the value as a number:
+
+age = int(input("Enter your age: "))
+
+print(age + 5)
+
+
+If the user enters:
+
+20
+
+Output:
+
+25
+
+
+This helped me understand why casting is important when
+working with user input.
+
+
+========================================================
+REAL-WORLD CASTING PRACTICE
+========================================================
+
+Example: Shopping bill
+
+price = float(input("Enter product price: "))
+quantity = int(input("Enter quantity: "))
+
+total = price * quantity
+
+print("Total price:", total)
+
+
+Example input:
+
+Enter product price: 99.50
+Enter quantity: 3
+
+
+Output:
+
+Total price: 298.5
+
+
+Here:
+
+"99.50" → float → 99.5
+
+"3" → int → 3
+
+
+========================================================
+                 DAY 02 PRACTICE
+========================================================
+
+During Day 02, I practiced:
+
+1. Identifying Python data types
+2. Using type()
+3. Working with integers
+4. Working with floating-point numbers
+5. Working with complex numbers
+6. Performing arithmetic operations
+7. Converting strings to integers
+8. Converting strings to floats
+9. Converting numbers to strings
+10. Converting values to Boolean
+11. Using casting with input()
+12. Performing real-world calculations
+
+
+========================================================
+                 DAY 02 SUMMARY
+========================================================
+
+Today I learned how Python stores different types of
+data and how to work with numbers.
+
+I also learned that input() returns a string and that
+casting can be used to convert the value into the
+required data type.
+
+Important conversions:
+
+"20" → int() → 20
+
+"99.5" → float() → 99.5
+
+20 → str() → "20"
+
+1 → bool() → True
+
+
+Overall Learning:
+
+Variables
+    ↓
+Data Types
+    ↓
+Numbers
+    ↓
+Casting
+    ↓
+Working with real-world data

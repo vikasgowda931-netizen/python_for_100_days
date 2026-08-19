@@ -1,0 +1,2315 @@
+
+========================================================
+                 PYTHON LEARNING - DAY 03
+========================================================
+
+Learning Platform:
+W3Schools - Python
+
+Topics Covered:
+1. Python Strings
+2. Multiline Strings
+3. Strings as Arrays
+4. String Indexing
+5. Negative Indexing
+6. String Slicing
+7. Negative Slicing
+8. String Length
+9. Checking Strings
+10. String Concatenation
+11. String Formatting
+12. F-Strings
+13. Escape Characters
+14. String Methods
+15. String Validation
+16. String Immutability
+
+I also practiced examples and exercises related to
+each topic.
+
+
+========================================================
+1. PYTHON STRINGS
+========================================================
+
+A string is a sequence of characters enclosed inside
+single quotes or double quotes.
+
+Strings are used to store and work with text.
+
+Example:
+
+name = "Niranjan"
+city = "Bangalore"
+
+print(name)
+print(city)
+
+
+Output:
+
+Niranjan
+Bangalore
+
+
+Strings can contain:
+
+- Letters
+- Numbers
+- Spaces
+- Symbols
+- Special characters
+
+
+Examples:
+
+name = "Niranjan"
+number = "12345"
+message = "Hello Python!"
+email = "niranjan@gmail.com"
+password = "Python@123"
+
+
+Even though 12345 contains only numbers, "12345" is
+treated as a string because it is enclosed inside quotes.
+
+
+CHECKING STRING TYPE:
+
+name = "Niranjan"
+
+print(type(name))
+
+
+Output:
+
+<class 'str'>
+
+
+The str means string.
+
+
+SINGLE QUOTES:
+
+name = 'Niranjan'
+
+print(name)
+
+
+DOUBLE QUOTES:
+
+name = "Niranjan"
+
+print(name)
+
+
+Both single quotes and double quotes can be used to
+create strings.
+
+
+REAL-WORLD EXAMPLES:
+
+username = "niranjan"
+password = "Python@123"
+email = "niranjan@gmail.com"
+website = "https://www.google.com"
+
+
+WHAT I UNDERSTOOD:
+
+Strings are used whenever a program needs to work
+with text.
+
+Strings are commonly used for:
+
+- Names
+- Usernames
+- Passwords
+- Email addresses
+- Messages
+- Addresses
+- URLs
+- File names
+- Text data
+
+
+========================================================
+2. MULTILINE STRINGS
+========================================================
+
+Python allows us to create strings that contain
+multiple lines.
+
+Triple quotes can be used for multiline strings.
+
+Example:
+
+message = """Hello,
+My name is Niranjan.
+I am learning Python."""
+
+print(message)
+
+
+Output:
+
+Hello,
+My name is Niranjan.
+I am learning Python.
+
+
+We can also use triple single quotes:
+
+message = '''Hello,
+I am learning Python.
+Python is interesting.'''
+
+print(message)
+
+
+REAL-WORLD EXAMPLE:
+
+address = """Niranjan Kumar
+Bangalore
+Karnataka
+India"""
+
+print(address)
+
+
+WHAT I UNDERSTOOD:
+
+Multiline strings are useful when storing paragraphs,
+messages, addresses, documentation, and other large
+blocks of text.
+
+
+========================================================
+3. STRINGS AS ARRAYS
+========================================================
+
+Strings in Python can be treated as sequences of
+characters.
+
+Each character has a position called an index.
+
+Example:
+
+word = "Python"
+
+print(word[0])
+print(word[1])
+print(word[2])
+
+
+Output:
+
+P
+y
+t
+
+
+The indexing starts from 0.
+
+
+String:
+
+P  y  t  h  o  n
+0  1  2  3  4  5
+
+
+Example:
+
+language = "Python"
+
+print(language[0])
+print(language[3])
+print(language[5])
+
+
+Output:
+
+P
+h
+n
+
+
+WHAT I UNDERSTOOD:
+
+Every character in a string has an index number.
+
+Python starts counting indexes from 0.
+
+
+========================================================
+4. NEGATIVE INDEXING
+========================================================
+
+Python also supports negative indexing.
+
+Negative indexing starts from the end of the string.
+
+
+Example:
+
+word = "Python"
+
+print(word[-1])
+print(word[-2])
+print(word[-3])
+
+
+Output:
+
+n
+o
+h
+
+
+String:
+
+P   y   t   h   o   n
+-6 -5  -4  -3  -2  -1
+
+
+The last character can be accessed using -1.
+
+
+Example:
+
+name = "Niranjan"
+
+print(name[-1])
+
+
+Output:
+
+n
+
+
+REAL-WORLD USE:
+
+Negative indexing is useful when we want to access
+characters from the end of a string.
+
+For example, checking the last character of a filename
+or accessing the last character of a username.
+
+
+========================================================
+5. STRING SLICING
+========================================================
+
+String slicing is used to extract a part of a string.
+
+Syntax:
+
+string[start:end]
+
+
+The start index is included.
+
+The end index is not included.
+
+
+Example:
+
+text = "Python"
+
+print(text[0:3])
+
+
+Output:
+
+Pyt
+
+
+Indexes:
+
+P  y  t  h  o  n
+0  1  2  3  4  5
+
+
+text[0:3] means:
+
+Start at index 0
+Stop before index 3
+
+
+ANOTHER EXAMPLE:
+
+text = "Hello World"
+
+print(text[0:5])
+
+
+Output:
+
+Hello
+
+
+SLICING WITH DIFFERENT POSITIONS:
+
+text = "Python Programming"
+
+print(text[0:6])
+print(text[7:18])
+
+
+Output:
+
+Python
+Programming
+
+
+WHAT I UNDERSTOOD:
+
+Slicing allows us to extract specific portions of
+a string without changing the original string.
+
+
+========================================================
+6. SLICING FROM THE BEGINNING
+========================================================
+
+We can leave the starting index empty.
+
+Example:
+
+text = "Python"
+
+print(text[:4])
+
+
+Output:
+
+Pyth
+
+
+This is the same as:
+
+print(text[0:4])
+
+
+Another example:
+
+text = "Programming"
+
+print(text[:7])
+
+
+Output:
+
+Program
+
+
+WHAT I UNDERSTOOD:
+
+If the starting index is omitted, Python starts
+from index 0.
+
+
+========================================================
+7. SLICING TO THE END
+========================================================
+
+We can leave the ending index empty.
+
+Example:
+
+text = "Python"
+
+print(text[2:])
+
+
+Output:
+
+thon
+
+
+This means:
+
+Start from index 2 and continue until the end.
+
+
+Another example:
+
+text = "Python Programming"
+
+print(text[7:])
+
+
+Output:
+
+Programming
+
+
+WHAT I UNDERSTOOD:
+
+If the ending index is omitted, Python continues
+until the end of the string.
+
+
+========================================================
+8. NEGATIVE SLICING
+========================================================
+
+Negative indexes can also be used for slicing.
+
+
+Example:
+
+text = "Python"
+
+print(text[-3:])
+
+
+Output:
+
+hon
+
+
+Another example:
+
+text = "Python"
+
+print(text[:-2])
+
+
+Output:
+
+Pyth
+
+
+REAL-WORLD EXAMPLE:
+
+filename = "document.pdf"
+
+extension = filename[-3:]
+
+print(extension)
+
+
+Output:
+
+pdf
+
+
+WHAT I UNDERSTOOD:
+
+Negative slicing is useful when working with the
+end portion of strings such as file extensions,
+codes, IDs, and other text.
+
+
+========================================================
+9. STRING LENGTH
+========================================================
+
+The len() function is used to find the number of
+characters in a string.
+
+
+Example:
+
+name = "Niranjan"
+
+print(len(name))
+
+
+Output:
+
+8
+
+
+Spaces are also counted.
+
+
+Example:
+
+text = "Hello World"
+
+print(len(text))
+
+
+Output:
+
+11
+
+
+There are:
+
+5 letters + 1 space + 5 letters = 11 characters.
+
+
+REAL-WORLD EXAMPLE:
+
+password = "Python123"
+
+print(len(password))
+
+
+The len() function can be useful for checking the
+length of usernames, passwords, messages, and other
+text.
+
+
+PRACTICE:
+
+name = "Niranjan"
+
+print("Name length:", len(name))
+
+
+========================================================
+10. CHECKING STRINGS
+========================================================
+
+Python allows us to check whether a particular word
+or character exists inside a string.
+
+The "in" operator is used for this purpose.
+
+
+Example:
+
+text = "I am learning Python"
+
+print("Python" in text)
+
+
+Output:
+
+True
+
+
+Another example:
+
+text = "I am learning Python"
+
+print("Java" in text)
+
+
+Output:
+
+False
+
+
+USING IN WITH IF:
+
+text = "I am learning Python"
+
+if "Python" in text:
+    print("Python is present")
+
+
+Output:
+
+Python is present
+
+
+USING NOT IN:
+
+text = "I am learning Python"
+
+print("Java" not in text)
+
+
+Output:
+
+True
+
+
+REAL-WORLD EXAMPLE:
+
+email = "niranjan@gmail.com"
+
+if "@gmail.com" in email:
+    print("Gmail account")
+
+
+WHAT I UNDERSTOOD:
+
+The "in" operator is useful for searching text
+inside a string.
+
+
+========================================================
+11. STRING CONCATENATION
+========================================================
+
+String concatenation means joining two or more
+strings together.
+
+The + operator is used for concatenation.
+
+
+Example:
+
+first_name = "Niranjan"
+last_name = "Kumar"
+
+full_name = first_name + " " + last_name
+
+print(full_name)
+
+
+Output:
+
+Niranjan Kumar
+
+
+ANOTHER EXAMPLE:
+
+first = "Python"
+second = "Programming"
+
+result = first + " " + second
+
+print(result)
+
+
+Output:
+
+Python Programming
+
+
+IMPORTANT:
+
+We cannot directly concatenate a string and an integer.
+
+
+Incorrect:
+
+age = 20
+
+print("Age: " + age)
+
+
+This produces an error.
+
+
+We can convert the number to a string using str().
+
+
+Correct:
+
+age = 20
+
+print("Age: " + str(age))
+
+
+Output:
+
+Age: 20
+
+
+WHAT I UNDERSTOOD:
+
+The + operator can be used to combine strings.
+
+
+========================================================
+12. STRING FORMATTING
+========================================================
+
+String formatting allows us to insert variables and
+values into strings.
+
+Python provides different ways to format strings.
+
+One of the easiest and most commonly used methods is
+the f-string.
+
+
+Example:
+
+name = "Niranjan"
+age = 20
+
+print(f"My name is {name} and I am {age} years old.")
+
+
+Output:
+
+My name is Niranjan and I am 20 years old.
+
+
+Variables can be placed inside curly brackets.
+
+
+REAL-WORLD EXAMPLE:
+
+product = "Laptop"
+price = 50000
+quantity = 2
+
+print(f"Product: {product}")
+print(f"Price: {price}")
+print(f"Quantity: {quantity}")
+
+
+Output:
+
+Product: Laptop
+Price: 50000
+Quantity: 2
+
+
+F-STRINGS WITH EXPRESSIONS:
+
+a = 10
+b = 20
+
+print(f"The sum is {a + b}")
+
+
+Output:
+
+The sum is 30
+
+
+WHAT I UNDERSTOOD:
+
+F-strings provide a simple and readable way to
+insert variables and expressions into strings.
+
+
+========================================================
+13. F-STRINGS
+========================================================
+
+An f-string is a formatted string that starts with
+the letter f before the quotation mark.
+
+
+Example:
+
+name = "Niranjan"
+
+print(f"Hello {name}")
+
+
+Output:
+
+Hello Niranjan
+
+
+Multiple variables can also be used.
+
+
+Example:
+
+name = "Niranjan"
+age = 20
+city = "Bangalore"
+
+print(f"My name is {name}, I am {age} years old and I live in {city}.")
+
+
+Output:
+
+My name is Niranjan, I am 20 years old and I live in Bangalore.
+
+
+F-STRING WITH CALCULATION:
+
+price = 1000
+quantity = 3
+
+print(f"Total price: {price * quantity}")
+
+
+Output:
+
+Total price: 3000
+
+
+WHAT I UNDERSTOOD:
+
+F-strings are useful for creating dynamic messages,
+reports, receipts, and formatted output.
+
+
+========================================================
+14. ESCAPE CHARACTERS
+========================================================
+
+Escape characters are special characters used inside
+strings.
+
+They begin with a backslash.
+
+
+NEW LINE - \n
+
+Example:
+
+print("Hello\nPython")
+
+
+Output:
+
+Hello
+Python
+
+
+TAB - \t
+
+Example:
+
+print("Python\tProgramming")
+
+
+Output:
+
+Python    Programming
+
+
+BACKSLASH - \\
+
+Example:
+
+print("C:\\Users\\Niranjan")
+
+
+Output:
+
+C:\Users\Niranjan
+
+
+SINGLE QUOTE - \'
+
+Example:
+
+print('I\'m learning Python')
+
+
+Output:
+
+I'm learning Python
+
+
+DOUBLE QUOTE - \"
+
+Example:
+
+print("He said \"Hello\"")
+
+
+Output:
+
+He said "Hello"
+
+
+OTHER COMMON ESCAPE CHARACTERS:
+
+\n  → New line
+\t  → Tab
+\\  → Backslash
+\'  → Single quote
+\"  → Double quote
+\b  → Backspace
+\f  → Form feed
+\r  → Carriage return
+
+
+REAL-WORLD EXAMPLE:
+
+print("Name:\tNiranjan")
+print("Age:\t20")
+print("City:\tBangalore")
+
+
+WHAT I UNDERSTOOD:
+
+Escape characters allow us to include special
+formatting and characters inside strings.
+
+
+========================================================
+15. STRING METHODS
+========================================================
+
+Python provides many built-in methods for working
+with strings.
+
+String methods are functions that can be used on
+string values.
+
+
+The general syntax is:
+
+string.method()
+
+
+IMPORTANT STRING METHODS:
+
+upper()
+lower()
+capitalize()
+title()
+strip()
+replace()
+split()
+join()
+find()
+count()
+startswith()
+endswith()
+
+
+========================================================
+16. upper()
+========================================================
+
+The upper() method converts all letters into
+uppercase.
+
+
+Example:
+
+text = "python"
+
+print(text.upper())
+
+
+Output:
+
+PYTHON
+
+
+REAL-WORLD EXAMPLE:
+
+country = "india"
+
+print(country.upper())
+
+
+Output:
+
+INDIA
+
+
+========================================================
+17. lower()
+========================================================
+
+The lower() method converts all letters into
+lowercase.
+
+
+Example:
+
+text = "PYTHON"
+
+print(text.lower())
+
+
+Output:
+
+python
+
+
+REAL-WORLD EXAMPLE:
+
+email = "NIRANJAN@GMAIL.COM"
+
+print(email.lower())
+
+
+Output:
+
+niranjan@gmail.com
+
+
+This can be useful when normalizing email addresses
+and usernames.
+
+
+========================================================
+18. capitalize()
+========================================================
+
+The capitalize() method converts the first character
+to uppercase and the remaining characters to lowercase.
+
+
+Example:
+
+text = "python programming"
+
+print(text.capitalize())
+
+
+Output:
+
+Python programming
+
+
+REAL-WORLD EXAMPLE:
+
+name = "niranjan"
+
+print(name.capitalize())
+
+
+Output:
+
+Niranjan
+
+
+========================================================
+19. title()
+========================================================
+
+The title() method converts the first character of
+each word to uppercase.
+
+
+Example:
+
+text = "python programming language"
+
+print(text.title())
+
+
+Output:
+
+Python Programming Language
+
+
+REAL-WORLD EXAMPLE:
+
+address = "electronic city bangalore"
+
+print(address.title())
+
+
+Output:
+
+Electronic City Bangalore
+
+
+========================================================
+20. strip()
+========================================================
+
+The strip() method removes whitespace from the
+beginning and end of a string.
+
+
+Example:
+
+text = "   Python   "
+
+print(text.strip())
+
+
+Output:
+
+Python
+
+
+REAL-WORLD EXAMPLE:
+
+username = input("Enter username: ")
+
+username = username.strip()
+
+print(username)
+
+
+If the user enters:
+
+   niranjan
+
+The result becomes:
+
+niranjan
+
+
+WHAT I UNDERSTOOD:
+
+strip() is useful for cleaning user input and
+removing unwanted spaces.
+
+
+========================================================
+21. lstrip()
+========================================================
+
+The lstrip() method removes whitespace from the
+left side of a string.
+
+
+Example:
+
+text = "   Hello"
+
+print(text.lstrip())
+
+
+Output:
+
+Hello
+
+
+========================================================
+22. rstrip()
+========================================================
+
+The rstrip() method removes whitespace from the
+right side of a string.
+
+
+Example:
+
+text = "Hello   "
+
+print(text.rstrip())
+
+
+Output:
+
+Hello
+
+
+========================================================
+23. replace()
+========================================================
+
+The replace() method replaces one part of a string
+with another value.
+
+
+Syntax:
+
+string.replace(old, new)
+
+
+Example:
+
+text = "I am learning Java"
+
+print(text.replace("Java", "Python"))
+
+
+Output:
+
+I am learning Python
+
+
+REAL-WORLD EXAMPLE:
+
+phone = "123-456-7890"
+
+phone = phone.replace("-", "")
+
+print(phone)
+
+
+Output:
+
+1234567890
+
+
+WHAT I UNDERSTOOD:
+
+replace() is useful for cleaning and modifying text.
+
+
+========================================================
+24. split()
+========================================================
+
+The split() method divides a string into multiple
+parts and returns them as a list.
+
+
+Example:
+
+text = "Python Java C++"
+
+print(text.split())
+
+
+Output:
+
+['Python', 'Java', 'C++']
+
+
+Using a separator:
+
+
+data = "apple,banana,mango"
+
+print(data.split(","))
+
+
+Output:
+
+['apple', 'banana', 'mango']
+
+
+REAL-WORLD EXAMPLE:
+
+skills = "Python,Linux,Networking,Git"
+
+skills_list = skills.split(",")
+
+print(skills_list)
+
+
+Output:
+
+['Python', 'Linux', 'Networking', 'Git']
+
+
+WHAT I UNDERSTOOD:
+
+split() is useful when converting text into
+individual pieces of data.
+
+
+========================================================
+25. join()
+========================================================
+
+The join() method combines multiple strings into
+one string.
+
+
+Example:
+
+languages = ["Python", "Java", "C++"]
+
+result = ", ".join(languages)
+
+print(result)
+
+
+Output:
+
+Python, Java, C++
+
+
+ANOTHER EXAMPLE:
+
+words = ["Python", "is", "easy"]
+
+sentence = " ".join(words)
+
+print(sentence)
+
+
+Output:
+
+Python is easy
+
+
+WHAT I UNDERSTOOD:
+
+split() breaks a string into parts.
+
+join() combines multiple strings into one string.
+
+
+========================================================
+26. find()
+========================================================
+
+The find() method searches for a string and returns
+its position.
+
+
+Example:
+
+text = "I am learning Python"
+
+print(text.find("Python"))
+
+
+Output:
+
+14
+
+
+If the text is not found, find() returns -1.
+
+
+Example:
+
+text = "I am learning Python"
+
+print(text.find("Java"))
+
+
+Output:
+
+-1
+
+
+REAL-WORLD EXAMPLE:
+
+message = "Welcome to Python programming"
+
+position = message.find("Python")
+
+if position != -1:
+    print("Python was found")
+
+
+Output:
+
+Python was found
+
+
+========================================================
+27. count()
+========================================================
+
+The count() method counts how many times a character
+or substring occurs.
+
+
+Example:
+
+text = "banana"
+
+print(text.count("a"))
+
+
+Output:
+
+3
+
+
+ANOTHER EXAMPLE:
+
+text = "Python is easy. Python is powerful."
+
+print(text.count("Python"))
+
+
+Output:
+
+2
+
+
+REAL-WORLD USE:
+
+Counting repeated words or characters can be useful
+when processing text data.
+
+
+========================================================
+28. startswith()
+========================================================
+
+The startswith() method checks whether a string
+starts with a particular value.
+
+
+Example:
+
+url = "https://google.com"
+
+print(url.startswith("https"))
+
+
+Output:
+
+True
+
+
+REAL-WORLD EXAMPLE:
+
+url = "https://example.com"
+
+if url.startswith("https"):
+    print("Secure protocol detected")
+
+
+Output:
+
+Secure protocol detected
+
+
+========================================================
+29. endswith()
+========================================================
+
+The endswith() method checks whether a string ends
+with a particular value.
+
+
+Example:
+
+filename = "document.pdf"
+
+print(filename.endswith(".pdf"))
+
+
+Output:
+
+True
+
+
+REAL-WORLD EXAMPLE:
+
+filename = "photo.jpg"
+
+if filename.endswith(".jpg"):
+    print("This is an image file")
+
+
+Output:
+
+This is an image file
+
+
+This can be useful when checking:
+
+- .pdf
+- .jpg
+- .png
+- .txt
+- .csv
+- .py
+
+
+========================================================
+30. STRING VALIDATION METHODS
+========================================================
+
+Python provides several methods to check the contents
+of a string.
+
+Important validation methods include:
+
+isalpha()
+isdigit()
+isalnum()
+isspace()
+islower()
+isupper()
+
+
+========================================================
+31. isalpha()
+========================================================
+
+The isalpha() method checks whether all characters
+in a string are alphabetic.
+
+
+Example:
+
+name = "Niranjan"
+
+print(name.isalpha())
+
+
+Output:
+
+True
+
+
+If numbers are present:
+
+name = "Niranjan123"
+
+print(name.isalpha())
+
+
+Output:
+
+False
+
+
+REAL-WORLD EXAMPLE:
+
+name = input("Enter your name: ")
+
+if name.isalpha():
+    print("Valid name")
+else:
+    print("Name should contain letters only")
+
+
+========================================================
+32. isdigit()
+========================================================
+
+The isdigit() method checks whether all characters
+in a string are digits.
+
+
+Example:
+
+number = "12345"
+
+print(number.isdigit())
+
+
+Output:
+
+True
+
+
+Example:
+
+number = "123abc"
+
+print(number.isdigit())
+
+
+Output:
+
+False
+
+
+REAL-WORLD EXAMPLE:
+
+age = input("Enter your age: ")
+
+if age.isdigit():
+    print("Valid age")
+else:
+    print("Please enter numbers only")
+
+
+WHAT I UNDERSTOOD:
+
+input() returns data as a string.
+
+isdigit() can be used to check whether the input
+contains only digits.
+
+
+========================================================
+33. isalnum()
+========================================================
+
+The isalnum() method checks whether all characters
+are letters or numbers.
+
+
+Example:
+
+username = "Niranjan123"
+
+print(username.isalnum())
+
+
+Output:
+
+True
+
+
+Example:
+
+username = "Niranjan@123"
+
+print(username.isalnum())
+
+
+Output:
+
+False
+
+
+The @ symbol causes the result to be False.
+
+
+REAL-WORLD USE:
+
+isalnum() can be useful when validating usernames
+or other inputs that should contain only letters
+and numbers.
+
+
+========================================================
+34. isspace()
+========================================================
+
+The isspace() method checks whether all characters
+in a string are whitespace.
+
+
+Example:
+
+text = "   "
+
+print(text.isspace())
+
+
+Output:
+
+True
+
+
+Example:
+
+text = "Hello"
+
+print(text.isspace())
+
+
+Output:
+
+False
+
+
+WHAT I UNDERSTOOD:
+
+isspace() can be useful when checking whether a
+string contains only spaces or whitespace.
+
+
+========================================================
+35. islower()
+========================================================
+
+The islower() method checks whether all applicable
+letters in a string are lowercase.
+
+
+Example:
+
+text = "python"
+
+print(text.islower())
+
+
+Output:
+
+True
+
+
+Example:
+
+text = "Python"
+
+print(text.islower())
+
+
+Output:
+
+False
+
+
+========================================================
+36. isupper()
+========================================================
+
+The isupper() method checks whether all applicable
+letters in a string are uppercase.
+
+
+Example:
+
+text = "PYTHON"
+
+print(text.isupper())
+
+
+Output:
+
+True
+
+
+Example:
+
+text = "Python"
+
+print(text.isupper())
+
+
+Output:
+
+False
+
+
+========================================================
+37. swapcase()
+========================================================
+
+The swapcase() method changes uppercase characters
+to lowercase and lowercase characters to uppercase.
+
+
+Example:
+
+text = "Hello Python"
+
+print(text.swapcase())
+
+
+Output:
+
+hELLO pYTHON
+
+
+WHAT I UNDERSTOOD:
+
+swapcase() reverses the case of characters in a string.
+
+
+========================================================
+38. zfill()
+========================================================
+
+The zfill() method adds zeros to the beginning of
+a string until it reaches the specified length.
+
+
+Example:
+
+number = "25"
+
+print(number.zfill(5))
+
+
+Output:
+
+00025
+
+
+REAL-WORLD EXAMPLE:
+
+invoice = "25"
+
+print(invoice.zfill(6))
+
+
+Output:
+
+000025
+
+
+This can be useful for:
+
+- Invoice numbers
+- Serial numbers
+- IDs
+- Employee numbers
+- File numbering
+
+
+========================================================
+39. STRING IMMUTABILITY
+========================================================
+
+Strings in Python are immutable.
+
+This means that once a string is created, its
+individual characters cannot be changed directly.
+
+
+Example:
+
+name = "Python"
+
+The following is not allowed:
+
+name[0] = "J"
+
+
+This produces an error because strings cannot be
+modified character by character.
+
+
+Instead, we can create a new string.
+
+
+Example:
+
+name = "Python"
+
+name = "J" + name[1:]
+
+print(name)
+
+
+Output:
+
+Jython
+
+
+STRING METHODS ALSO RETURN A NEW STRING:
+
+
+Example:
+
+name = "python"
+
+name.upper()
+
+print(name)
+
+
+Output:
+
+python
+
+
+The original string did not change.
+
+
+To store the changed value:
+
+name = name.upper()
+
+print(name)
+
+
+Output:
+
+PYTHON
+
+
+WHAT I UNDERSTOOD:
+
+Strings are immutable in Python.
+
+String methods usually return a new string instead
+of changing the original string.
+
+
+========================================================
+                 DAY 03 PRACTICE
+========================================================
+
+During Day 03, I practiced:
+
+1. Creating strings
+2. Using single quotes
+3. Using double quotes
+4. Creating multiline strings
+5. Accessing characters using indexes
+6. Using positive indexing
+7. Using negative indexing
+8. String slicing
+9. Negative slicing
+10. Finding string length
+11. Using the "in" operator
+12. Using the "not in" operator
+13. String concatenation
+14. Converting values using str()
+15. String formatting
+16. Using f-strings
+17. Using escape characters
+18. Using upper()
+19. Using lower()
+20. Using capitalize()
+21. Using title()
+22. Using strip()
+23. Using lstrip()
+24. Using rstrip()
+25. Using replace()
+26. Using split()
+27. Using join()
+28. Using find()
+29. Using count()
+30. Using startswith()
+31. Using endswith()
+32. Using isalpha()
+33. Using isdigit()
+34. Using isalnum()
+35. Using isspace()
+36. Using islower()
+37. Using isupper()
+38. Using swapcase()
+39. Using zfill()
+40. Understanding string immutability
+
+
+========================================================
+             DAY 03 PRACTICE EXERCISES
+========================================================
+
+EXERCISE 1:
+
+Create a variable containing your name and print it.
+
+Example:
+
+name = "Niranjan"
+
+print(name)
+
+
+--------------------------------------------------------
+
+EXERCISE 2:
+
+Find the length of your name.
+
+Example:
+
+name = "Niranjan"
+
+print(len(name))
+
+
+--------------------------------------------------------
+
+EXERCISE 3:
+
+Print the first and last character of your name.
+
+Example:
+
+name = "Niranjan"
+
+print(name[0])
+print(name[-1])
+
+
+--------------------------------------------------------
+
+EXERCISE 4:
+
+Extract "Python" from the following string:
+
+text = "I am learning Python"
+
+
+--------------------------------------------------------
+
+EXERCISE 5:
+
+Convert the following string to uppercase:
+
+text = "python programming"
+
+
+Expected output:
+
+PYTHON PROGRAMMING
+
+
+--------------------------------------------------------
+
+EXERCISE 6:
+
+Convert the following string to lowercase:
+
+text = "PYTHON PROGRAMMING"
+
+
+Expected output:
+
+python programming
+
+
+--------------------------------------------------------
+
+EXERCISE 7:
+
+Remove the extra spaces:
+
+name = "   Niranjan   "
+
+
+Expected output:
+
+Niranjan
+
+
+--------------------------------------------------------
+
+EXERCISE 8:
+
+Replace Java with Python:
+
+text = "I am learning Java"
+
+
+Expected output:
+
+I am learning Python
+
+
+--------------------------------------------------------
+
+EXERCISE 9:
+
+Split the following string:
+
+text = "Python Linux Networking Git"
+
+
+Expected output:
+
+['Python', 'Linux', 'Networking', 'Git']
+
+
+--------------------------------------------------------
+
+EXERCISE 10:
+
+Join the following list:
+
+skills = ["Python", "Linux", "Git"]
+
+
+Expected output:
+
+Python, Linux, Git
+
+
+--------------------------------------------------------
+
+EXERCISE 11:
+
+Find the position of "Python":
+
+text = "I am learning Python programming"
+
+
+--------------------------------------------------------
+
+EXERCISE 12:
+
+Count the number of "a" characters:
+
+text = "banana"
+
+
+Expected output:
+
+3
+
+
+--------------------------------------------------------
+
+EXERCISE 13:
+
+Check whether "Python" exists in the string:
+
+text = "I am learning Python"
+
+
+--------------------------------------------------------
+
+EXERCISE 14:
+
+Check whether a filename ends with ".pdf":
+
+filename = "report.pdf"
+
+
+--------------------------------------------------------
+
+EXERCISE 15:
+
+Check whether the following contains only numbers:
+
+number = "123456"
+
+
+--------------------------------------------------------
+
+EXERCISE 16:
+
+Check whether the following contains only letters:
+
+name = "Niranjan"
+
+
+--------------------------------------------------------
+
+EXERCISE 17:
+
+Create an f-string using:
+
+name = "Niranjan"
+age = 20
+city = "Bangalore"
+
+
+Expected output:
+
+My name is Niranjan, I am 20 years old and I live in Bangalore.
+
+
+--------------------------------------------------------
+             DAY 03 MINI PROJECT
+========================================================
+
+PROJECT:
+USER INFORMATION FORMATTER
+
+
+Create a program that asks the user for:
+
+- Name
+- Age
+- City
+- Email
+
+
+Then:
+
+1. Remove unwanted spaces from the name, city,
+   and email.
+
+2. Convert the name to title case.
+
+3. Convert the city to title case.
+
+4. Convert the email to lowercase.
+
+5. Display the formatted information.
+
+
+Example Code:
+
+name = input("Enter your name: ")
+age = input("Enter your age: ")
+city = input("Enter your city: ")
+email = input("Enter your email: ")
+
+name = name.strip().title()
+city = city.strip().title()
+email = email.strip().lower()
+
+print("\n--- User Information ---")
+
+print(f"Name: {name}")
+print(f"Age: {age}")
+print(f"City: {city}")
+print(f"Email: {email}")
+
+
+Example Input:
+
+Enter your name:    niranjan
+Enter your age: 20
+Enter your city: bangalore
+Enter your email: NIRANJAN@GMAIL.COM
+
+
+Output:
+
+--- User Information ---
+Name: Niranjan
+Age: 20
+City: Bangalore
+Email: niranjan@gmail.com
+
+
+CONCEPTS USED:
+
+input()
+strip()
+title()
+lower()
+f-string
+strings
+variables
+print()
+
+
+========================================================
+                 DAY 03 SUMMARY
+========================================================
+
+Today I learned about Python Strings and how Python
+handles text.
+
+Main concepts:
+
+Strings
+   ↓
+String Indexing
+   ↓
+Negative Indexing
+   ↓
+String Slicing
+   ↓
+String Length
+   ↓
+String Searching
+   ↓
+String Concatenation
+   ↓
+String Formatting
+   ↓
+F-Strings
+   ↓
+Escape Characters
+   ↓
+String Methods
+   ↓
+String Validation
+   ↓
+String Immutability
+
+
+Important String Methods Learned:
+
+upper()
+lower()
+capitalize()
+title()
+strip()
+lstrip()
+rstrip()
+replace()
+split()
+join()
+find()
+count()
+startswith()
+endswith()
+isalpha()
+isdigit()
+isalnum()
+isspace()
+islower()
+isupper()
+swapcase()
+zfill()
+
+
+WHAT I UNDERSTOOD:
+
+Strings are one of the most important data types
+in Python because they are used to handle text.
+
+I learned how to create strings, access individual
+characters, extract parts of strings, search inside
+strings, modify string data using methods, validate
+user input, and format strings using f-strings.
+
+I also learned that strings are immutable, meaning
+their individual characters cannot be changed directly.
+
+
+REAL-WORLD APPLICATIONS:
+
+Python strings can be used in:
+
+- User input handling
+- Login systems
+- Username validation
+- Email validation
+- Password processing
+- File name processing
+- URL processing
+- Text processing
+- Data cleaning
+- Log analysis
+- Cybersecurity
+- Data Science
+- Web Development
+- Automation
+
+
+========================================================
+              END OF PYTHON LEARNING - DAY 03
+========================================================

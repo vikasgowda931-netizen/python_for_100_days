@@ -1,0 +1,1817 @@
+# 🐍 PYTHON LEARNING - BOOLEAN AND OPERATORS
+
+## 📅 Day: Boolean and Operators in Python
+
+### 📚 Learning Platform
+
+* W3Schools
+* Practical coding exercises
+* Real-world examples
+
+---
+
+# 1. BOOLEAN IN PYTHON
+
+## What is Boolean?
+
+A Boolean is a data type that can have only two possible values:
+
+```python
+True
+False
+```
+
+Boolean values are mainly used when Python needs to make a decision.
+
+### Example:
+
+```python
+is_logged_in = True
+
+print(is_logged_in)
+```
+
+Output:
+
+```text
+True
+```
+
+Another example:
+
+```python
+is_raining = False
+
+print(is_raining)
+```
+
+Output:
+
+```text
+False
+```
+
+---
+
+# 2. Boolean Values from Comparisons
+
+Most Boolean values are produced when we compare two values.
+
+Example:
+
+```python
+print(10 > 5)
+```
+
+Output:
+
+```text
+True
+```
+
+Because 10 is greater than 5.
+
+Example:
+
+```python
+print(10 < 5)
+```
+
+Output:
+
+```text
+False
+```
+
+Because 10 is not less than 5.
+
+---
+
+# 3. Comparison Operators
+
+Comparison operators compare two values and return either:
+
+```text
+True
+```
+
+or
+
+```text
+False
+```
+
+## 3.1 Equal To `==`
+
+Checks whether two values are equal.
+
+```python
+x = 10
+y = 10
+
+print(x == y)
+```
+
+Output:
+
+```text
+True
+```
+
+Real-world example:
+
+```python
+entered_password = "python123"
+correct_password = "python123"
+
+print(entered_password == correct_password)
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+## 3.2 Not Equal `!=`
+
+Checks whether two values are different.
+
+```python
+x = 10
+y = 5
+
+print(x != y)
+```
+
+Output:
+
+```text
+True
+```
+
+Real-world example:
+
+```python
+username = "admin"
+
+print(username != "guest")
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+## 3.3 Greater Than `>`
+
+Checks whether the left value is greater than the right value.
+
+```python
+age = 25
+
+print(age > 18)
+```
+
+Output:
+
+```text
+True
+```
+
+Real-world example:
+
+```python
+balance = 5000
+
+print(balance > 1000)
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+## 3.4 Less Than `<`
+
+Checks whether the left value is smaller than the right value.
+
+```python
+age = 15
+
+print(age < 18)
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+## 3.5 Greater Than or Equal To `>=`
+
+Checks whether a value is greater than or equal to another value.
+
+```python
+age = 18
+
+print(age >= 18)
+```
+
+Output:
+
+```text
+True
+```
+
+Real-world example:
+
+```python
+age = 18
+
+can_vote = age >= 18
+
+print(can_vote)
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+## 3.6 Less Than or Equal To `<=`
+
+Checks whether a value is less than or equal to another value.
+
+```python
+age = 16
+
+print(age <= 18)
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# 4. LOGICAL OPERATORS
+
+Logical operators are used to combine multiple conditions.
+
+Python has three main logical operators:
+
+```text
+and
+or
+not
+```
+
+---
+
+# 5. AND OPERATOR
+
+The `and` operator returns `True` only when BOTH conditions are true.
+
+### Example:
+
+```python
+age = 25
+has_id = True
+
+print(age >= 18 and has_id)
+```
+
+Output:
+
+```text
+True
+```
+
+Both conditions are true.
+
+### Truth Table
+
+| Condition 1 | Condition 2 | Result |
+| ----------- | ----------- | ------ |
+| True        | True        | True   |
+| True        | False       | False  |
+| False       | True        | False  |
+| False       | False       | False  |
+
+### Real-world example
+
+A person can enter a restricted building only if:
+
+* They are 18 or older
+* They have valid identification
+
+```python
+age = 22
+has_id = True
+
+allowed = age >= 18 and has_id
+
+print(allowed)
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# 6. OR OPERATOR
+
+The `or` operator returns `True` if at least ONE condition is true.
+
+```python
+is_student = True
+is_employee = False
+
+print(is_student or is_employee)
+```
+
+Output:
+
+```text
+True
+```
+
+Because the first condition is true.
+
+### Truth Table
+
+| Condition 1 | Condition 2 | Result |
+| ----------- | ----------- | ------ |
+| True        | True        | True   |
+| True        | False       | True   |
+| False       | True        | True   |
+| False       | False       | False  |
+
+### Real-world example
+
+A website may allow login using either:
+
+* Email
+* Username
+
+```python
+email_login = True
+username_login = False
+
+can_login = email_login or username_login
+
+print(can_login)
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# 7. NOT OPERATOR
+
+The `not` operator reverses the Boolean value.
+
+```python
+x = True
+
+print(not x)
+```
+
+Output:
+
+```text
+False
+```
+
+Another example:
+
+```python
+is_logged_in = False
+
+print(not is_logged_in)
+```
+
+Output:
+
+```text
+True
+```
+
+### Truth Table
+
+| Condition | `not` Condition |
+| --------- | --------------- |
+| True      | False           |
+| False     | True            |
+
+### Real-world example
+
+```python
+door_locked = False
+
+if not door_locked:
+    print("Door is open")
+```
+
+Output:
+
+```text
+Door is open
+```
+
+---
+
+# 8. PYTHON OPERATORS
+
+Operators are symbols or keywords used to perform operations on values and variables.
+
+Python has several types of operators:
+
+1. Arithmetic operators
+2. Assignment operators
+3. Comparison operators
+4. Logical operators
+5. Identity operators
+6. Membership operators
+7. Bitwise operators
+
+---
+
+# 9. ARITHMETIC OPERATORS
+
+Arithmetic operators are used for mathematical calculations.
+
+| Operator | Name           | Example   |
+| -------- | -------------- | --------- |
+| `+`      | Addition       | `10 + 5`  |
+| `-`      | Subtraction    | `10 - 5`  |
+| `*`      | Multiplication | `10 * 5`  |
+| `/`      | Division       | `10 / 5`  |
+| `%`      | Modulus        | `10 % 3`  |
+| `**`     | Exponentiation | `2 ** 3`  |
+| `//`     | Floor Division | `10 // 3` |
+
+---
+
+## Addition `+`
+
+```python
+a = 10
+b = 5
+
+print(a + b)
+```
+
+Output:
+
+```text
+15
+```
+
+Real-world example:
+
+```python
+price = 500
+delivery_charge = 50
+
+total = price + delivery_charge
+
+print(total)
+```
+
+Output:
+
+```text
+550
+```
+
+---
+
+## Subtraction `-`
+
+```python
+a = 10
+b = 5
+
+print(a - b)
+```
+
+Output:
+
+```text
+5
+```
+
+Real-world example:
+
+```python
+salary = 30000
+expenses = 10000
+
+savings = salary - expenses
+
+print(savings)
+```
+
+Output:
+
+```text
+20000
+```
+
+---
+
+## Multiplication `*`
+
+```python
+price = 100
+quantity = 5
+
+total = price * quantity
+
+print(total)
+```
+
+Output:
+
+```text
+500
+```
+
+---
+
+## Division `/`
+
+The `/` operator returns a floating-point result.
+
+```python
+print(10 / 2)
+```
+
+Output:
+
+```text
+5.0
+```
+
+---
+
+## Modulus `%`
+
+The modulus operator returns the remainder.
+
+```python
+print(10 % 3)
+```
+
+Output:
+
+```text
+1
+```
+
+### Real-world example
+
+Checking whether a number is even:
+
+```python
+number = 10
+
+print(number % 2 == 0)
+```
+
+Output:
+
+```text
+True
+```
+
+If the remainder is `0`, the number is even.
+
+---
+
+## Exponentiation `**`
+
+Used to calculate powers.
+
+```python
+print(2 ** 3)
+```
+
+Output:
+
+```text
+8
+```
+
+Because:
+
+```text
+2 × 2 × 2 = 8
+```
+
+---
+
+## Floor Division `//`
+
+Floor division returns the integer part of a division.
+
+```python
+print(10 // 3)
+```
+
+Output:
+
+```text
+3
+```
+
+Normal division:
+
+```python
+print(10 / 3)
+```
+
+Output:
+
+```text
+3.3333333333333335
+```
+
+Floor division:
+
+```python
+print(10 // 3)
+```
+
+Output:
+
+```text
+3
+```
+
+---
+
+# 10. ASSIGNMENT OPERATORS
+
+Assignment operators are used to assign values to variables.
+
+## Basic Assignment `=`
+
+```python
+x = 10
+```
+
+This means:
+
+```text
+Store 10 inside x
+```
+
+---
+
+## Addition Assignment `+=`
+
+```python
+x = 10
+x += 5
+
+print(x)
+```
+
+Output:
+
+```text
+15
+```
+
+Equivalent to:
+
+```python
+x = x + 5
+```
+
+---
+
+## Subtraction Assignment `-=`
+
+```python
+x = 10
+x -= 3
+
+print(x)
+```
+
+Output:
+
+```text
+7
+```
+
+---
+
+## Multiplication Assignment `*=`
+
+```python
+x = 10
+x *= 2
+
+print(x)
+```
+
+Output:
+
+```text
+20
+```
+
+---
+
+## Division Assignment `/=`
+
+```python
+x = 10
+x /= 2
+
+print(x)
+```
+
+Output:
+
+```text
+5.0
+```
+
+---
+
+## Modulus Assignment `%=`
+
+```python
+x = 10
+x %= 3
+
+print(x)
+```
+
+Output:
+
+```text
+1
+```
+
+---
+
+## Floor Division Assignment `//=`
+
+```python
+x = 10
+x //= 3
+
+print(x)
+```
+
+Output:
+
+```text
+3
+```
+
+---
+
+## Exponentiation Assignment `**=`
+
+```python
+x = 2
+x **= 3
+
+print(x)
+```
+
+Output:
+
+```text
+8
+```
+
+---
+
+# 11. COMPARISON OPERATORS
+
+Comparison operators return Boolean values.
+
+```python
+x = 10
+y = 20
+
+print(x == y)
+print(x != y)
+print(x > y)
+print(x < y)
+print(x >= y)
+print(x <= y)
+```
+
+Output:
+
+```text
+False
+True
+False
+True
+False
+True
+```
+
+---
+
+# 12. IDENTITY OPERATORS
+
+Identity operators are:
+
+```text
+is
+is not
+```
+
+They check whether two variables refer to the same object.
+
+## `is`
+
+```python
+x = [1, 2, 3]
+y = x
+
+print(x is y)
+```
+
+Output:
+
+```text
+True
+```
+
+Both variables refer to the same list object.
+
+---
+
+## `is not`
+
+```python
+x = [1, 2, 3]
+y = [1, 2, 3]
+
+print(x is not y)
+```
+
+Output:
+
+```text
+True
+```
+
+The lists contain the same values, but they are separate objects.
+
+### Important
+
+Do not confuse:
+
+```python
+==
+```
+
+with:
+
+```python
+is
+```
+
+`==` checks whether values are equal.
+
+`is` checks whether objects are the same object.
+
+---
+
+# 13. MEMBERSHIP OPERATORS
+
+Membership operators are:
+
+```text
+in
+not in
+```
+
+They check whether a value exists inside a sequence such as a string, list, tuple, etc.
+
+## `in`
+
+```python
+fruits = ["apple", "banana", "orange"]
+
+print("apple" in fruits)
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+## `not in`
+
+```python
+fruits = ["apple", "banana", "orange"]
+
+print("mango" not in fruits)
+```
+
+Output:
+
+```text
+True
+```
+
+### Real-world example
+
+Checking whether a username exists:
+
+```python
+users = ["admin", "john", "alice"]
+
+username = "john"
+
+print(username in users)
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# 14. BITWISE OPERATORS
+
+Bitwise operators work with numbers at the binary level.
+
+Main bitwise operators:
+
+| Operator | Name        |    |
+| -------- | ----------- | -- |
+| `&`      | AND         |    |
+| `        | `           | OR |
+| `^`      | XOR         |    |
+| `~`      | NOT         |    |
+| `<<`     | Left Shift  |    |
+| `>>`     | Right Shift |    |
+
+Example:
+
+```python
+a = 5
+b = 3
+
+print(a & b)
+```
+
+Output:
+
+```text
+1
+```
+
+Binary representation:
+
+```text
+5 = 101
+3 = 011
+
+101
+011
+---
+001
+```
+
+Therefore:
+
+```text
+1
+```
+
+Bitwise operators are especially useful in areas such as:
+
+* Networking
+* Cybersecurity
+* Cryptography
+* Permissions
+* Low-level programming
+* IP address manipulation
+
+---
+
+# 15. OPERATOR PRECEDENCE
+
+When multiple operators are used in one expression, Python follows an order of precedence.
+
+Example:
+
+```python
+result = 10 + 5 * 2
+
+print(result)
+```
+
+Output:
+
+```text
+20
+```
+
+Why?
+
+Multiplication happens before addition:
+
+```text
+5 * 2 = 10
+
+10 + 10 = 20
+```
+
+Using parentheses:
+
+```python
+result = (10 + 5) * 2
+
+print(result)
+```
+
+Output:
+
+```text
+30
+```
+
+### Basic order to remember
+
+1. Parentheses `()`
+2. Exponentiation `**`
+3. Multiplication, division, floor division, modulus
+4. Addition and subtraction
+5. Comparison operators
+6. `not`
+7. `and`
+8. `or`
+
+---
+
+# 16. BOOLEAN WITH IF STATEMENTS
+
+Boolean values are heavily used with conditional statements.
+
+Example:
+
+```python
+age = 20
+
+if age >= 18:
+    print("You are an adult")
+```
+
+Output:
+
+```text
+You are an adult
+```
+
+Another example:
+
+```python
+password_correct = True
+
+if password_correct:
+    print("Login successful")
+```
+
+Output:
+
+```text
+Login successful
+```
+
+---
+
+# 17. REAL-WORLD EXAMPLE: LOGIN SYSTEM
+
+```python
+username = "admin"
+password = "python123"
+
+entered_username = "admin"
+entered_password = "python123"
+
+if entered_username == username and entered_password == password:
+    print("Login successful")
+else:
+    print("Invalid username or password")
+```
+
+Output:
+
+```text
+Login successful
+```
+
+Here we used:
+
+```text
+==
+and
+```
+
+---
+
+# 18. REAL-WORLD EXAMPLE: ATM
+
+```python
+balance = 5000
+withdraw_amount = 2000
+
+if withdraw_amount <= balance:
+    balance -= withdraw_amount
+    print("Withdrawal successful")
+    print("Remaining balance:", balance)
+else:
+    print("Insufficient balance")
+```
+
+Output:
+
+```text
+Withdrawal successful
+Remaining balance: 3000
+```
+
+Operators used:
+
+```text
+<=
+-=
+```
+
+---
+
+# 19. REAL-WORLD EXAMPLE: ELIGIBILITY CHECK
+
+```python
+age = 21
+has_id = True
+
+if age >= 18 and has_id:
+    print("Eligible")
+else:
+    print("Not eligible")
+```
+
+Output:
+
+```text
+Eligible
+```
+
+Operators used:
+
+```text
+>=
+and
+```
+
+---
+
+# 20. REAL-WORLD EXAMPLE: ONLINE SHOPPING
+
+```python
+product_price = 1000
+discount = 200
+
+final_price = product_price - discount
+
+print("Final price:", final_price)
+```
+
+Output:
+
+```text
+Final price: 800
+```
+
+---
+
+# 21. REAL-WORLD EXAMPLE: EVEN OR ODD
+
+```python
+number = 15
+
+if number % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
+```
+
+Output:
+
+```text
+Odd
+```
+
+Here:
+
+```python
+number % 2
+```
+
+finds the remainder.
+
+---
+
+# 22. REAL-WORLD EXAMPLE: PASSWORD VALIDATION
+
+```python
+password = "Python123"
+
+if len(password) >= 8:
+    print("Password length is valid")
+else:
+    print("Password is too short")
+```
+
+Output:
+
+```text
+Password length is valid
+```
+
+---
+
+# 23. PRACTICE EXERCISES
+
+## Exercise 1
+
+Create two variables:
+
+```text
+a = 20
+b = 10
+```
+
+Find:
+
+* Addition
+* Subtraction
+* Multiplication
+* Division
+* Modulus
+* Floor division
+* Exponentiation
+
+---
+
+## Exercise 2
+
+Check whether:
+
+```text
+50 > 25
+```
+
+returns `True` or `False`.
+
+---
+
+## Exercise 3
+
+Create a variable:
+
+```python
+age = 18
+```
+
+Check whether the person is eligible to vote.
+
+Expected output:
+
+```text
+Eligible to vote
+```
+
+---
+
+## Exercise 4
+
+Create two numbers and check whether they are equal.
+
+Example:
+
+```python
+a = 10
+b = 10
+```
+
+Expected output:
+
+```text
+True
+```
+
+---
+
+## Exercise 5
+
+Check whether a number is even or odd.
+
+Example:
+
+```python
+number = 24
+```
+
+Expected output:
+
+```text
+Even
+```
+
+---
+
+## Exercise 6
+
+Use the `and` operator.
+
+A person can enter a system only when:
+
+```text
+age >= 18
+AND
+has_id == True
+```
+
+---
+
+## Exercise 7
+
+Use the `or` operator.
+
+A customer gets a discount if:
+
+```text
+customer_is_member == True
+OR
+purchase_amount >= 5000
+```
+
+---
+
+## Exercise 8
+
+Use the `not` operator.
+
+Create:
+
+```python
+is_locked = False
+```
+
+Use `not` to check whether the door is unlocked.
+
+---
+
+## Exercise 9
+
+Create a list:
+
+```python
+languages = ["Python", "Java", "C", "JavaScript"]
+```
+
+Check whether:
+
+```text
+Python
+```
+
+exists in the list.
+
+---
+
+## Exercise 10
+
+Check whether:
+
+```text
+Java
+```
+
+does not exist in the following list:
+
+```python
+languages = ["Python", "C", "C++"]
+```
+
+---
+
+# 24. MINI PROJECT - SIMPLE LOGIN SYSTEM
+
+Create a simple login system.
+
+Requirements:
+
+```text
+Correct username = admin
+Correct password = python123
+```
+
+Ask the user for:
+
+```text
+username
+password
+```
+
+Then check whether both are correct.
+
+Example:
+
+```python
+correct_username = "admin"
+correct_password = "python123"
+
+username = input("Enter username: ")
+password = input("Enter password: ")
+
+if username == correct_username and password == correct_password:
+    print("Login successful")
+else:
+    print("Invalid username or password")
+```
+
+---
+
+# 25. MINI PROJECT - ATM WITH OPERATORS
+
+Create a simple ATM program.
+
+Requirements:
+
+* Starting balance = ₹10,000
+* Ask the user for withdrawal amount
+* Check whether the amount is less than or equal to balance
+* Deduct the amount
+* Display remaining balance
+* Otherwise display insufficient balance
+
+Example:
+
+```python
+balance = 10000
+
+withdraw = int(input("Enter withdrawal amount: "))
+
+if withdraw <= balance:
+    balance -= withdraw
+    print("Withdrawal successful")
+    print("Remaining balance:", balance)
+else:
+    print("Insufficient balance")
+```
+
+---
+
+# 26. MINI PROJECT - STUDENT ELIGIBILITY
+
+Create a program that checks whether a student passed.
+
+Conditions:
+
+```text
+Math >= 40
+AND
+Science >= 40
+AND
+English >= 40
+```
+
+Example:
+
+```python
+math = 75
+science = 65
+english = 80
+
+if math >= 40 and science >= 40 and english >= 40:
+    print("Student Passed")
+else:
+    print("Student Failed")
+```
+
+---
+
+# 27. CYBERSECURITY CONNECTION
+
+Boolean values and operators are extremely important in cybersecurity.
+
+They are commonly used in:
+
+* Authentication
+* Authorization
+* Access control
+* Password validation
+* Firewall rules
+* Network filtering
+* Security scripts
+* Log analysis
+* Malware analysis
+* Digital forensics
+* CTF challenges
+* Vulnerability scanning
+
+Example:
+
+```python
+is_authenticated = True
+is_admin = True
+
+if is_authenticated and is_admin:
+    print("Admin access granted")
+else:
+    print("Access denied")
+```
+
+Output:
+
+```text
+Admin access granted
+```
+
+This is a simple example of how Boolean logic can represent an access-control decision.
+
+---
+
+# 28. IMPORTANT DIFFERENCES TO REMEMBER
+
+## `=` vs `==`
+
+### `=`
+
+Assignment:
+
+```python
+x = 10
+```
+
+Means:
+
+```text
+Store 10 in x
+```
+
+### `==`
+
+Comparison:
+
+```python
+x == 10
+```
+
+Means:
+
+```text
+Is x equal to 10?
+```
+
+---
+
+## `==` vs `is`
+
+### `==`
+
+Checks whether values are equal.
+
+```python
+a = [1, 2]
+b = [1, 2]
+
+print(a == b)
+```
+
+Output:
+
+```text
+True
+```
+
+### `is`
+
+Checks whether they are the same object.
+
+```python
+print(a is b)
+```
+
+Output:
+
+```text
+False
+```
+
+---
+
+# 29. QUICK REVISION
+
+### Boolean
+
+```python
+True
+False
+```
+
+### Comparison Operators
+
+```text
+==
+!=
+>
+<
+>=
+<=
+```
+
+### Logical Operators
+
+```text
+and
+or
+not
+```
+
+### Arithmetic Operators
+
+```text
++
+-
+*
+/
+%
+**
+//
+```
+
+### Assignment Operators
+
+```text
+=
++=
+-=
+*=
+/=
+%=
+**=
+//=
+```
+
+### Identity Operators
+
+```text
+is
+is not
+```
+
+### Membership Operators
+
+```text
+in
+not in
+```
+
+### Bitwise Operators
+
+```text
+&
+|
+^
+~
+<<
+>>
+```
+
+---
+
+# 30. WHAT I LEARNED TODAY
+
+Today I learned:
+
+* What Boolean values are
+* `True` and `False`
+* Comparison operators
+* Logical operators
+* Arithmetic operators
+* Assignment operators
+* Identity operators
+* Membership operators
+* Bitwise operators
+* Operator precedence
+* Boolean expressions
+* Using operators with `if` statements
+* Real-world use of Boolean logic
+* Login validation
+* ATM-style calculations
+* Even/odd checking
+* Student eligibility checking
+* Basic cybersecurity applications of Boolean logic
+
+---
+
+# 31. KEY TAKEAWAY
+
+Boolean logic is one of the most important foundations of programming.
+
+A simple condition such as:
+
+```python
+age >= 18
+```
+
+produces:
+
+```text
+True
+```
+
+or:
+
+```text
+False
+```
+
+Python can then use that result to make decisions.
+
+Operators allow us to:
+
+```text
+Calculate
+Compare
+Assign
+Combine conditions
+Check membership
+Check object identity
+Work with binary data
+```
+
+Understanding Boolean logic and operators is essential before moving deeper into:
+
+```text
+if / elif / else
+loops
+functions
+data structures
+algorithms
+cybersecurity scripting
+automation
+```
+
+---
+
+# 🚀 NEXT LEARNING STEP
+
+After Boolean values and operators, the next important Python topic is:
+
+```text
+if
+elif
+else
+```
+
+These statements use Boolean expressions and operators to make decisions in Python.

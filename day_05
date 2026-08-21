@@ -1,0 +1,2167 @@
+# PYTHON LEARNING - DAY 05
+
+## Topic: Python Lists
+
+---
+
+## 1. What is a List in Python?
+
+A list is one of the most commonly used data structures in Python.
+
+A list is used to store multiple values in a single variable.
+
+Lists are:
+
+* Ordered
+* Changeable (Mutable)
+* Allow duplicate values
+* Can contain different data types
+* Created using square brackets `[]`
+
+### Syntax
+
+```python
+list_name = [item1, item2, item3]
+```
+
+### Example
+
+```python
+fruits = ["apple", "banana", "orange"]
+
+print(fruits)
+```
+
+Output:
+
+```text
+['apple', 'banana', 'orange']
+```
+
+### Real-World Example
+
+A shopping application can store products in a list:
+
+```python
+shopping_cart = ["Laptop", "Mouse", "Keyboard", "Headphones"]
+
+print(shopping_cart)
+```
+
+---
+
+# 2. Creating a List
+
+Lists are created using square brackets.
+
+```python
+names = ["Rahul", "Vikas", "Anil"]
+numbers = [10, 20, 30, 40]
+```
+
+A list can also contain different data types:
+
+```python
+student = ["Vikas", 21, 8.5, True]
+```
+
+Here:
+
+* `"Vikas"` → String
+* `21` → Integer
+* `8.5` → Float
+* `True` → Boolean
+
+---
+
+# 3. Empty List
+
+An empty list contains no elements.
+
+```python
+my_list = []
+
+print(my_list)
+```
+
+Output:
+
+```text
+[]
+```
+
+### Real-World Example
+
+An application may start with an empty shopping cart:
+
+```python
+cart = []
+
+cart.append("Laptop")
+cart.append("Mouse")
+
+print(cart)
+```
+
+Output:
+
+```text
+['Laptop', 'Mouse']
+```
+
+---
+
+# 4. List Allows Duplicate Values
+
+Lists allow duplicate elements.
+
+```python
+numbers = [10, 20, 20, 30, 10]
+
+print(numbers)
+```
+
+Output:
+
+```text
+[10, 20, 20, 30, 10]
+```
+
+### Real-World Example
+
+A list of students attending different classes may contain the same student name more than once:
+
+```python
+students = ["Rahul", "Vikas", "Rahul", "Anil"]
+
+print(students)
+```
+
+---
+
+# 5. List Indexing
+
+Every element in a list has an index.
+
+Python indexing starts from `0`.
+
+Example:
+
+```python
+fruits = ["Apple", "Banana", "Orange", "Mango"]
+```
+
+Index positions:
+
+```text
+Apple   -> 0
+Banana  -> 1
+Orange  -> 2
+Mango   -> 3
+```
+
+### Accessing Elements
+
+```python
+fruits = ["Apple", "Banana", "Orange", "Mango"]
+
+print(fruits[0])
+print(fruits[1])
+print(fruits[2])
+```
+
+Output:
+
+```text
+Apple
+Banana
+Orange
+```
+
+---
+
+# 6. Negative Indexing
+
+Python also supports negative indexing.
+
+The last element has index `-1`.
+
+```python
+fruits = ["Apple", "Banana", "Orange", "Mango"]
+
+print(fruits[-1])
+print(fruits[-2])
+```
+
+Output:
+
+```text
+Mango
+Orange
+```
+
+Index structure:
+
+```text
+Apple   Banana   Orange   Mango
+  0       1        2        3
+ -4      -3       -2       -1
+```
+
+### Real-World Example
+
+Getting the latest item from a list:
+
+```python
+notifications = [
+    "New message",
+    "Friend request",
+    "System update"
+]
+
+print(notifications[-1])
+```
+
+---
+
+# 7. Changing List Items
+
+Lists are mutable, which means their elements can be changed after creation.
+
+```python
+fruits = ["Apple", "Banana", "Orange"]
+
+fruits[1] = "Mango"
+
+print(fruits)
+```
+
+Output:
+
+```text
+['Apple', 'Mango', 'Orange']
+```
+
+### Real-World Example
+
+Updating a product name:
+
+```python
+products = ["Laptop", "Mouse", "Keyboard"]
+
+products[1] = "Wireless Mouse"
+
+print(products)
+```
+
+---
+
+# 8. Changing Multiple List Items
+
+We can change multiple elements using slicing.
+
+```python
+fruits = ["Apple", "Banana", "Orange", "Mango"]
+
+fruits[1:3] = ["Grapes", "Watermelon"]
+
+print(fruits)
+```
+
+Output:
+
+```text
+['Apple', 'Grapes', 'Watermelon', 'Mango']
+```
+
+---
+
+# 9. Adding Elements Using append()
+
+`append()` adds one element to the end of a list.
+
+### Syntax
+
+```python
+list.append(item)
+```
+
+### Example
+
+```python
+fruits = ["Apple", "Banana"]
+
+fruits.append("Orange")
+
+print(fruits)
+```
+
+Output:
+
+```text
+['Apple', 'Banana', 'Orange']
+```
+
+### Real-World Example
+
+Adding a new product to a shopping cart:
+
+```python
+cart = ["Laptop", "Mouse"]
+
+cart.append("Keyboard")
+
+print(cart)
+```
+
+---
+
+# 10. Adding Elements Using insert()
+
+`insert()` adds an element at a specific position.
+
+### Syntax
+
+```python
+list.insert(index, item)
+```
+
+### Example
+
+```python
+fruits = ["Apple", "Orange"]
+
+fruits.insert(1, "Banana")
+
+print(fruits)
+```
+
+Output:
+
+```text
+['Apple', 'Banana', 'Orange']
+```
+
+### Real-World Example
+
+Adding a priority task at the beginning:
+
+```python
+tasks = ["Study Python", "Practice Linux"]
+
+tasks.insert(0, "Complete Assignment")
+
+print(tasks)
+```
+
+---
+
+# 11. Adding Multiple Elements Using extend()
+
+`extend()` adds multiple elements from another iterable to the end of a list.
+
+```python
+fruits = ["Apple", "Banana"]
+
+more_fruits = ["Orange", "Mango"]
+
+fruits.extend(more_fruits)
+
+print(fruits)
+```
+
+Output:
+
+```text
+['Apple', 'Banana', 'Orange', 'Mango']
+```
+
+### Real-World Example
+
+Combining two shopping lists:
+
+```python
+shopping_list1 = ["Milk", "Bread"]
+shopping_list2 = ["Eggs", "Rice"]
+
+shopping_list1.extend(shopping_list2)
+
+print(shopping_list1)
+```
+
+---
+
+# 12. append() vs extend()
+
+This is an important difference.
+
+### append()
+
+Adds the entire object as one element.
+
+```python
+a = [1, 2]
+
+a.append([3, 4])
+
+print(a)
+```
+
+Output:
+
+```text
+[1, 2, [3, 4]]
+```
+
+### extend()
+
+Adds each element individually.
+
+```python
+a = [1, 2]
+
+a.extend([3, 4])
+
+print(a)
+```
+
+Output:
+
+```text
+[1, 2, 3, 4]
+```
+
+---
+
+# 13. Removing Elements Using remove()
+
+`remove()` removes the first occurrence of a specified value.
+
+```python
+fruits = ["Apple", "Banana", "Orange"]
+
+fruits.remove("Banana")
+
+print(fruits)
+```
+
+Output:
+
+```text
+['Apple', 'Orange']
+```
+
+### Real-World Example
+
+Removing an item from a shopping cart:
+
+```python
+cart = ["Laptop", "Mouse", "Keyboard"]
+
+cart.remove("Mouse")
+
+print(cart)
+```
+
+---
+
+# 14. Removing Elements Using pop()
+
+`pop()` removes an element using its index.
+
+```python
+fruits = ["Apple", "Banana", "Orange"]
+
+fruits.pop(1)
+
+print(fruits)
+```
+
+Output:
+
+```text
+['Apple', 'Orange']
+```
+
+If no index is provided, `pop()` removes the last element.
+
+```python
+fruits = ["Apple", "Banana", "Orange"]
+
+fruits.pop()
+
+print(fruits)
+```
+
+Output:
+
+```text
+['Apple', 'Banana']
+```
+
+### Real-World Example
+
+Removing the last task from a task list:
+
+```python
+tasks = ["Study", "Practice", "Revision"]
+
+completed_task = tasks.pop()
+
+print("Completed:", completed_task)
+print("Remaining:", tasks)
+```
+
+---
+
+# 15. del Keyword
+
+`del` can remove an element using its index.
+
+```python
+fruits = ["Apple", "Banana", "Orange"]
+
+del fruits[1]
+
+print(fruits)
+```
+
+Output:
+
+```text
+['Apple', 'Orange']
+```
+
+It can also delete a complete list.
+
+```python
+numbers = [1, 2, 3]
+
+del numbers
+```
+
+After this, `numbers` no longer exists.
+
+---
+
+# 16. clear()
+
+`clear()` removes all elements from a list.
+
+```python
+fruits = ["Apple", "Banana", "Orange"]
+
+fruits.clear()
+
+print(fruits)
+```
+
+Output:
+
+```text
+[]
+```
+
+### Difference
+
+```python
+del fruits
+```
+
+Deletes the list completely.
+
+```python
+fruits.clear()
+```
+
+Keeps the list but removes its contents.
+
+---
+
+# 17. List Slicing
+
+Slicing is used to access a range of elements.
+
+### Syntax
+
+```python
+list[start:end]
+```
+
+The ending index is not included.
+
+Example:
+
+```python
+numbers = [10, 20, 30, 40, 50]
+
+print(numbers[1:4])
+```
+
+Output:
+
+```text
+[20, 30, 40]
+```
+
+---
+
+# 18. Omitting Start Index
+
+```python
+numbers = [10, 20, 30, 40, 50]
+
+print(numbers[:3])
+```
+
+Output:
+
+```text
+[10, 20, 30]
+```
+
+This means start from the beginning.
+
+---
+
+# 19. Omitting End Index
+
+```python
+numbers = [10, 20, 30, 40, 50]
+
+print(numbers[2:])
+```
+
+Output:
+
+```text
+[30, 40, 50]
+```
+
+---
+
+# 20. Negative Slicing
+
+```python
+numbers = [10, 20, 30, 40, 50]
+
+print(numbers[-3:])
+```
+
+Output:
+
+```text
+[30, 40, 50]
+```
+
+---
+
+# 21. List Slicing With Step
+
+Syntax:
+
+```python
+list[start:end:step]
+```
+
+Example:
+
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+
+print(numbers[::2])
+```
+
+Output:
+
+```text
+[1, 3, 5]
+```
+
+---
+
+# 22. Reverse a List Using Slicing
+
+```python
+numbers = [1, 2, 3, 4, 5]
+
+print(numbers[::-1])
+```
+
+Output:
+
+```text
+[5, 4, 3, 2, 1]
+```
+
+---
+
+# 23. Checking if an Item Exists
+
+Use the `in` keyword.
+
+```python
+fruits = ["Apple", "Banana", "Orange"]
+
+print("Apple" in fruits)
+print("Mango" in fruits)
+```
+
+Output:
+
+```text
+True
+False
+```
+
+### Real-World Example
+
+Checking whether a product exists in stock:
+
+```python
+products = ["Laptop", "Mouse", "Keyboard"]
+
+if "Laptop" in products:
+    print("Product is available")
+else:
+    print("Product is not available")
+```
+
+---
+
+# 24. Checking if an Item Does Not Exist
+
+Use `not in`.
+
+```python
+fruits = ["Apple", "Banana", "Orange"]
+
+print("Mango" not in fruits)
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# 25. Finding List Length
+
+Use `len()`.
+
+```python
+fruits = ["Apple", "Banana", "Orange"]
+
+print(len(fruits))
+```
+
+Output:
+
+```text
+3
+```
+
+### Real-World Example
+
+Counting the number of students:
+
+```python
+students = ["Rahul", "Vikas", "Anil", "Kiran"]
+
+print("Number of students:", len(students))
+```
+
+---
+
+# 26. Looping Through a List
+
+A `for` loop can be used to access every item.
+
+```python
+fruits = ["Apple", "Banana", "Orange"]
+
+for fruit in fruits:
+    print(fruit)
+```
+
+Output:
+
+```text
+Apple
+Banana
+Orange
+```
+
+### Real-World Example
+
+Displaying products:
+
+```python
+products = ["Laptop", "Mouse", "Keyboard"]
+
+for product in products:
+    print("Product:", product)
+```
+
+---
+
+# 27. Using range() With Lists
+
+We can use indexes with `range()`.
+
+```python
+fruits = ["Apple", "Banana", "Orange"]
+
+for i in range(len(fruits)):
+    print(i, fruits[i])
+```
+
+Output:
+
+```text
+0 Apple
+1 Banana
+2 Orange
+```
+
+---
+
+# 28. List Comprehension
+
+List comprehension provides a short way to create a list.
+
+### Normal Approach
+
+```python
+numbers = []
+
+for x in range(1, 6):
+    numbers.append(x)
+
+print(numbers)
+```
+
+### List Comprehension
+
+```python
+numbers = [x for x in range(1, 6)]
+
+print(numbers)
+```
+
+Output:
+
+```text
+[1, 2, 3, 4, 5]
+```
+
+---
+
+# 29. List Comprehension With Condition
+
+Example:
+
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+
+even_numbers = [x for x in numbers if x % 2 == 0]
+
+print(even_numbers)
+```
+
+Output:
+
+```text
+[2, 4, 6]
+```
+
+### Real-World Example
+
+Finding products under a certain price:
+
+```python
+prices = [500, 1200, 300, 2000, 800]
+
+cheap_products = [price for price in prices if price < 1000]
+
+print(cheap_products)
+```
+
+Output:
+
+```text
+[500, 300, 800]
+```
+
+---
+
+# 30. Sorting a List
+
+`sort()` sorts a list in ascending order by default.
+
+```python
+numbers = [50, 10, 40, 20, 30]
+
+numbers.sort()
+
+print(numbers)
+```
+
+Output:
+
+```text
+[10, 20, 30, 40, 50]
+```
+
+---
+
+# 31. Sorting in Descending Order
+
+Use `reverse=True`.
+
+```python
+numbers = [10, 50, 20, 40, 30]
+
+numbers.sort(reverse=True)
+
+print(numbers)
+```
+
+Output:
+
+```text
+[50, 40, 30, 20, 10]
+```
+
+### Real-World Example
+
+Ranking students by marks:
+
+```python
+marks = [75, 92, 68, 88, 95]
+
+marks.sort(reverse=True)
+
+print(marks)
+```
+
+---
+
+# 32. Sorting Strings
+
+```python
+names = ["Vikas", "Anil", "Rahul", "Kiran"]
+
+names.sort()
+
+print(names)
+```
+
+Output:
+
+```text
+['Anil', 'Kiran', 'Rahul', 'Vikas']
+```
+
+---
+
+# 33. reverse()
+
+`reverse()` reverses the current order of the list.
+
+```python
+numbers = [1, 2, 3, 4, 5]
+
+numbers.reverse()
+
+print(numbers)
+```
+
+Output:
+
+```text
+[5, 4, 3, 2, 1]
+```
+
+Important:
+
+`reverse()` does NOT sort the list.
+
+---
+
+# 34. copy()
+
+`copy()` creates a copy of a list.
+
+```python
+fruits = ["Apple", "Banana", "Orange"]
+
+new_fruits = fruits.copy()
+
+print(new_fruits)
+```
+
+---
+
+# 35. Why Use copy()?
+
+Consider:
+
+```python
+fruits = ["Apple", "Banana"]
+
+new_fruits = fruits
+
+new_fruits.append("Orange")
+
+print(fruits)
+```
+
+Output:
+
+```text
+['Apple', 'Banana', 'Orange']
+```
+
+Both variables refer to the same list.
+
+Using `copy()`:
+
+```python
+fruits = ["Apple", "Banana"]
+
+new_fruits = fruits.copy()
+
+new_fruits.append("Orange")
+
+print(fruits)
+print(new_fruits)
+```
+
+Output:
+
+```text
+['Apple', 'Banana']
+['Apple', 'Banana', 'Orange']
+```
+
+---
+
+# 36. count()
+
+`count()` tells us how many times an element appears.
+
+```python
+numbers = [10, 20, 10, 30, 10]
+
+print(numbers.count(10))
+```
+
+Output:
+
+```text
+3
+```
+
+### Real-World Example
+
+Counting how many times a product appears in orders:
+
+```python
+orders = ["Laptop", "Mouse", "Laptop", "Keyboard", "Laptop"]
+
+print(orders.count("Laptop"))
+```
+
+---
+
+# 37. index()
+
+`index()` returns the position of the first occurrence of an element.
+
+```python
+fruits = ["Apple", "Banana", "Orange"]
+
+print(fruits.index("Banana"))
+```
+
+Output:
+
+```text
+1
+```
+
+---
+
+# 38. max()
+
+`max()` returns the largest value.
+
+```python
+numbers = [10, 50, 30, 90, 20]
+
+print(max(numbers))
+```
+
+Output:
+
+```text
+90
+```
+
+### Real-World Example
+
+Finding the highest student mark:
+
+```python
+marks = [75, 82, 91, 68, 95]
+
+highest = max(marks)
+
+print("Highest mark:", highest)
+```
+
+---
+
+# 39. min()
+
+`min()` returns the smallest value.
+
+```python
+numbers = [10, 50, 30, 90, 20]
+
+print(min(numbers))
+```
+
+Output:
+
+```text
+10
+```
+
+---
+
+# 40. sum()
+
+`sum()` calculates the total of numeric values.
+
+```python
+numbers = [10, 20, 30, 40]
+
+print(sum(numbers))
+```
+
+Output:
+
+```text
+100
+```
+
+### Real-World Example
+
+Calculating total expenses:
+
+```python
+expenses = [500, 200, 1000, 300]
+
+total = sum(expenses)
+
+print("Total expenses:", total)
+```
+
+---
+
+# 41. Combining Lists Using +
+
+Two lists can be combined using `+`.
+
+```python
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+
+result = list1 + list2
+
+print(result)
+```
+
+Output:
+
+```text
+[1, 2, 3, 4, 5, 6]
+```
+
+---
+
+# 42. Repeating Lists Using *
+
+Lists can be repeated using the `*` operator.
+
+```python
+numbers = [1, 2]
+
+result = numbers * 3
+
+print(result)
+```
+
+Output:
+
+```text
+[1, 2, 1, 2, 1, 2]
+```
+
+---
+
+# 43. Nested Lists
+
+A list can contain another list.
+
+This is called a nested list.
+
+```python
+students = [
+    ["Rahul", 85],
+    ["Vikas", 90],
+    ["Anil", 78]
+]
+
+print(students)
+```
+
+Accessing values:
+
+```python
+print(students[0])
+print(students[0][0])
+print(students[0][1])
+```
+
+Output:
+
+```text
+['Rahul', 85]
+Rahul
+85
+```
+
+### Real-World Example
+
+Student records:
+
+```python
+students = [
+    ["Rahul", 85],
+    ["Vikas", 90],
+    ["Anil", 78]
+]
+
+for student in students:
+    print("Name:", student[0])
+    print("Marks:", student[1])
+```
+
+---
+
+# 44. Multidimensional Lists
+
+Nested lists can represent tables or matrices.
+
+```python
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+print(matrix[0][0])
+print(matrix[1][2])
+```
+
+Output:
+
+```text
+1
+6
+```
+
+---
+
+# 45. List of Dictionaries
+
+Lists can contain dictionaries.
+
+```python
+students = [
+    {"name": "Rahul", "marks": 85},
+    {"name": "Vikas", "marks": 90},
+    {"name": "Anil", "marks": 78}
+]
+
+print(students[0]["name"])
+print(students[1]["marks"])
+```
+
+This structure is commonly used when working with structured data.
+
+---
+
+# 46. Using if With Lists
+
+```python
+marks = [80, 90, 70]
+
+if 90 in marks:
+    print("Mark found")
+```
+
+---
+
+# 47. Taking List Input From User
+
+Using `input()`:
+
+```python
+numbers = input("Enter numbers separated by spaces: ")
+
+numbers = numbers.split()
+
+print(numbers)
+```
+
+If the user enters:
+
+```text
+10 20 30 40
+```
+
+Output:
+
+```text
+['10', '20', '30', '40']
+```
+
+These are strings.
+
+To convert them into integers:
+
+```python
+numbers = input("Enter numbers: ").split()
+
+numbers = [int(x) for x in numbers]
+
+print(numbers)
+```
+
+---
+
+# 48. List of Integers From User Input
+
+```python
+numbers = list(map(int, input("Enter numbers: ").split()))
+
+print(numbers)
+```
+
+Example input:
+
+```text
+10 20 30 40
+```
+
+Output:
+
+```text
+[10, 20, 30, 40]
+```
+
+---
+
+# 49. Difference Between List and String
+
+A string stores characters:
+
+```python
+name = "Vikas"
+```
+
+A list stores multiple elements:
+
+```python
+names = ["Vikas", "Rahul", "Anil"]
+```
+
+Strings are immutable.
+
+Lists are mutable.
+
+Example:
+
+```python
+name = "Vikas"
+
+# name[0] = "A"  # Error
+```
+
+But:
+
+```python
+names = ["Vikas", "Rahul"]
+
+names[0] = "Anil"
+
+print(names)
+```
+
+Output:
+
+```text
+['Anil', 'Rahul']
+```
+
+---
+
+# 50. Important Python List Methods
+
+| Method    | Purpose                             |
+| --------- | ----------------------------------- |
+| append()  | Adds one item at the end            |
+| insert()  | Adds an item at a specific position |
+| extend()  | Adds multiple items                 |
+| remove()  | Removes a specified value           |
+| pop()     | Removes an item using index         |
+| clear()   | Removes all items                   |
+| sort()    | Sorts the list                      |
+| reverse() | Reverses the list                   |
+| copy()    | Creates a copy                      |
+| count()   | Counts occurrences                  |
+| index()   | Finds the first index               |
+
+---
+
+# 51. Important Built-in Functions With Lists
+
+| Function | Purpose                    |
+| -------- | -------------------------- |
+| len()    | Finds number of elements   |
+| max()    | Finds largest value        |
+| min()    | Finds smallest value       |
+| sum()    | Calculates total           |
+| list()   | Creates/converts to a list |
+| sorted() | Returns a sorted copy      |
+
+---
+
+# 52. sort() vs sorted()
+
+`sort()` changes the original list.
+
+```python
+numbers = [30, 10, 20]
+
+numbers.sort()
+
+print(numbers)
+```
+
+`sorted()` creates and returns a new sorted list.
+
+```python
+numbers = [30, 10, 20]
+
+new_numbers = sorted(numbers)
+
+print(numbers)
+print(new_numbers)
+```
+
+Output:
+
+```text
+[30, 10, 20]
+[10, 20, 30]
+```
+
+---
+
+# 53. List Mutability
+
+Lists are mutable.
+
+This means we can modify them after creation.
+
+```python
+numbers = [10, 20, 30]
+
+numbers[0] = 100
+
+print(numbers)
+```
+
+Output:
+
+```text
+[100, 20, 30]
+```
+
+This is one of the most important characteristics of Python lists.
+
+---
+
+# 54. Real-World Project Example: Shopping Cart
+
+```python
+cart = []
+
+cart.append("Laptop")
+cart.append("Mouse")
+cart.append("Keyboard")
+
+print("Shopping Cart:")
+for item in cart:
+    print(item)
+
+cart.remove("Mouse")
+
+print("\nUpdated Cart:")
+for item in cart:
+    print(item)
+
+print("\nTotal Items:", len(cart))
+```
+
+---
+
+# 55. Real-World Project Example: Student Marks
+
+```python
+marks = [85, 72, 91, 68, 95]
+
+print("Marks:", marks)
+
+print("Highest:", max(marks))
+print("Lowest:", min(marks))
+print("Total:", sum(marks))
+
+average = sum(marks) / len(marks)
+
+print("Average:", average)
+
+marks.sort(reverse=True)
+
+print("Ranking:", marks)
+```
+
+---
+
+# 56. Real-World Project Example: Task Manager
+
+```python
+tasks = []
+
+tasks.append("Study Python")
+tasks.append("Practice Linux")
+tasks.append("Solve CTF")
+
+print("Tasks:")
+
+for task in tasks:
+    print("-", task)
+
+completed = tasks.pop(0)
+
+print("\nCompleted Task:", completed)
+
+print("\nRemaining Tasks:")
+
+for task in tasks:
+    print("-", task)
+```
+
+---
+
+# 57. Real-World Project Example: Product Price Filter
+
+```python
+prices = [500, 1200, 800, 2500, 300, 1500]
+
+cheap_products = [price for price in prices if price < 1000]
+
+print("All Prices:", prices)
+print("Prices Below 1000:", cheap_products)
+```
+
+---
+
+# 58. Real-World Project Example: Finding Duplicate Items
+
+```python
+items = ["Laptop", "Mouse", "Laptop", "Keyboard", "Mouse"]
+
+for item in items:
+    if items.count(item) > 1:
+        print(item)
+```
+
+Note: This prints duplicates multiple times. Later, sets can be used to solve this more efficiently.
+
+---
+
+# 59. Practice Exercise 1 - Basic List
+
+Create a list containing:
+
+```text
+Apple
+Banana
+Orange
+Mango
+Grapes
+```
+
+Tasks:
+
+1. Print the complete list.
+2. Print the first item.
+3. Print the last item.
+4. Print the length of the list.
+
+---
+
+# 60. Practice Exercise 2 - Modify List
+
+Create:
+
+```python
+numbers = [10, 20, 30, 40, 50]
+```
+
+Tasks:
+
+1. Change `20` to `25`.
+2. Change `40` to `45`.
+3. Print the final list.
+
+---
+
+# 61. Practice Exercise 3 - append()
+
+Create an empty list.
+
+Add these items using `append()`:
+
+```text
+Python
+Linux
+Networking
+Cybersecurity
+```
+
+Print the final list.
+
+---
+
+# 62. Practice Exercise 4 - insert()
+
+Create:
+
+```python
+languages = ["Python", "Java", "C++"]
+```
+
+Insert `"JavaScript"` between Python and Java.
+
+Expected output:
+
+```text
+['Python', 'JavaScript', 'Java', 'C++']
+```
+
+---
+
+# 63. Practice Exercise 5 - extend()
+
+Create two lists:
+
+```python
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+```
+
+Use `extend()` to combine them.
+
+Expected output:
+
+```text
+[1, 2, 3, 4, 5, 6]
+```
+
+---
+
+# 64. Practice Exercise 6 - remove()
+
+Create:
+
+```python
+tools = ["Wireshark", "Nmap", "Burp Suite", "Metasploit"]
+```
+
+Remove `"Nmap"`.
+
+Print the final list.
+
+---
+
+# 65. Practice Exercise 7 - pop()
+
+Create:
+
+```python
+tasks = ["Task1", "Task2", "Task3", "Task4"]
+```
+
+Remove the last task using `pop()`.
+
+Print:
+
+1. Removed task
+2. Remaining tasks
+
+---
+
+# 66. Practice Exercise 8 - Slicing
+
+Create:
+
+```python
+numbers = [10, 20, 30, 40, 50, 60, 70]
+```
+
+Find:
+
+1. First three numbers
+2. Last three numbers
+3. Numbers from index 2 to 5
+4. Every second number
+5. Reverse the list
+
+---
+
+# 67. Practice Exercise 9 - Search
+
+Create a list of cybersecurity tools:
+
+```python
+tools = ["Nmap", "Wireshark", "Burp Suite", "Gobuster", "Nikto"]
+```
+
+Ask the user for a tool name.
+
+Check whether the tool exists in the list.
+
+---
+
+# 68. Practice Exercise 10 - Marks
+
+Create a list:
+
+```python
+marks = [78, 85, 92, 67, 88, 95]
+```
+
+Find:
+
+1. Highest mark
+2. Lowest mark
+3. Total marks
+4. Number of subjects
+5. Average marks
+6. Sort marks in ascending order
+7. Sort marks in descending order
+
+---
+
+# 69. Practice Exercise 11 - Even Numbers
+
+Create:
+
+```python
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
+Use list comprehension to create a list containing only even numbers.
+
+Expected output:
+
+```text
+[2, 4, 6, 8, 10]
+```
+
+---
+
+# 70. Practice Exercise 12 - Square Numbers
+
+Create a list containing numbers from 1 to 10.
+
+Use list comprehension to create their squares.
+
+Expected output:
+
+```text
+[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+```
+
+---
+
+# 71. Practice Exercise 13 - Student Database
+
+Create:
+
+```python
+students = [
+    ["Rahul", 85],
+    ["Vikas", 92],
+    ["Anil", 78],
+    ["Kiran", 88]
+]
+```
+
+Tasks:
+
+1. Print every student's name.
+2. Print every student's marks.
+3. Find the highest mark.
+4. Find the student with the highest mark.
+
+---
+
+# 72. Practice Exercise 14 - Shopping Cart
+
+Create a shopping cart program.
+
+Requirements:
+
+```text
+1. Add product
+2. Remove product
+3. Display cart
+4. Count items
+5. Exit
+```
+
+Use a list to store the products.
+
+---
+
+# 73. Practice Exercise 15 - Expense Tracker
+
+Create a list of expenses:
+
+```python
+expenses = [250, 500, 120, 800, 350]
+```
+
+Calculate:
+
+1. Total expenses
+2. Highest expense
+3. Lowest expense
+4. Average expense
+5. Number of expenses
+
+---
+
+# 74. Practice Exercise 16 - List Filtering
+
+Create:
+
+```python
+numbers = [5, 12, 18, 23, 30, 41, 50, 63]
+```
+
+Using list comprehension, create:
+
+1. Numbers greater than 20
+2. Even numbers
+3. Odd numbers
+4. Numbers divisible by 5
+
+---
+
+# 75. Practice Exercise 17 - Duplicate Detection
+
+Create:
+
+```python
+numbers = [10, 20, 10, 30, 20, 40, 50, 30]
+```
+
+Find which numbers appear more than once.
+
+Hint:
+
+```python
+numbers.count(number)
+```
+
+---
+
+# 76. Practice Exercise 18 - Reverse a List
+
+Create:
+
+```python
+languages = ["Python", "Java", "C++", "JavaScript"]
+```
+
+Reverse the list using:
+
+1. `reverse()`
+2. Slicing
+
+Compare both approaches.
+
+---
+
+# 77. Practice Exercise 19 - User Input
+
+Ask the user to enter five numbers.
+
+Store them in a list.
+
+Then display:
+
+```text
+Original list
+Sorted list
+Largest number
+Smallest number
+Total
+Average
+```
+
+---
+
+# 78. Practice Exercise 20 - Mini Student Management System
+
+Create a simple student management system using lists.
+
+Requirements:
+
+```text
+1. Add student
+2. Display students
+3. Search student
+4. Remove student
+5. Count students
+6. Exit
+```
+
+Example:
+
+```python
+students = []
+
+students.append("Rahul")
+students.append("Vikas")
+students.append("Anil")
+
+print(students)
+```
+
+Extend this into a menu-driven program.
+
+---
+
+# 79. Important Things I Learned Today
+
+Today I learned that Python lists:
+
+* Store multiple values.
+* Are ordered.
+* Are mutable.
+* Allow duplicate values.
+* Support indexing.
+* Support negative indexing.
+* Support slicing.
+* Can contain different data types.
+* Can contain nested lists.
+* Can be modified after creation.
+* Can be sorted.
+* Can be reversed.
+* Can be copied.
+* Can be searched.
+* Can be used with loops.
+* Can be used with list comprehensions.
+* Can be combined with other lists.
+* Can be used to build real-world applications.
+
+---
+
+# 80. Key Syntax Cheat Sheet
+
+```python
+# Create list
+fruits = ["Apple", "Banana", "Orange"]
+
+# Access
+fruits[0]
+
+# Negative indexing
+fruits[-1]
+
+# Change
+fruits[0] = "Mango"
+
+# Add
+fruits.append("Grapes")
+
+# Insert
+fruits.insert(1, "Watermelon")
+
+# Extend
+fruits.extend(["Kiwi", "Papaya"])
+
+# Remove by value
+fruits.remove("Banana")
+
+# Remove by index
+fruits.pop(1)
+
+# Delete
+del fruits[0]
+
+# Clear
+fruits.clear()
+
+# Length
+len(fruits)
+
+# Check item
+"Apple" in fruits
+
+# Slicing
+fruits[1:3]
+
+# Reverse
+fruits.reverse()
+
+# Sort
+fruits.sort()
+
+# Copy
+new_fruits = fruits.copy()
+
+# Count
+fruits.count("Apple")
+
+# Find index
+fruits.index("Apple")
+
+# List comprehension
+numbers = [x for x in range(10)]
+
+# Loop
+for fruit in fruits:
+    print(fruit)
+```
+
+---
+
+# 81. Day 05 Summary
+
+Python Lists are one of the most important data structures in Python.
+
+A list allows us to store multiple values inside one variable and provides many operations for adding, removing, modifying, searching, sorting, and processing data.
+
+The most important concepts learned today were:
+
+```text
+List Creation
+List Indexing
+Negative Indexing
+List Slicing
+Changing Items
+append()
+insert()
+extend()
+remove()
+pop()
+del
+clear()
+len()
+in / not in
+for loop
+List Comprehension
+sort()
+sorted()
+reverse()
+copy()
+count()
+index()
+max()
+min()
+sum()
+Nested Lists
+List Input
+List Mutability
+```
+
+### Practical Applications
+
+Python lists are commonly used in:
+
+```text
+Shopping Cart Systems
+Student Management Systems
+Task Management
+Expense Tracking
+Product Management
+Data Processing
+Cybersecurity Tools
+Network Data Processing
+Log Analysis
+Machine Learning Data Preparation
+Automation Scripts
+```
+
+---
+
+## DAY 05 PRACTICE GOAL
+
+Before moving to the next Python topic, practice creating programs using lists without copying the examples directly.
+
+Try to build at least:
+
+```text
+1. Shopping Cart
+2. Student Marks Calculator
+3. Expense Tracker
+4. Task Manager
+5. Number Filtering Program
+```
+
+The goal is not just to memorize list methods.
+
+The goal is to understand:
+
+```text
+CREATE → ACCESS → MODIFY → ADD → REMOVE → SEARCH → PROCESS
+```
+
+This workflow will be extremely useful when working with real Python programs.
+
+---
+
+# END OF DAY 05
+
+Python Learning Progress:
+
+Day 01 → Python Basics
+Day 02 → Python Fundamentals
+Day 03 → Python Strings
+Day 04 → Python Operators / Previous Topics
+Day 05 → Python Lists
+
+Next Goal → Continue building Python fundamentals and practice problems.

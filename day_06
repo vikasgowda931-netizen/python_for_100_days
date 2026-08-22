@@ -1,0 +1,1646 @@
+# PYTHON LEARNING - DAY 06
+
+## Topic: Tuples in Python
+
+Today I learned about **Tuples in Python**. A tuple is one of Python's built-in collection data types used to store multiple values in a single variable.
+
+Tuples are similar to lists, but the main difference is that **tuples are immutable**, which means their elements cannot be changed after the tuple is created.
+
+---
+
+# 1. What is a Tuple?
+
+A tuple is an ordered collection of items.
+
+Tuples are created using **round brackets `()`**.
+
+### Syntax
+
+```python
+my_tuple = (item1, item2, item3)
+```
+
+### Example
+
+```python
+fruits = ("apple", "banana", "orange")
+
+print(fruits)
+```
+
+Output:
+
+```text
+('apple', 'banana', 'orange')
+```
+
+### Real-World Example
+
+Imagine a student record:
+
+```python
+student = ("Niranjan", 21, "MCA", "Bangalore")
+```
+
+Here the tuple stores:
+
+```text
+Name     -> Niranjan
+Age      -> 21
+Course   -> MCA
+City     -> Bangalore
+```
+
+A tuple is useful when these values should remain unchanged.
+
+---
+
+# 2. Why Use Tuples?
+
+Tuples are useful when we want to store data that should not be modified.
+
+### Real-World Examples
+
+Examples of data that can be represented using tuples:
+
+* Coordinates
+* Days of the week
+* Months
+* RGB color values
+* Database records
+* Student information
+* Product information
+* Configuration values
+
+Example:
+
+```python
+coordinates = (12.9716, 77.5946)
+
+print(coordinates)
+```
+
+The coordinates can be treated as a fixed pair of values.
+
+---
+
+# 3. Creating a Tuple
+
+A tuple can contain different types of data.
+
+```python
+data = ("Niranjan", 21, 85.5, True)
+
+print(data)
+```
+
+Output:
+
+```text
+('Niranjan', 21, 85.5, True)
+```
+
+A tuple can contain:
+
+* Strings
+* Integers
+* Floats
+* Booleans
+* Lists
+* Other tuples
+* Dictionaries
+* Objects
+
+---
+
+# 4. Tuple with One Item
+
+There is an important rule when creating a tuple containing only one item.
+
+This is NOT a tuple:
+
+```python
+number = (10)
+
+print(type(number))
+```
+
+Output:
+
+```text
+<class 'int'>
+```
+
+To create a single-item tuple, we need a comma.
+
+```python
+number = (10,)
+
+print(type(number))
+```
+
+Output:
+
+```text
+<class 'tuple'>
+```
+
+### Important
+
+```python
+(10)    # Integer
+(10,)   # Tuple
+```
+
+The comma is what makes it a tuple.
+
+---
+
+# 5. Tuple Without Parentheses
+
+Python also allows us to create tuples without explicitly using parentheses.
+
+```python
+fruits = "apple", "banana", "orange"
+
+print(fruits)
+```
+
+Output:
+
+```text
+('apple', 'banana', 'orange')
+```
+
+This is called **tuple packing**.
+
+---
+
+# 6. Tuple Packing
+
+Tuple packing means putting multiple values into a tuple.
+
+```python
+student = "Niranjan", 21, "MCA"
+
+print(student)
+```
+
+Output:
+
+```text
+('Niranjan', 21, 'MCA')
+```
+
+Python automatically creates a tuple.
+
+---
+
+# 7. Tuple Unpacking
+
+Tuple unpacking means assigning tuple values to separate variables.
+
+```python
+student = ("Niranjan", 21, "MCA")
+
+name, age, course = student
+
+print(name)
+print(age)
+print(course)
+```
+
+Output:
+
+```text
+Niranjan
+21
+MCA
+```
+
+### Real-World Example
+
+Suppose a database returns a student's information:
+
+```python
+student = ("Niranjan", 21, "MCA")
+
+name, age, course = student
+
+print("Name:", name)
+print("Age:", age)
+print("Course:", course)
+```
+
+Tuple unpacking makes it easier to work with individual values.
+
+---
+
+# 8. Accessing Tuple Items
+
+Tuple items can be accessed using their index.
+
+Python uses **zero-based indexing**.
+
+Example:
+
+```python
+fruits = ("apple", "banana", "orange")
+
+print(fruits[0])
+print(fruits[1])
+print(fruits[2])
+```
+
+Output:
+
+```text
+apple
+banana
+orange
+```
+
+Index positions:
+
+```text
+apple   -> 0
+banana  -> 1
+orange  -> 2
+```
+
+---
+
+# 9. Negative Indexing
+
+Python allows negative indexing.
+
+The last item has index `-1`.
+
+```python
+fruits = ("apple", "banana", "orange")
+
+print(fruits[-1])
+print(fruits[-2])
+print(fruits[-3])
+```
+
+Output:
+
+```text
+orange
+banana
+apple
+```
+
+Index structure:
+
+```text
+Positive:   0        1         2
+          apple    banana    orange
+
+Negative:  -3       -2        -1
+          apple    banana    orange
+```
+
+---
+
+# 10. Tuple Slicing
+
+Slicing allows us to extract a portion of a tuple.
+
+### Syntax
+
+```python
+tuple[start:end]
+```
+
+Example:
+
+```python
+numbers = (10, 20, 30, 40, 50)
+
+print(numbers[1:4])
+```
+
+Output:
+
+```text
+(20, 30, 40)
+```
+
+The ending index is not included.
+
+---
+
+# 11. Tuple Slicing with Step
+
+We can also specify a step.
+
+```python
+numbers = (10, 20, 30, 40, 50, 60)
+
+print(numbers[0:6:2])
+```
+
+Output:
+
+```text
+(10, 30, 50)
+```
+
+The `2` means Python selects every second item.
+
+---
+
+# 12. Negative Slicing
+
+Tuples can also be sliced using negative indexes.
+
+```python
+numbers = (10, 20, 30, 40, 50)
+
+print(numbers[-4:-1])
+```
+
+Output:
+
+```text
+(20, 30, 40)
+```
+
+---
+
+# 13. Tuples are Immutable
+
+The most important characteristic of tuples is that they are **immutable**.
+
+Immutable means that once a tuple is created, its elements cannot be changed.
+
+Example:
+
+```python
+fruits = ("apple", "banana", "orange")
+
+fruits[0] = "mango"
+```
+
+This produces an error because tuple items cannot be changed.
+
+### Real-World Example
+
+Suppose a program stores fixed coordinates:
+
+```python
+location = (12.9716, 77.5946)
+```
+
+If these values should remain unchanged, a tuple is a suitable choice.
+
+---
+
+# 14. List vs Tuple
+
+### List
+
+```python
+fruits = ["apple", "banana", "orange"]
+```
+
+Lists are:
+
+* Mutable
+* Created using `[]`
+* Suitable for data that changes frequently
+
+### Tuple
+
+```python
+fruits = ("apple", "banana", "orange")
+```
+
+Tuples are:
+
+* Immutable
+* Created using `()`
+* Suitable for fixed data
+
+### Simple Comparison
+
+```text
+List    -> Can be changed
+Tuple   -> Cannot be changed
+```
+
+---
+
+# 15. Checking Tuple Type
+
+We can use the `type()` function to check whether a variable is a tuple.
+
+```python
+numbers = (10, 20, 30)
+
+print(type(numbers))
+```
+
+Output:
+
+```text
+<class 'tuple'>
+```
+
+---
+
+# 16. Finding Tuple Length
+
+The `len()` function returns the number of items in a tuple.
+
+```python
+fruits = ("apple", "banana", "orange")
+
+print(len(fruits))
+```
+
+Output:
+
+```text
+3
+```
+
+### Real-World Example
+
+```python
+students = ("Rahul", "Aman", "Priya", "Kiran")
+
+print("Number of students:", len(students))
+```
+
+Output:
+
+```text
+Number of students: 4
+```
+
+---
+
+# 17. Checking if an Item Exists
+
+The `in` keyword checks whether an item exists inside a tuple.
+
+```python
+fruits = ("apple", "banana", "orange")
+
+print("banana" in fruits)
+```
+
+Output:
+
+```text
+True
+```
+
+Example:
+
+```python
+print("mango" in fruits)
+```
+
+Output:
+
+```text
+False
+```
+
+### Real-World Example
+
+```python
+allowed_roles = ("admin", "manager", "developer")
+
+role = "developer"
+
+if role in allowed_roles:
+    print("Access allowed")
+else:
+    print("Access denied")
+```
+
+Output:
+
+```text
+Access allowed
+```
+
+---
+
+# 18. Checking if an Item Does Not Exist
+
+We can use `not in`.
+
+```python
+fruits = ("apple", "banana", "orange")
+
+print("mango" not in fruits)
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# 19. Looping Through a Tuple
+
+We can use a `for` loop to access every item.
+
+```python
+fruits = ("apple", "banana", "orange")
+
+for fruit in fruits:
+    print(fruit)
+```
+
+Output:
+
+```text
+apple
+banana
+orange
+```
+
+### Real-World Example
+
+```python
+days = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+
+for day in days:
+    print("Today:", day)
+```
+
+---
+
+# 20. Using range() with Tuple
+
+We can use indexes with `range()`.
+
+```python
+fruits = ("apple", "banana", "orange")
+
+for i in range(len(fruits)):
+    print(i, fruits[i])
+```
+
+Output:
+
+```text
+0 apple
+1 banana
+2 orange
+```
+
+---
+
+# 21. Joining Tuples
+
+Two tuples can be combined using the `+` operator.
+
+```python
+tuple1 = (1, 2, 3)
+tuple2 = (4, 5, 6)
+
+result = tuple1 + tuple2
+
+print(result)
+```
+
+Output:
+
+```text
+(1, 2, 3, 4, 5, 6)
+```
+
+### Real-World Example
+
+```python
+morning_tasks = ("exercise", "breakfast")
+evening_tasks = ("study", "revision")
+
+daily_tasks = morning_tasks + evening_tasks
+
+print(daily_tasks)
+```
+
+---
+
+# 22. Repeating Tuples
+
+The `*` operator can repeat tuple elements.
+
+```python
+numbers = (1, 2, 3)
+
+result = numbers * 3
+
+print(result)
+```
+
+Output:
+
+```text
+(1, 2, 3, 1, 2, 3, 1, 2, 3)
+```
+
+---
+
+# 23. count() Method
+
+The `count()` method tells us how many times a specific value appears in a tuple.
+
+```python
+numbers = (1, 2, 2, 3, 2, 4)
+
+print(numbers.count(2))
+```
+
+Output:
+
+```text
+3
+```
+
+### Real-World Example
+
+```python
+votes = ("yes", "no", "yes", "yes", "no")
+
+print("Yes votes:", votes.count("yes"))
+print("No votes:", votes.count("no"))
+```
+
+Output:
+
+```text
+Yes votes: 3
+No votes: 2
+```
+
+---
+
+# 24. index() Method
+
+The `index()` method returns the position of the first occurrence of a value.
+
+```python
+fruits = ("apple", "banana", "orange")
+
+print(fruits.index("banana"))
+```
+
+Output:
+
+```text
+1
+```
+
+### Real-World Example
+
+```python
+subjects = ("Python", "Linux", "Networking", "SQL")
+
+print(subjects.index("Linux"))
+```
+
+Output:
+
+```text
+1
+```
+
+---
+
+# 25. Converting List to Tuple
+
+We can convert a list into a tuple using `tuple()`.
+
+```python
+fruits_list = ["apple", "banana", "orange"]
+
+fruits_tuple = tuple(fruits_list)
+
+print(fruits_tuple)
+```
+
+Output:
+
+```text
+('apple', 'banana', 'orange')
+```
+
+### Real-World Example
+
+Suppose a program collects data in a list and later wants to make the data fixed:
+
+```python
+user_data = ["Niranjan", 21, "MCA"]
+
+fixed_data = tuple(user_data)
+
+print(fixed_data)
+```
+
+---
+
+# 26. Converting Tuple to List
+
+We can convert a tuple into a list using `list()`.
+
+```python
+fruits_tuple = ("apple", "banana", "orange")
+
+fruits_list = list(fruits_tuple)
+
+print(fruits_list)
+```
+
+Output:
+
+```text
+['apple', 'banana', 'orange']
+```
+
+This is useful when we need to modify tuple data.
+
+---
+
+# 27. Nested Tuples
+
+A tuple can contain another tuple.
+
+This is called a nested tuple.
+
+```python
+students = (
+    ("Rahul", 21),
+    ("Priya", 22),
+    ("Kiran", 20)
+)
+
+print(students)
+```
+
+We can access nested values using multiple indexes.
+
+```python
+print(students[0][0])
+```
+
+Output:
+
+```text
+Rahul
+```
+
+### Real-World Example
+
+A school database could represent student records like this:
+
+```python
+students = (
+    ("Rahul", 21),
+    ("Priya", 22),
+    ("Kiran", 20)
+)
+```
+
+Each inner tuple represents one student's record.
+
+---
+
+# 28. Tuple Containing a List
+
+A tuple can contain a mutable object such as a list.
+
+```python
+data = ("Python", [1, 2, 3])
+
+print(data)
+```
+
+The tuple itself cannot have its elements replaced, but the list inside it can be modified.
+
+```python
+data[1].append(4)
+
+print(data)
+```
+
+Output:
+
+```text
+('Python', [1, 2, 3, 4])
+```
+
+This is an important concept:
+
+```text
+Tuple itself      -> Immutable
+List inside tuple -> Mutable
+```
+
+---
+
+# 29. Using Tuples as Dictionary Keys
+
+Tuples can be used as dictionary keys because tuples are immutable.
+
+Example:
+
+```python
+locations = {
+    (12.9716, 77.5946): "Bangalore",
+    (17.3850, 78.4867): "Hyderabad"
+}
+
+print(locations[(12.9716, 77.5946)])
+```
+
+Output:
+
+```text
+Bangalore
+```
+
+This can be useful when representing fixed coordinates.
+
+---
+
+# 30. Tuple and Multiple Return Values
+
+Python functions can return multiple values using a tuple.
+
+```python
+def student_info():
+    return "Niranjan", 21, "MCA"
+
+name, age, course = student_info()
+
+print(name)
+print(age)
+print(course)
+```
+
+Output:
+
+```text
+Niranjan
+21
+MCA
+```
+
+This is one of the very useful applications of tuples in Python.
+
+---
+
+# 31. Sorting a Tuple
+
+Tuples do not have a `sort()` method because they are immutable.
+
+However, we can use the `sorted()` function.
+
+```python
+numbers = (50, 20, 40, 10, 30)
+
+result = sorted(numbers)
+
+print(result)
+```
+
+Output:
+
+```text
+[10, 20, 30, 40, 50]
+```
+
+Notice that `sorted()` returns a **list**, not a tuple.
+
+If we want a tuple:
+
+```python
+numbers = (50, 20, 40, 10, 30)
+
+result = tuple(sorted(numbers))
+
+print(result)
+```
+
+Output:
+
+```text
+(10, 20, 30, 40, 50)
+```
+
+---
+
+# 32. Finding Minimum and Maximum
+
+We can use `min()` and `max()` with tuples.
+
+```python
+numbers = (10, 50, 20, 80, 30)
+
+print(min(numbers))
+print(max(numbers))
+```
+
+Output:
+
+```text
+10
+80
+```
+
+---
+
+# 33. Finding the Sum
+
+The `sum()` function can calculate the total of numeric tuple elements.
+
+```python
+numbers = (10, 20, 30, 40)
+
+print(sum(numbers))
+```
+
+Output:
+
+```text
+100
+```
+
+### Real-World Example
+
+```python
+marks = (80, 75, 90, 85)
+
+total = sum(marks)
+
+print("Total marks:", total)
+```
+
+Output:
+
+```text
+Total marks: 330
+```
+
+---
+
+# 34. Tuple Comparison
+
+Python allows tuples to be compared.
+
+```python
+tuple1 = (1, 2, 3)
+tuple2 = (1, 2, 4)
+
+print(tuple1 < tuple2)
+```
+
+Output:
+
+```text
+True
+```
+
+Python compares tuple elements from left to right.
+
+---
+
+# 35. Tuple Memory and Performance
+
+Tuples are generally more memory-efficient than lists when storing fixed collections of data.
+
+Example:
+
+```python
+numbers_list = [1, 2, 3, 4, 5]
+
+numbers_tuple = (1, 2, 3, 4, 5)
+```
+
+If the data does not need to change, a tuple can be a better representation.
+
+The important idea is:
+
+```text
+Data changes frequently -> List
+Data should remain fixed -> Tuple
+```
+
+---
+
+# 36. Real-World Example: GPS Coordinates
+
+GPS coordinates are usually represented as a pair of values.
+
+```python
+location = (12.9716, 77.5946)
+
+latitude = location[0]
+longitude = location[1]
+
+print("Latitude:", latitude)
+print("Longitude:", longitude)
+```
+
+Output:
+
+```text
+Latitude: 12.9716
+Longitude: 77.5946
+```
+
+A tuple is suitable because the pair represents one fixed coordinate.
+
+---
+
+# 37. Real-World Example: RGB Color
+
+RGB colors contain three fixed values.
+
+```python
+red = (255, 0, 0)
+green = (0, 255, 0)
+blue = (0, 0, 255)
+
+print(red)
+print(green)
+print(blue)
+```
+
+Each tuple represents a fixed RGB color value.
+
+---
+
+# 38. Real-World Example: Product Information
+
+```python
+product = ("Laptop", 65000, "ASUS")
+
+name, price, brand = product
+
+print("Product:", name)
+print("Price:", price)
+print("Brand:", brand)
+```
+
+Output:
+
+```text
+Product: Laptop
+Price: 65000
+Brand: ASUS
+```
+
+---
+
+# 39. Real-World Example: Student Record
+
+```python
+student = ("Niranjan", 21, "MCA", 85)
+
+name, age, course, marks = student
+
+print("Name:", name)
+print("Age:", age)
+print("Course:", course)
+print("Marks:", marks)
+```
+
+Output:
+
+```text
+Name: Niranjan
+Age: 21
+Course: MCA
+Marks: 85
+```
+
+---
+
+# 40. Important Tuple Methods and Functions
+
+### Tuple Methods
+
+```text
+count()
+index()
+```
+
+### Useful Functions
+
+```text
+len()
+type()
+tuple()
+list()
+min()
+max()
+sum()
+sorted()
+```
+
+---
+
+# 41. Important Tuple Properties
+
+```text
+1. Tuples are ordered.
+2. Tuples are immutable.
+3. Tuples allow duplicate values.
+4. Tuples support indexing.
+5. Tuples support negative indexing.
+6. Tuples support slicing.
+7. Tuples can contain different data types.
+8. Tuples can contain nested tuples.
+9. Tuples can be unpacked.
+10. Tuples can be used as dictionary keys when their contents are hashable.
+```
+
+---
+
+# 42. List vs Tuple - Quick Revision
+
+| Feature      | List          | Tuple      |
+| ------------ | ------------- | ---------- |
+| Syntax       | `[]`          | `()`       |
+| Mutable      | Yes           | No         |
+| Ordered      | Yes           | Yes        |
+| Duplicates   | Allowed       | Allowed    |
+| Indexing     | Supported     | Supported  |
+| Slicing      | Supported     | Supported  |
+| `append()`   | Yes           | No         |
+| `remove()`   | Yes           | No         |
+| `count()`    | Yes           | Yes        |
+| `index()`    | Yes           | Yes        |
+| Suitable for | Changing data | Fixed data |
+
+---
+
+# 43. Practice Exercise 1 - Create a Tuple
+
+Create a tuple containing:
+
+```text
+Your name
+Your age
+Your course
+Your city
+```
+
+Print the tuple.
+
+Example:
+
+```python
+student = ("Niranjan", 21, "MCA", "Bangalore")
+
+print(student)
+```
+
+---
+
+# 44. Practice Exercise 2 - Access Tuple Items
+
+Create:
+
+```python
+fruits = ("apple", "banana", "mango", "orange")
+```
+
+Print:
+
+```text
+First fruit
+Last fruit
+Second fruit
+```
+
+---
+
+# 45. Practice Exercise 3 - Tuple Length
+
+Create a tuple containing five numbers.
+
+Find the number of elements using `len()`.
+
+Example:
+
+```python
+numbers = (10, 20, 30, 40, 50)
+
+print(len(numbers))
+```
+
+---
+
+# 46. Practice Exercise 4 - Check Membership
+
+Create:
+
+```python
+languages = ("Python", "Java", "C", "JavaScript")
+```
+
+Check whether `"Python"` exists in the tuple.
+
+Expected result:
+
+```text
+True
+```
+
+---
+
+# 47. Practice Exercise 5 - Tuple Unpacking
+
+Create:
+
+```python
+person = ("Niranjan", 21, "MCA")
+```
+
+Unpack the values into:
+
+```text
+name
+age
+course
+```
+
+Then print them.
+
+---
+
+# 48. Practice Exercise 6 - Count Values
+
+Create:
+
+```python
+numbers = (1, 2, 2, 3, 2, 4, 2)
+```
+
+Find how many times `2` occurs.
+
+Expected result:
+
+```text
+4
+```
+
+---
+
+# 49. Practice Exercise 7 - Find Index
+
+Create:
+
+```python
+subjects = ("Python", "Linux", "Networking", "SQL")
+```
+
+Find the index of `"Networking"`.
+
+Expected result:
+
+```text
+2
+```
+
+---
+
+# 50. Practice Exercise 8 - Combine Tuples
+
+Create two tuples:
+
+```python
+a = (1, 2, 3)
+b = (4, 5, 6)
+```
+
+Combine them into one tuple.
+
+Expected result:
+
+```text
+(1, 2, 3, 4, 5, 6)
+```
+
+---
+
+# 51. Practice Exercise 9 - Convert List to Tuple
+
+Create:
+
+```python
+fruits = ["apple", "banana", "orange"]
+```
+
+Convert it into a tuple using `tuple()`.
+
+---
+
+# 52. Practice Exercise 10 - Convert Tuple to List
+
+Create:
+
+```python
+numbers = (10, 20, 30, 40)
+```
+
+Convert it into a list using `list()`.
+
+---
+
+# 53. Practice Exercise 11 - Nested Tuple
+
+Create a tuple containing three student records.
+
+Example:
+
+```python
+students = (
+    ("Rahul", 20),
+    ("Priya", 21),
+    ("Kiran", 22)
+)
+```
+
+Print the name of the second student.
+
+Expected output:
+
+```text
+Priya
+```
+
+---
+
+# 54. Practice Exercise 12 - Calculate Marks
+
+Create a tuple containing marks:
+
+```python
+marks = (80, 75, 90, 85, 70)
+```
+
+Find:
+
+```text
+Total marks
+Highest mark
+Lowest mark
+Number of subjects
+```
+
+Use:
+
+```python
+sum()
+max()
+min()
+len()
+```
+
+---
+
+# 55. Practice Exercise 13 - Real-World Access Control
+
+Create:
+
+```python
+allowed_roles = ("admin", "manager", "developer")
+```
+
+Ask the user to enter a role.
+
+If the role exists in the tuple, print:
+
+```text
+Access granted
+```
+
+Otherwise print:
+
+```text
+Access denied
+```
+
+Example:
+
+```python
+allowed_roles = ("admin", "manager", "developer")
+
+role = input("Enter your role: ")
+
+if role in allowed_roles:
+    print("Access granted")
+else:
+    print("Access denied")
+```
+
+---
+
+# 56. Practice Exercise 14 - GPS Coordinates
+
+Create a tuple containing latitude and longitude.
+
+```python
+location = (12.9716, 77.5946)
+```
+
+Print:
+
+```text
+Latitude
+Longitude
+```
+
+---
+
+# 57. Practice Exercise 15 - Student Information
+
+Create a tuple:
+
+```python
+student = ("Niranjan", 21, "MCA", 85)
+```
+
+Unpack the tuple and print:
+
+```text
+Student Name
+Age
+Course
+Marks
+```
+
+---
+
+# 58. Practice Exercise 16 - Reverse a Tuple
+
+Create:
+
+```python
+numbers = (1, 2, 3, 4, 5)
+```
+
+Reverse it using slicing.
+
+Expected output:
+
+```text
+(5, 4, 3, 2, 1)
+```
+
+Hint:
+
+```python
+numbers[::-1]
+```
+
+---
+
+# 59. Practice Exercise 17 - Find Even Numbers
+
+Create:
+
+```python
+numbers = (1, 2, 3, 4, 5, 6, 7, 8)
+```
+
+Use a loop to print only the even numbers.
+
+Expected output:
+
+```text
+2
+4
+6
+8
+```
+
+---
+
+# 60. Practice Exercise 18 - Product Record
+
+Create a tuple containing:
+
+```text
+Product name
+Price
+Brand
+Category
+```
+
+Example:
+
+```python
+product = ("Laptop", 65000, "ASUS", "Electronics")
+```
+
+Unpack and print all values.
+
+---
+
+# 61. Key Takeaways from Day 06
+
+Today I learned that a **tuple is an ordered and immutable collection in Python**.
+
+Important concepts learned:
+
+```text
+1. Creating tuples
+2. Single-item tuples
+3. Tuple indexing
+4. Negative indexing
+5. Tuple slicing
+6. Tuple packing
+7. Tuple unpacking
+8. Tuple immutability
+9. Tuple length
+10. Membership operators
+11. Looping through tuples
+12. Combining tuples
+13. Repeating tuples
+14. count() method
+15. index() method
+16. Converting list to tuple
+17. Converting tuple to list
+18. Nested tuples
+19. Tuples containing lists
+20. Using tuples as dictionary keys
+21. Returning multiple values from functions
+22. Sorting tuples
+23. min(), max(), and sum()
+24. Real-world applications of tuples
+```
+
+---
+
+# DAY 06 SUMMARY
+
+The main concept I learned today is:
+
+```text
+LIST  -> Mutable -> Data can be changed
+TUPLE -> Immutable -> Data cannot be changed
+```
+
+A tuple is a good choice when I want to store a collection of values that should remain unchanged.
+
+### Simple Example
+
+```python
+student = ("Niranjan", 21, "MCA")
+
+print(student[0])
+print(student[1])
+print(student[2])
+```
+
+Output:
+
+```text
+Niranjan
+21
+MCA
+```
+
+### Final Understanding
+
+```text
+Tuple
+  |
+  +-- Ordered
+  |
+  +-- Immutable
+  |
+  +-- Allows duplicates
+  |
+  +-- Supports indexing
+  |
+  +-- Supports slicing
+  |
+  +-- Supports unpacking
+  |
+  +-- Can contain different data types
+  |
+  +-- Useful for fixed data
+```
+
+## What I Practiced Today
+
+I practiced creating tuples, accessing tuple elements, negative indexing, slicing, tuple unpacking, checking membership, counting elements, finding indexes, combining tuples, converting between lists and tuples, nested tuples, and using tuples with real-world examples such as student records, product information, GPS coordinates, RGB colors, and access-control roles.
+
+**Day 06 Completed: Python Tuples**

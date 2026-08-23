@@ -1,0 +1,1173 @@
+# PYTHON LEARNING - DAY 07
+
+## Topic: Python Sets
+
+Today I learned about **Sets in Python** using W3Schools. I learned the concepts with practical and real-world examples and practiced different operations that can be performed on sets.
+
+---
+
+# 1. What is a Set in Python?
+
+A **set** is a collection used to store multiple values in a single variable.
+
+Sets have the following characteristics:
+
+* Sets are unordered.
+* Sets are unindexed.
+* Sets do not allow duplicate values.
+* Sets are changeable (mutable).
+* Sets can contain different data types.
+* Sets are written using `{}`.
+
+### Example:
+
+```python
+fruits = {"apple", "banana", "orange"}
+
+print(fruits)
+```
+
+Output:
+
+```text
+{'apple', 'banana', 'orange'}
+```
+
+The order may be different because sets are unordered.
+
+### Real-World Example
+
+Imagine a school has a list of students who attended an event:
+
+```python
+students = {"Rahul", "Arun", "Rahul", "Vikas", "Arun"}
+
+print(students)
+```
+
+Output:
+
+```text
+{'Rahul', 'Arun', 'Vikas'}
+```
+
+Duplicate names are automatically removed.
+
+---
+
+# 2. Creating a Set
+
+A set can be created by placing values inside curly brackets `{}`.
+
+```python
+numbers = {10, 20, 30, 40}
+
+print(numbers)
+```
+
+### Real-World Example
+
+A shopping store sells different categories of products:
+
+```python
+categories = {"Electronics", "Clothing", "Books", "Furniture"}
+
+print(categories)
+```
+
+---
+
+# 3. Set Does Not Allow Duplicates
+
+One of the most important features of a set is that it automatically removes duplicate values.
+
+```python
+numbers = {1, 2, 2, 3, 3, 4, 4}
+
+print(numbers)
+```
+
+Output:
+
+```text
+{1, 2, 3, 4}
+```
+
+### Real-World Example
+
+Suppose a website records users visiting different pages:
+
+```python
+users = {"Amit", "Rahul", "Amit", "Vikas", "Rahul"}
+
+print(users)
+```
+
+The set keeps only unique users.
+
+---
+
+# 4. Set Length
+
+The `len()` function is used to find the number of elements in a set.
+
+```python
+fruits = {"apple", "banana", "orange"}
+
+print(len(fruits))
+```
+
+Output:
+
+```text
+3
+```
+
+### Real-World Example
+
+```python
+employees = {"John", "David", "Sarah", "Alex"}
+
+print("Number of employees:", len(employees))
+```
+
+---
+
+# 5. Set with Different Data Types
+
+A set can contain different types of values.
+
+```python
+myset = {"Python", 25, True, 10.5}
+
+print(myset)
+```
+
+A set can contain:
+
+* String
+* Integer
+* Float
+* Boolean
+
+---
+
+# 6. Checking the Type of a Set
+
+The `type()` function can be used to check the data type.
+
+```python
+fruits = {"apple", "banana", "orange"}
+
+print(type(fruits))
+```
+
+Output:
+
+```text
+<class 'set'>
+```
+
+---
+
+# 7. Creating a Set Using set()
+
+We can create a set using the `set()` constructor.
+
+```python
+numbers = set((1, 2, 3, 4))
+
+print(numbers)
+```
+
+### Real-World Example
+
+We can convert a list containing duplicate values into a set.
+
+```python
+names = ["Rahul", "Vikas", "Rahul", "Arun"]
+
+unique_names = set(names)
+
+print(unique_names)
+```
+
+Output:
+
+```text
+{'Rahul', 'Vikas', 'Arun'}
+```
+
+This is very useful for removing duplicate data.
+
+---
+
+# 8. Accessing Set Items
+
+Sets are unordered, so we cannot access elements using indexes like:
+
+```python
+myset[0]
+```
+
+This will not work.
+
+Instead, we can use a `for` loop.
+
+```python
+fruits = {"apple", "banana", "orange"}
+
+for fruit in fruits:
+    print(fruit)
+```
+
+---
+
+# 9. Checking if an Item Exists
+
+The `in` keyword checks whether an element exists in a set.
+
+```python
+fruits = {"apple", "banana", "orange"}
+
+if "apple" in fruits:
+    print("Apple is available")
+```
+
+Output:
+
+```text
+Apple is available
+```
+
+### Real-World Example
+
+Checking whether a product is available in a store:
+
+```python
+products = {"laptop", "mobile", "tablet", "keyboard"}
+
+if "laptop" in products:
+    print("Laptop is available")
+```
+
+---
+
+# 10. Adding Items to a Set
+
+The `add()` method is used to add one item to a set.
+
+```python
+fruits = {"apple", "banana"}
+
+fruits.add("orange")
+
+print(fruits)
+```
+
+### Real-World Example
+
+A store adds a new product:
+
+```python
+products = {"laptop", "mobile", "tablet"}
+
+products.add("keyboard")
+
+print(products)
+```
+
+---
+
+# 11. Adding Multiple Items
+
+The `update()` method can be used to add multiple items.
+
+```python
+fruits = {"apple", "banana"}
+
+fruits.update(["orange", "mango", "grapes"])
+
+print(fruits)
+```
+
+### Real-World Example
+
+A company adds several new employees:
+
+```python
+employees = {"Rahul", "Vikas"}
+
+new_employees = {"Arun", "Kiran", "Suresh"}
+
+employees.update(new_employees)
+
+print(employees)
+```
+
+---
+
+# 12. Removing an Item Using remove()
+
+The `remove()` method removes a specific item.
+
+```python
+fruits = {"apple", "banana", "orange"}
+
+fruits.remove("banana")
+
+print(fruits)
+```
+
+### Important
+
+If the item does not exist, `remove()` generates an error.
+
+```python
+fruits.remove("mango")
+```
+
+---
+
+# 13. Removing an Item Using discard()
+
+The `discard()` method also removes an item.
+
+```python
+fruits = {"apple", "banana", "orange"}
+
+fruits.discard("banana")
+
+print(fruits)
+```
+
+The difference is:
+
+* `remove()` → gives an error if the item doesn't exist.
+* `discard()` → does not give an error if the item doesn't exist.
+
+Example:
+
+```python
+fruits = {"apple", "banana"}
+
+fruits.discard("mango")
+
+print(fruits)
+```
+
+This works without an error.
+
+---
+
+# 14. Removing an Item Using pop()
+
+The `pop()` method removes an item from a set.
+
+```python
+fruits = {"apple", "banana", "orange"}
+
+fruits.pop()
+
+print(fruits)
+```
+
+Because sets are unordered, we cannot predict which item will be removed.
+
+---
+
+# 15. Clear a Set
+
+The `clear()` method removes all elements from a set.
+
+```python
+fruits = {"apple", "banana", "orange"}
+
+fruits.clear()
+
+print(fruits)
+```
+
+Output:
+
+```text
+set()
+```
+
+### Real-World Example
+
+Clearing temporary data after completing a process:
+
+```python
+temporary_users = {"Rahul", "Vikas", "Arun"}
+
+temporary_users.clear()
+
+print(temporary_users)
+```
+
+---
+
+# 16. Delete a Set
+
+The `del` keyword completely deletes the set.
+
+```python
+fruits = {"apple", "banana", "orange"}
+
+del fruits
+```
+
+After using `del`, the variable no longer exists.
+
+---
+
+# 17. Loop Through a Set
+
+We can use a `for` loop to iterate through the elements.
+
+```python
+fruits = {"apple", "banana", "orange"}
+
+for fruit in fruits:
+    print(fruit)
+```
+
+### Real-World Example
+
+Displaying available products:
+
+```python
+products = {"Laptop", "Mouse", "Keyboard", "Monitor"}
+
+for product in products:
+    print("Available:", product)
+```
+
+---
+
+# 18. Joining Two Sets
+
+Python provides several methods to combine sets.
+
+The main methods are:
+
+* `union()`
+* `update()`
+* `intersection()`
+* `difference()`
+* `symmetric_difference()`
+
+---
+
+# 19. Union of Sets
+
+The `union()` method combines all unique elements from two sets.
+
+```python
+set1 = {"apple", "banana", "orange"}
+set2 = {"mango", "banana", "grapes"}
+
+result = set1.union(set2)
+
+print(result)
+```
+
+Output contains all unique fruits.
+
+### Real-World Example
+
+Students enrolled in two courses:
+
+```python
+python_students = {"Rahul", "Vikas", "Arun"}
+java_students = {"Arun", "Kiran", "Suresh"}
+
+all_students = python_students.union(java_students)
+
+print(all_students)
+```
+
+This gives all unique students.
+
+---
+
+# 20. Union Using | Operator
+
+We can also use the `|` operator.
+
+```python
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+
+result = set1 | set2
+
+print(result)
+```
+
+Output:
+
+```text
+{1, 2, 3, 4, 5}
+```
+
+---
+
+# 21. Intersection of Sets
+
+The `intersection()` method returns only the elements that exist in both sets.
+
+```python
+set1 = {"apple", "banana", "orange"}
+set2 = {"banana", "orange", "mango"}
+
+result = set1.intersection(set2)
+
+print(result)
+```
+
+Output:
+
+```text
+{'banana', 'orange'}
+```
+
+### Real-World Example
+
+Students attending two different courses:
+
+```python
+python_students = {"Rahul", "Vikas", "Arun"}
+data_science_students = {"Arun", "Kiran", "Rahul"}
+
+common_students = python_students.intersection(data_science_students)
+
+print(common_students)
+```
+
+The result contains students who are in both groups.
+
+---
+
+# 22. Intersection Using & Operator
+
+We can also use `&`.
+
+```python
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+
+result = set1 & set2
+
+print(result)
+```
+
+Output:
+
+```text
+{3, 4}
+```
+
+---
+
+# 23. Difference Between Sets
+
+The `difference()` method returns elements that exist in the first set but not in the second set.
+
+```python
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+
+result = set1.difference(set2)
+
+print(result)
+```
+
+Output:
+
+```text
+{1, 2}
+```
+
+### Real-World Example
+
+Students enrolled in Python but not Java:
+
+```python
+python_students = {"Rahul", "Vikas", "Arun"}
+java_students = {"Arun", "Kiran"}
+
+python_only = python_students.difference(java_students)
+
+print(python_only)
+```
+
+---
+
+# 24. Difference Using - Operator
+
+We can use the `-` operator.
+
+```python
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5}
+
+print(set1 - set2)
+```
+
+Output:
+
+```text
+{1, 2}
+```
+
+---
+
+# 25. Symmetric Difference
+
+The `symmetric_difference()` method returns elements that are present in either set, but not in both.
+
+```python
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+
+result = set1.symmetric_difference(set2)
+
+print(result)
+```
+
+Output:
+
+```text
+{1, 2, 4, 5}
+```
+
+### Real-World Example
+
+Two groups attend different events:
+
+```python
+event_a = {"Rahul", "Vikas", "Arun"}
+event_b = {"Arun", "Kiran", "Suresh"}
+
+different_students = event_a.symmetric_difference(event_b)
+
+print(different_students)
+```
+
+This returns students who attended only one of the two events.
+
+---
+
+# 26. Symmetric Difference Using ^
+
+We can use the `^` operator.
+
+```python
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+
+print(set1 ^ set2)
+```
+
+Output:
+
+```text
+{1, 2, 4, 5}
+```
+
+---
+
+# 27. Subset
+
+A set is a **subset** if all its elements exist in another set.
+
+The `issubset()` method checks this.
+
+```python
+set1 = {1, 2}
+set2 = {1, 2, 3, 4}
+
+print(set1.issubset(set2))
+```
+
+Output:
+
+```text
+True
+```
+
+### Real-World Example
+
+Checking whether required skills are included in an employee's skills:
+
+```python
+required_skills = {"Python", "Linux"}
+
+employee_skills = {"Python", "Linux", "Git", "SQL"}
+
+print(required_skills.issubset(employee_skills))
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# 28. Superset
+
+A set is a **superset** if it contains all elements of another set.
+
+The `issuperset()` method checks this.
+
+```python
+set1 = {1, 2, 3, 4}
+set2 = {1, 2}
+
+print(set1.issuperset(set2))
+```
+
+Output:
+
+```text
+True
+```
+
+---
+
+# 29. Disjoint Sets
+
+Two sets are disjoint when they have no common elements.
+
+The `isdisjoint()` method checks this.
+
+```python
+set1 = {1, 2, 3}
+set2 = {4, 5, 6}
+
+print(set1.isdisjoint(set2))
+```
+
+Output:
+
+```text
+True
+```
+
+### Real-World Example
+
+```python
+morning_shift = {"Rahul", "Arun"}
+night_shift = {"Vikas", "Kiran"}
+
+print(morning_shift.isdisjoint(night_shift))
+```
+
+If there are no employees in both shifts, the result is `True`.
+
+---
+
+# 30. Copying a Set
+
+The `copy()` method creates a copy of a set.
+
+```python
+fruits = {"apple", "banana", "orange"}
+
+new_fruits = fruits.copy()
+
+print(new_fruits)
+```
+
+The two sets are separate objects.
+
+---
+
+# 31. Frozenset
+
+A `frozenset` is an immutable version of a set.
+
+Once created, its elements cannot be changed.
+
+```python
+numbers = frozenset({1, 2, 3, 4})
+
+print(numbers)
+```
+
+You cannot use methods such as `add()` or `remove()` on a frozenset.
+
+### Real-World Example
+
+If a company has a fixed list of departments that should not be modified:
+
+```python
+departments = frozenset({"HR", "IT", "Finance", "Sales"})
+
+print(departments)
+```
+
+---
+
+# 32. Set vs List
+
+| Feature                  | List               | Set               |
+| ------------------------ | ------------------ | ----------------- |
+| Syntax                   | `[]`               | `{}`              |
+| Ordered                  | Yes                | No                |
+| Indexed                  | Yes                | No                |
+| Duplicates               | Allowed            | Not allowed       |
+| Mutable                  | Yes                | Yes               |
+| Fast membership checking | Generally slower   | Generally faster  |
+| Main use                 | Store ordered data | Store unique data |
+
+### Example
+
+```python
+numbers_list = [1, 2, 2, 3, 3]
+
+numbers_set = {1, 2, 2, 3, 3}
+
+print(numbers_list)
+print(numbers_set)
+```
+
+Output:
+
+```text
+[1, 2, 2, 3, 3]
+{1, 2, 3}
+```
+
+---
+
+# 33. Real-World Applications of Sets
+
+Sets are useful in many real-world programming situations.
+
+### 1. Removing Duplicate Data
+
+```python
+emails = ["a@gmail.com", "b@gmail.com", "a@gmail.com"]
+
+unique_emails = set(emails)
+
+print(unique_emails)
+```
+
+### 2. Finding Common Users
+
+```python
+website_a_users = {"Rahul", "Vikas", "Arun"}
+website_b_users = {"Arun", "Kiran", "Rahul"}
+
+common_users = website_a_users.intersection(website_b_users)
+
+print(common_users)
+```
+
+### 3. Comparing Skills
+
+```python
+required = {"Python", "SQL", "Linux"}
+
+my_skills = {"Python", "Linux", "Git", "SQL"}
+
+print(required.issubset(my_skills))
+```
+
+### 4. Finding Unique Products
+
+```python
+products = ["Laptop", "Mouse", "Laptop", "Keyboard", "Mouse"]
+
+unique_products = set(products)
+
+print(unique_products)
+```
+
+### 5. Finding Differences
+
+```python
+old_users = {"Rahul", "Vikas", "Arun"}
+new_users = {"Rahul", "Vikas", "Kiran"}
+
+new_users_only = new_users.difference(old_users)
+
+print(new_users_only)
+```
+
+---
+
+# 34. Important Set Methods
+
+| Method                   | Purpose                                             |
+| ------------------------ | --------------------------------------------------- |
+| `add()`                  | Adds one item                                       |
+| `update()`               | Adds multiple items                                 |
+| `remove()`               | Removes an item and raises an error if missing      |
+| `discard()`              | Removes an item without raising an error if missing |
+| `pop()`                  | Removes an arbitrary item                           |
+| `clear()`                | Removes all items                                   |
+| `copy()`                 | Creates a copy                                      |
+| `union()`                | Combines sets                                       |
+| `intersection()`         | Finds common elements                               |
+| `difference()`           | Finds elements in one set but not another           |
+| `symmetric_difference()` | Finds elements that are not common                  |
+| `issubset()`             | Checks whether one set is a subset                  |
+| `issuperset()`           | Checks whether one set is a superset                |
+| `isdisjoint()`           | Checks whether two sets have no common elements     |
+
+---
+
+# 35. Practice Exercises
+
+## Exercise 1: Remove Duplicates
+
+Create a list containing duplicate student names and convert it into a set.
+
+```python
+students = ["Rahul", "Vikas", "Rahul", "Arun", "Vikas"]
+
+# Write your code here
+```
+
+Expected result:
+
+```text
+{'Rahul', 'Vikas', 'Arun'}
+```
+
+---
+
+## Exercise 2: Add an Item
+
+Create a set of fruits and add `"mango"`.
+
+```python
+fruits = {"apple", "banana", "orange"}
+
+# Write your code here
+```
+
+---
+
+## Exercise 3: Remove an Item
+
+Remove `"banana"` from:
+
+```python
+fruits = {"apple", "banana", "orange"}
+```
+
+---
+
+## Exercise 4: Find Common Elements
+
+Find the common students between:
+
+```python
+python_students = {"Rahul", "Vikas", "Arun"}
+java_students = {"Arun", "Kiran", "Rahul"}
+```
+
+Expected result:
+
+```text
+{'Rahul', 'Arun'}
+```
+
+---
+
+## Exercise 5: Find Python-Only Students
+
+```python
+python_students = {"Rahul", "Vikas", "Arun"}
+java_students = {"Arun", "Kiran"}
+
+# Find students who only study Python
+```
+
+---
+
+## Exercise 6: Combine Two Sets
+
+```python
+set1 = {"apple", "banana"}
+set2 = {"orange", "mango"}
+
+# Combine both sets
+```
+
+---
+
+## Exercise 7: Check Membership
+
+Create a set of programming languages and check whether `"Python"` exists.
+
+```python
+languages = {"Python", "Java", "C++", "JavaScript"}
+
+# Write your code here
+```
+
+---
+
+## Exercise 8: Check Subset
+
+```python
+required = {"Python", "Linux"}
+
+skills = {"Python", "Linux", "Git", "SQL"}
+
+# Check whether required is a subset of skills
+```
+
+Expected result:
+
+```text
+True
+```
+
+---
+
+## Exercise 9: Symmetric Difference
+
+```python
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+
+# Find elements that are not common
+```
+
+Expected result:
+
+```text
+{1, 2, 5, 6}
+```
+
+---
+
+## Exercise 10: Real-World Shopping Problem
+
+A customer purchased these products:
+
+```python
+customer1 = {"Laptop", "Mouse", "Keyboard"}
+customer2 = {"Laptop", "Monitor", "Mouse"}
+```
+
+Find:
+
+1. Products purchased by both customers.
+2. Products purchased by customer 1 only.
+3. All unique products purchased by both customers.
+
+---
+
+# 36. Mini Project: Student Skill Analyzer
+
+Create a simple program that compares the skills of students.
+
+```python
+student1 = {"Python", "Linux", "Git", "SQL"}
+student2 = {"Python", "Java", "Git", "HTML"}
+
+common_skills = student1.intersection(student2)
+student1_only = student1.difference(student2)
+student2_only = student2.difference(student1)
+all_skills = student1.union(student2)
+
+print("Common Skills:", common_skills)
+print("Student 1 Only:", student1_only)
+print("Student 2 Only:", student2_only)
+print("All Skills:", all_skills)
+```
+
+This demonstrates how sets can be used in a real-world skill comparison system.
+
+---
+
+# 37. Key Takeaways
+
+Today I learned:
+
+* What sets are in Python.
+* How to create sets.
+* Sets do not allow duplicate values.
+* Sets are unordered and unindexed.
+* How to add and remove elements.
+* Difference between `remove()` and `discard()`.
+* How to loop through a set.
+* How to check whether an item exists.
+* How to combine sets using `union()`.
+* How to find common elements using `intersection()`.
+* How to find differences between sets.
+* How to use symmetric difference.
+* How to check subsets and supersets.
+* How to check disjoint sets.
+* How to copy sets.
+* What `frozenset` is.
+* Practical applications of sets in real-world programming.
+* How sets can be used to remove duplicate data.
+
+---
+
+# 38. Day 07 Summary
+
+**Topic:** Python Sets
+
+**Learning Platform:** W3Schools
+
+**Main Concepts Covered:**
+
+```text
+Set
+Creating Sets
+Duplicates
+len()
+type()
+set()
+Accessing Sets
+in
+add()
+update()
+remove()
+discard()
+pop()
+clear()
+del
+for loop
+union()
+intersection()
+difference()
+symmetric_difference()
+issubset()
+issuperset()
+isdisjoint()
+copy()
+frozenset
+Set vs List
+Real-World Applications
+Practice Exercises
+Mini Project
+```
+
+## Final Understanding
+
+A Python set is especially useful when we need to work with **unique values** and perform operations such as finding common data, combining data, comparing groups, or removing duplicates.
+
+For example, in real-world applications, sets can be used for:
+
+* Removing duplicate users.
+* Finding common customers.
+* Comparing employee skills.
+* Managing unique products.
+* Comparing permissions.
+* Finding differences between datasets.
+* Checking membership quickly.
+
+**Day 07 Completed — Python Sets ✅**

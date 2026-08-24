@@ -1,0 +1,1735 @@
+# PYTHON LEARNING - DAY 08
+
+## Topic: Python Dictionaries
+
+Today I learned about **Dictionaries in Python** with real-world examples and practice exercises.
+
+---
+
+# 1. What is a Dictionary in Python?
+
+A **dictionary** is a Python data structure used to store data in **key-value pairs**.
+
+Each item in a dictionary has:
+
+```text
+key : value
+```
+
+### Real-world example
+
+Think about a student record:
+
+```text
+Name     → Niranjan
+Age      → 22
+Course   → Python
+City     → Bengaluru
+```
+
+In Python:
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22,
+    "course": "Python",
+    "city": "Bengaluru"
+}
+
+print(student)
+```
+
+Output:
+
+```text
+{'name': 'Niranjan', 'age': 22, 'course': 'Python', 'city': 'Bengaluru'}
+```
+
+A dictionary is useful when we want to associate one piece of information with another.
+
+---
+
+# 2. Dictionary Syntax
+
+Basic syntax:
+
+```python
+dictionary_name = {
+    "key1": "value1",
+    "key2": "value2",
+    "key3": "value3"
+}
+```
+
+Example:
+
+```python
+car = {
+    "brand": "Toyota",
+    "model": "Fortuner",
+    "year": 2025
+}
+
+print(car)
+```
+
+Output:
+
+```text
+{'brand': 'Toyota', 'model': 'Fortuner', 'year': 2025}
+```
+
+---
+
+# 3. Dictionary Keys and Values
+
+A dictionary contains two important parts:
+
+```text
+Key → identifies the data
+Value → stores the actual data
+```
+
+Example:
+
+```python
+employee = {
+    "name": "Rahul",
+    "age": 25,
+    "salary": 45000
+}
+```
+
+Here:
+
+```text
+name   → key
+Rahul  → value
+
+age    → key
+25     → value
+
+salary → key
+45000  → value
+```
+
+---
+
+# 4. Accessing Dictionary Items
+
+We can access a value using its key.
+
+Example:
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22,
+    "course": "Python"
+}
+
+print(student["name"])
+print(student["course"])
+```
+
+Output:
+
+```text
+Niranjan
+Python
+```
+
+### Real-world example
+
+Suppose we have a bank account:
+
+```python
+account = {
+    "name": "Niranjan",
+    "account_type": "Savings",
+    "balance": 50000
+}
+
+print(account["balance"])
+```
+
+Output:
+
+```text
+50000
+```
+
+The key `"balance"` allows us to retrieve the account balance.
+
+---
+
+# 5. Using get()
+
+Another way to access dictionary values is using the `get()` method.
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22
+}
+
+print(student.get("name"))
+```
+
+Output:
+
+```text
+Niranjan
+```
+
+### Difference between [] and get()
+
+Using brackets:
+
+```python
+student["course"]
+```
+
+If the key does not exist, Python generates an error:
+
+```text
+KeyError
+```
+
+Using `get()`:
+
+```python
+student.get("course")
+```
+
+It returns:
+
+```text
+None
+```
+
+We can also provide a default value:
+
+```python
+print(student.get("course", "Not Available"))
+```
+
+Output:
+
+```text
+Not Available
+```
+
+---
+
+# 6. Dictionary Does Not Allow Duplicate Keys
+
+Dictionary keys must be unique.
+
+Example:
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22,
+    "name": "Rahul"
+}
+
+print(student)
+```
+
+Output:
+
+```text
+{'name': 'Rahul', 'age': 22}
+```
+
+The second `"name"` replaces the first `"name"`.
+
+---
+
+# 7. Dictionary Length
+
+We can use `len()` to find the number of key-value pairs.
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22,
+    "course": "Python"
+}
+
+print(len(student))
+```
+
+Output:
+
+```text
+3
+```
+
+There are three key-value pairs.
+
+---
+
+# 8. Dictionary Can Store Different Data Types
+
+A dictionary can contain different types of values.
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22,
+    "marks": 85.5,
+    "passed": True
+}
+
+print(student)
+```
+
+Here:
+
+```text
+name   → string
+age    → integer
+marks  → float
+passed → boolean
+```
+
+---
+
+# 9. Dictionary Values Can Be Lists
+
+A dictionary value can also be a list.
+
+Real-world example:
+
+```python
+student = {
+    "name": "Niranjan",
+    "subjects": ["Python", "Linux", "Networking"]
+}
+
+print(student["subjects"])
+```
+
+Output:
+
+```text
+['Python', 'Linux', 'Networking']
+```
+
+We can also access individual list elements:
+
+```python
+print(student["subjects"][0])
+```
+
+Output:
+
+```text
+Python
+```
+
+---
+
+# 10. Dictionary Values Can Be Dictionaries
+
+A dictionary can contain another dictionary.
+
+This is called a **nested dictionary**.
+
+Example:
+
+```python
+students = {
+    "student1": {
+        "name": "Niranjan",
+        "age": 22
+    },
+    "student2": {
+        "name": "Rahul",
+        "age": 23
+    }
+}
+
+print(students)
+```
+
+Accessing nested data:
+
+```python
+print(students["student1"]["name"])
+```
+
+Output:
+
+```text
+Niranjan
+```
+
+### Real-world use
+
+Nested dictionaries are commonly useful for storing structured information such as:
+
+```text
+Company
+ ├── Employee 1
+ │    ├── Name
+ │    ├── Age
+ │    └── Salary
+ │
+ └── Employee 2
+      ├── Name
+      ├── Age
+      └── Salary
+```
+
+---
+
+# 11. Checking if a Key Exists
+
+We can use the `in` operator.
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22
+}
+
+if "name" in student:
+    print("Name exists")
+```
+
+Output:
+
+```text
+Name exists
+```
+
+Example:
+
+```python
+if "course" in student:
+    print("Course exists")
+else:
+    print("Course does not exist")
+```
+
+Output:
+
+```text
+Course does not exist
+```
+
+---
+
+# 12. Changing Dictionary Values
+
+We can change the value associated with a key.
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22
+}
+
+student["age"] = 23
+
+print(student)
+```
+
+Output:
+
+```text
+{'name': 'Niranjan', 'age': 23}
+```
+
+### Real-world example
+
+Suppose a customer's bank balance changes:
+
+```python
+account = {
+    "name": "Niranjan",
+    "balance": 50000
+}
+
+account["balance"] = 55000
+
+print(account)
+```
+
+The updated balance becomes:
+
+```text
+55000
+```
+
+---
+
+# 13. Adding New Items
+
+We can add a new key-value pair by assigning a value to a new key.
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22
+}
+
+student["course"] = "Python"
+
+print(student)
+```
+
+Output:
+
+```text
+{'name': 'Niranjan', 'age': 22, 'course': 'Python'}
+```
+
+---
+
+# 14. Updating Multiple Values
+
+The `update()` method can be used to update or add multiple items.
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22
+}
+
+student.update({
+    "age": 23,
+    "course": "Python"
+})
+
+print(student)
+```
+
+Output:
+
+```text
+{'name': 'Niranjan', 'age': 23, 'course': 'Python'}
+```
+
+---
+
+# 15. Removing Items Using pop()
+
+The `pop()` method removes an item using its key.
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22,
+    "course": "Python"
+}
+
+student.pop("age")
+
+print(student)
+```
+
+Output:
+
+```text
+{'name': 'Niranjan', 'course': 'Python'}
+```
+
+---
+
+# 16. Removing the Last Inserted Item Using popitem()
+
+`popitem()` removes the last inserted key-value pair.
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22,
+    "course": "Python"
+}
+
+student.popitem()
+
+print(student)
+```
+
+Output:
+
+```text
+{'name': 'Niranjan', 'age': 22}
+```
+
+---
+
+# 17. Removing an Item Using del
+
+We can use `del` to remove a specific dictionary item.
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22,
+    "course": "Python"
+}
+
+del student["age"]
+
+print(student)
+```
+
+Output:
+
+```text
+{'name': 'Niranjan', 'course': 'Python'}
+```
+
+---
+
+# 18. Deleting the Entire Dictionary
+
+We can use `del` to delete the complete dictionary.
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22
+}
+
+del student
+```
+
+After this, the dictionary no longer exists.
+
+---
+
+# 19. Clearing a Dictionary
+
+The `clear()` method removes all items from a dictionary but keeps the dictionary itself.
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22
+}
+
+student.clear()
+
+print(student)
+```
+
+Output:
+
+```text
+{}
+```
+
+---
+
+# 20. Copying a Dictionary
+
+We can copy a dictionary using `copy()`.
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22
+}
+
+new_student = student.copy()
+
+print(new_student)
+```
+
+Output:
+
+```text
+{'name': 'Niranjan', 'age': 22}
+```
+
+### Why use copy()?
+
+It creates a separate dictionary.
+
+```python
+student = {
+    "name": "Niranjan"
+}
+
+new_student = student.copy()
+
+new_student["name"] = "Rahul"
+
+print(student)
+print(new_student)
+```
+
+Output:
+
+```text
+{'name': 'Niranjan'}
+{'name': 'Rahul'}
+```
+
+---
+
+# 21. Dictionary Keys Method
+
+The `keys()` method returns all dictionary keys.
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22,
+    "course": "Python"
+}
+
+print(student.keys())
+```
+
+Output:
+
+```text
+dict_keys(['name', 'age', 'course'])
+```
+
+We can convert them to a list:
+
+```python
+print(list(student.keys()))
+```
+
+Output:
+
+```text
+['name', 'age', 'course']
+```
+
+---
+
+# 22. Dictionary Values Method
+
+The `values()` method returns all values.
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22,
+    "course": "Python"
+}
+
+print(student.values())
+```
+
+Output:
+
+```text
+dict_values(['Niranjan', 22, 'Python'])
+```
+
+---
+
+# 23. Dictionary Items Method
+
+The `items()` method returns all key-value pairs.
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22,
+    "course": "Python"
+}
+
+print(student.items())
+```
+
+Output:
+
+```text
+dict_items([
+    ('name', 'Niranjan'),
+    ('age', 22),
+    ('course', 'Python')
+])
+```
+
+Each pair is represented as:
+
+```text
+(key, value)
+```
+
+---
+
+# 24. Looping Through a Dictionary
+
+We can use a `for` loop to iterate through a dictionary.
+
+### Loop through keys
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22,
+    "course": "Python"
+}
+
+for key in student:
+    print(key)
+```
+
+Output:
+
+```text
+name
+age
+course
+```
+
+---
+
+# 25. Looping Through Values
+
+We can use `values()`.
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22,
+    "course": "Python"
+}
+
+for value in student.values():
+    print(value)
+```
+
+Output:
+
+```text
+Niranjan
+22
+Python
+```
+
+---
+
+# 26. Looping Through Keys and Values
+
+We can use `items()`.
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22,
+    "course": "Python"
+}
+
+for key, value in student.items():
+    print(key, ":", value)
+```
+
+Output:
+
+```text
+name : Niranjan
+age : 22
+course : Python
+```
+
+### Real-world example
+
+Employee information:
+
+```python
+employee = {
+    "name": "Rahul",
+    "department": "Cybersecurity",
+    "experience": 2
+}
+
+for key, value in employee.items():
+    print(key, ":", value)
+```
+
+This is useful when displaying records from databases or APIs.
+
+---
+
+# 27. Nested Dictionaries
+
+A nested dictionary is a dictionary inside another dictionary.
+
+Example:
+
+```python
+company = {
+    "employee1": {
+        "name": "Niranjan",
+        "role": "Python Developer"
+    },
+    "employee2": {
+        "name": "Rahul",
+        "role": "Cybersecurity Analyst"
+    }
+}
+
+print(company["employee1"]["name"])
+```
+
+Output:
+
+```text
+Niranjan
+```
+
+Another example:
+
+```python
+print(company["employee2"]["role"])
+```
+
+Output:
+
+```text
+Cybersecurity Analyst
+```
+
+---
+
+# 28. Dictionary from Two Lists
+
+Python provides `zip()` to combine two lists.
+
+```python
+keys = ["name", "age", "course"]
+values = ["Niranjan", 22, "Python"]
+
+student = dict(zip(keys, values))
+
+print(student)
+```
+
+Output:
+
+```text
+{'name': 'Niranjan', 'age': 22, 'course': 'Python'}
+```
+
+---
+
+# 29. Creating Dictionary Using dict()
+
+We can create a dictionary using the `dict()` constructor.
+
+```python
+student = dict(
+    name="Niranjan",
+    age=22,
+    course="Python"
+)
+
+print(student)
+```
+
+Output:
+
+```text
+{'name': 'Niranjan', 'age': 22, 'course': 'Python'}
+```
+
+---
+
+# 30. Dictionary Comprehension
+
+Dictionary comprehension provides a short way to create dictionaries.
+
+Example:
+
+```python
+numbers = [1, 2, 3, 4, 5]
+
+squares = {x: x * x for x in numbers}
+
+print(squares)
+```
+
+Output:
+
+```text
+{1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+```
+
+### Real-world example
+
+Suppose we want to create a dictionary containing employee IDs and their salary:
+
+```python
+employees = [101, 102, 103]
+
+salary = {employee: 30000 for employee in employees}
+
+print(salary)
+```
+
+Output:
+
+```text
+{101: 30000, 102: 30000, 103: 30000}
+```
+
+---
+
+# 31. Dictionary Comprehension With Condition
+
+We can also use conditions.
+
+```python
+numbers = range(1, 11)
+
+even_numbers = {
+    x: x * x
+    for x in numbers
+    if x % 2 == 0
+}
+
+print(even_numbers)
+```
+
+Output:
+
+```text
+{2: 4, 4: 16, 6: 36, 8: 64, 10: 100}
+```
+
+---
+
+# 32. Checking Dictionary Type
+
+We can use `type()`.
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22
+}
+
+print(type(student))
+```
+
+Output:
+
+```text
+<class 'dict'>
+```
+
+---
+
+# 33. Dictionary With Boolean Values
+
+Dictionaries are useful for storing status information.
+
+```python
+user = {
+    "username": "niranjan",
+    "is_logged_in": True,
+    "is_admin": False
+}
+
+print(user["is_logged_in"])
+```
+
+Output:
+
+```text
+True
+```
+
+### Real-world cybersecurity example
+
+```python
+user = {
+    "username": "admin",
+    "login_success": True,
+    "account_locked": False
+}
+
+if user["login_success"] and not user["account_locked"]:
+    print("Login successful")
+else:
+    print("Access denied")
+```
+
+Output:
+
+```text
+Login successful
+```
+
+---
+
+# 34. Dictionary With Lists - Real-world Example
+
+Suppose an online shopping application stores product information.
+
+```python
+product = {
+    "name": "Laptop",
+    "price": 75000,
+    "brands": ["ASUS", "HP", "Dell"],
+    "available": True
+}
+
+print(product["name"])
+print(product["price"])
+print(product["brands"])
+```
+
+Output:
+
+```text
+Laptop
+75000
+['ASUS', 'HP', 'Dell']
+```
+
+---
+
+# 35. Dictionary for Student Management
+
+A dictionary can represent a student's complete record.
+
+```python
+student = {
+    "name": "Niranjan",
+    "roll_no": 101,
+    "course": "MCA",
+    "marks": {
+        "python": 85,
+        "linux": 80,
+        "networking": 88
+    }
+}
+
+print(student["name"])
+print(student["marks"]["python"])
+```
+
+Output:
+
+```text
+Niranjan
+85
+```
+
+This demonstrates how dictionaries can be nested to represent structured data.
+
+---
+
+# 36. Dictionary for Employee Management
+
+```python
+employee = {
+    "id": 1001,
+    "name": "Rahul",
+    "department": "Cybersecurity",
+    "salary": 45000,
+    "skills": ["Python", "Linux", "Networking"]
+}
+
+print(employee["name"])
+print(employee["department"])
+print(employee["skills"])
+```
+
+Output:
+
+```text
+Rahul
+Cybersecurity
+['Python', 'Linux', 'Networking']
+```
+
+---
+
+# 37. Dictionary for Product Management
+
+```python
+product = {
+    "product_id": 101,
+    "name": "Laptop",
+    "price": 65000,
+    "stock": 10
+}
+
+if product["stock"] > 0:
+    print("Product available")
+else:
+    print("Out of stock")
+```
+
+Output:
+
+```text
+Product available
+```
+
+---
+
+# 38. Dictionary for Login System
+
+```python
+users = {
+    "niranjan": "python123",
+    "rahul": "linux123"
+}
+
+username = "niranjan"
+password = "python123"
+
+if username in users and users[username] == password:
+    print("Login successful")
+else:
+    print("Invalid username or password")
+```
+
+Output:
+
+```text
+Login successful
+```
+
+NOTE:
+
+This is only a learning example. Real authentication systems should not store passwords as plain text.
+
+---
+
+# 39. Dictionary vs List
+
+## List
+
+Lists store values based on positions/indexes.
+
+```python
+student = ["Niranjan", 22, "MCA"]
+
+print(student[0])
+```
+
+Output:
+
+```text
+Niranjan
+```
+
+## Dictionary
+
+Dictionaries store values using meaningful keys.
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22,
+    "course": "MCA"
+}
+
+print(student["name"])
+```
+
+Output:
+
+```text
+Niranjan
+```
+
+Dictionary is often easier to understand because we can use meaningful names instead of numeric indexes.
+
+---
+
+# 40. Important Dictionary Methods
+
+| Method      | Purpose                        |
+| ----------- | ------------------------------ |
+| `get()`     | Gets a value                   |
+| `keys()`    | Returns all keys               |
+| `values()`  | Returns all values             |
+| `items()`   | Returns key-value pairs        |
+| `update()`  | Adds or updates items          |
+| `pop()`     | Removes an item using a key    |
+| `popitem()` | Removes the last inserted item |
+| `clear()`   | Removes all items              |
+| `copy()`    | Creates a copy                 |
+
+---
+
+# 41. Important Dictionary Characteristics
+
+Python dictionaries:
+
+* Store data as key-value pairs.
+* Are mutable.
+* Allow changing values.
+* Allow adding new items.
+* Allow removing items.
+* Do not allow duplicate keys.
+* Allow duplicate values.
+* Can contain different data types.
+* Can contain lists, tuples and other dictionaries as values.
+* Can be nested.
+* Can be looped through using `for`.
+* Keys must be hashable types such as strings, numbers, and tuples containing hashable values.
+
+Example:
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22,
+    "skills": ["Python", "Linux"]
+}
+```
+
+---
+
+# 42. Real-World Example - Online Shopping Cart
+
+```python
+cart = {
+    "laptop": 1,
+    "mouse": 2,
+    "keyboard": 1
+}
+
+for product, quantity in cart.items():
+    print(product, ":", quantity)
+```
+
+Output:
+
+```text
+laptop : 1
+mouse : 2
+keyboard : 1
+```
+
+A dictionary is useful here because the product name acts as the key and quantity acts as the value.
+
+---
+
+# 43. Real-World Example - Network Device
+
+Dictionaries are very useful when representing network device information.
+
+```python
+router = {
+    "hostname": "R1",
+    "ip_address": "192.168.1.1",
+    "status": "online",
+    "interfaces": 4
+}
+
+for key, value in router.items():
+    print(key, ":", value)
+```
+
+Output:
+
+```text
+hostname : R1
+ip_address : 192.168.1.1
+status : online
+interfaces : 4
+```
+
+---
+
+# 44. Real-World Example - Cybersecurity Alert
+
+A security alert can be represented using a dictionary.
+
+```python
+alert = {
+    "source_ip": "192.168.1.50",
+    "destination_ip": "10.0.0.5",
+    "port": 22,
+    "severity": "High",
+    "blocked": True
+}
+
+print("Source IP:", alert["source_ip"])
+print("Severity:", alert["severity"])
+print("Blocked:", alert["blocked"])
+```
+
+Output:
+
+```text
+Source IP: 192.168.1.50
+Severity: High
+Blocked: True
+```
+
+This demonstrates how dictionaries can represent structured cybersecurity data.
+
+---
+
+# 45. Practice Exercise 1
+
+Create a dictionary containing:
+
+```text
+name
+age
+city
+course
+```
+
+Print each value separately.
+
+Example:
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22,
+    "city": "Bengaluru",
+    "course": "MCA"
+}
+
+print(student["name"])
+print(student["age"])
+print(student["city"])
+print(student["course"])
+```
+
+---
+
+# 46. Practice Exercise 2
+
+Create an employee dictionary and update the salary.
+
+```python
+employee = {
+    "name": "Rahul",
+    "salary": 40000
+}
+
+employee["salary"] = 50000
+
+print(employee)
+```
+
+Expected output:
+
+```text
+{'name': 'Rahul', 'salary': 50000}
+```
+
+---
+
+# 47. Practice Exercise 3
+
+Create a dictionary containing five products and their prices.
+
+Example:
+
+```python
+products = {
+    "laptop": 70000,
+    "mouse": 1000,
+    "keyboard": 2000,
+    "monitor": 15000,
+    "headphones": 3000
+}
+
+for product, price in products.items():
+    print(product, ":", price)
+```
+
+---
+
+# 48. Practice Exercise 4
+
+Create a dictionary representing a bank account.
+
+Include:
+
+```text
+account holder
+account number
+balance
+account type
+```
+
+Then print the balance.
+
+---
+
+# 49. Practice Exercise 5
+
+Create a dictionary containing student marks.
+
+```python
+marks = {
+    "Python": 85,
+    "Linux": 80,
+    "Networking": 90
+}
+```
+
+Calculate the total marks.
+
+Hint:
+
+```python
+sum(marks.values())
+```
+
+---
+
+# 50. Practice Exercise 6
+
+Create a dictionary containing usernames and passwords.
+
+Then check whether a particular username exists.
+
+Example:
+
+```python
+users = {
+    "admin": "admin123",
+    "user1": "python123",
+    "user2": "linux123"
+}
+
+username = "user1"
+
+if username in users:
+    print("User exists")
+else:
+    print("User does not exist")
+```
+
+---
+
+# 51. Practice Exercise 7
+
+Create a dictionary containing numbers and their squares.
+
+Expected output:
+
+```text
+{1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+```
+
+Try solving it using dictionary comprehension.
+
+---
+
+# 52. Practice Exercise 8
+
+Create a nested dictionary for two employees.
+
+Each employee should have:
+
+```text
+name
+age
+department
+salary
+```
+
+Then print the department of the second employee.
+
+---
+
+# 53. Practice Exercise 9
+
+Create a product dictionary:
+
+```text
+name
+price
+stock
+```
+
+If stock is greater than zero, print:
+
+```text
+Product Available
+```
+
+Otherwise print:
+
+```text
+Out of Stock
+```
+
+---
+
+# 54. Practice Exercise 10 - Mini Project
+
+## Student Management System
+
+Create a dictionary for a student containing:
+
+```text
+name
+roll number
+course
+Python marks
+Linux marks
+Networking marks
+```
+
+Calculate:
+
+```text
+Total marks
+Average marks
+```
+
+Example:
+
+```python
+student = {
+    "name": "Niranjan",
+    "roll_no": 101,
+    "course": "MCA",
+    "marks": {
+        "Python": 85,
+        "Linux": 80,
+        "Networking": 90
+    }
+}
+
+total = sum(student["marks"].values())
+average = total / len(student["marks"])
+
+print("Name:", student["name"])
+print("Roll Number:", student["roll_no"])
+print("Course:", student["course"])
+print("Total Marks:", total)
+print("Average:", average)
+```
+
+Output:
+
+```text
+Name: Niranjan
+Roll Number: 101
+Course: MCA
+Total Marks: 255
+Average: 85.0
+```
+
+---
+
+# 55. Key Things I Learned Today
+
+Today I learned:
+
+1. What dictionaries are.
+2. Dictionary key-value pairs.
+3. Creating dictionaries.
+4. Accessing dictionary values.
+5. Using `get()`.
+6. Adding dictionary items.
+7. Updating dictionary items.
+8. Removing items using `pop()`.
+9. Removing items using `popitem()`.
+10. Using `del`.
+11. Using `clear()`.
+12. Copying dictionaries.
+13. Using `keys()`.
+14. Using `values()`.
+15. Using `items()`.
+16. Checking keys using `in`.
+17. Looping through dictionaries.
+18. Nested dictionaries.
+19. Dictionary comprehension.
+20. Using dictionaries with lists.
+21. Using dictionaries with Boolean values.
+22. Creating dictionaries using `dict()`.
+23. Creating dictionaries using `zip()`.
+24. Using dictionaries for real-world applications.
+25. Practicing student, employee, shopping, networking and cybersecurity examples.
+
+---
+
+# 56. Day 08 Summary
+
+A dictionary is one of the most important Python data structures because it allows us to store information using meaningful **key-value pairs**.
+
+Basic example:
+
+```python
+student = {
+    "name": "Niranjan",
+    "age": 22,
+    "course": "Python"
+}
+```
+
+Accessing data:
+
+```python
+print(student["name"])
+```
+
+Adding data:
+
+```python
+student["city"] = "Bengaluru"
+```
+
+Updating data:
+
+```python
+student["age"] = 23
+```
+
+Removing data:
+
+```python
+student.pop("age")
+```
+
+Looping:
+
+```python
+for key, value in student.items():
+    print(key, value)
+```
+
+Dictionaries are widely used in real-world Python applications such as:
+
+* Student management systems
+* Employee management systems
+* E-commerce applications
+* Banking applications
+* APIs
+* JSON data
+* Network configuration
+* Cybersecurity tools
+* Log analysis
+* Configuration files
+* Database records
+
+---
+
+# DAY 08 COMPLETE
+
+## Next Learning Goal
+
+After dictionaries, continue practicing by combining:
+
+```text
+Lists + Tuples + Sets + Dictionaries + Loops + Conditions
+```
+
+These data structures become much more powerful when they are used together in real-world Python programs.

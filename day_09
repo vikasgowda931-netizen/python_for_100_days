@@ -1,0 +1,1700 @@
+# 🐍 PYTHON LEARNING - DAY 09
+
+## Topic: IF, ELIF, ELSE Statements in Python
+
+Today I learned about **conditional statements in Python**.
+
+Conditional statements allow a program to make decisions based on whether a condition is `True` or `False`.
+
+---
+
+# 1. What is a Conditional Statement?
+
+A conditional statement allows Python to execute different blocks of code depending on a condition.
+
+### Real-world example
+
+Imagine an ATM.
+
+If the account has enough money:
+
+```text
+Withdraw money
+```
+
+Otherwise:
+
+```text
+Show "Insufficient balance"
+```
+
+Python can represent this decision using `if` and `else`.
+
+```python
+balance = 5000
+withdraw = 2000
+
+if withdraw <= balance:
+    print("Withdrawal successful")
+else:
+    print("Insufficient balance")
+```
+
+Output:
+
+```text
+Withdrawal successful
+```
+
+---
+
+# 2. Why Do We Use If-Else?
+
+Conditional statements are used whenever a program needs to make a decision.
+
+Examples:
+
+* Checking someone's age
+* Checking login credentials
+* Checking account balance
+* Checking whether a number is positive
+* Checking exam results
+* Checking whether a user is eligible
+* Checking whether a password is valid
+* Checking whether a product is available
+* Checking whether a file exists
+
+---
+
+# 3. Basic `if` Statement
+
+The `if` statement executes a block of code only when a condition is `True`.
+
+### Syntax
+
+```python
+if condition:
+    # code to execute
+```
+
+### Example
+
+```python
+age = 20
+
+if age >= 18:
+    print("You are an adult")
+```
+
+Output:
+
+```text
+You are an adult
+```
+
+The condition:
+
+```python
+age >= 18
+```
+
+is `True`, so Python executes the `print()` statement.
+
+---
+
+# 4. How an `if` Statement Works
+
+Example:
+
+```python
+age = 20
+
+if age >= 18:
+    print("Eligible")
+```
+
+Execution:
+
+```text
+age = 20
+    ↓
+age >= 18
+    ↓
+True
+    ↓
+Execute print()
+    ↓
+Eligible
+```
+
+If:
+
+```python
+age = 15
+```
+
+then:
+
+```text
+age >= 18
+    ↓
+False
+    ↓
+Do not execute the if block
+```
+
+---
+
+# 5. Indentation in If Statements
+
+Python uses indentation to identify the code belonging to a condition.
+
+Correct:
+
+```python
+age = 20
+
+if age >= 18:
+    print("Adult")
+```
+
+Incorrect:
+
+```python
+age = 20
+
+if age >= 18:
+print("Adult")
+```
+
+The second example produces an `IndentationError`.
+
+Usually, Python code uses **4 spaces** for indentation.
+
+---
+
+# 6. The `else` Statement
+
+The `else` block executes when the `if` condition is `False`.
+
+### Syntax
+
+```python
+if condition:
+    # True block
+else:
+    # False block
+```
+
+### Example
+
+```python
+age = 16
+
+if age >= 18:
+    print("You can vote")
+else:
+    print("You cannot vote")
+```
+
+Output:
+
+```text
+You cannot vote
+```
+
+### Real-world example
+
+A voting system can check whether a person meets the required age.
+
+```text
+Age >= required age
+       |
+    +--+--+
+    |     |
+   Yes    No
+    |     |
+Eligible  Not eligible
+```
+
+---
+
+# 7. `if` Without `else`
+
+An `else` is not always required.
+
+```python
+temperature = 35
+
+if temperature > 30:
+    print("It is hot")
+```
+
+Output:
+
+```text
+It is hot
+```
+
+If the condition is false, Python simply skips the `if` block.
+
+---
+
+# 8. Comparing Values With `if`
+
+You can use comparison operators inside conditions.
+
+Important operators:
+
+```text
+>      Greater than
+<      Less than
+>=     Greater than or equal to
+<=     Less than or equal to
+==     Equal to
+!=     Not equal to
+```
+
+Example:
+
+```python
+age = 21
+
+if age >= 18:
+    print("Adult")
+```
+
+---
+
+# 9. Using `==`
+
+`==` checks whether two values are equal.
+
+```python
+password = "python123"
+
+if password == "python123":
+    print("Correct password")
+```
+
+Output:
+
+```text
+Correct password
+```
+
+### Important
+
+Do not confuse:
+
+```python
+=
+```
+
+with:
+
+```python
+==
+```
+
+`=` assigns a value:
+
+```python
+age = 20
+```
+
+`==` compares values:
+
+```python
+age == 20
+```
+
+---
+
+# 10. Using `!=`
+
+`!=` means "not equal to".
+
+```python
+password = "hello"
+
+if password != "python123":
+    print("Incorrect password")
+```
+
+Output:
+
+```text
+Incorrect password
+```
+
+### Real-world example
+
+A security system could check whether the entered password differs from the expected password.
+
+---
+
+# 11. Using `>` Greater Than
+
+```python
+marks = 85
+
+if marks > 50:
+    print("Passed")
+```
+
+Output:
+
+```text
+Passed
+```
+
+### Real-world example
+
+A bank might check whether a customer has enough balance:
+
+```python
+balance = 10000
+minimum_balance = 5000
+
+if balance > minimum_balance:
+    print("Account balance is sufficient")
+```
+
+---
+
+# 12. Using `<` Less Than
+
+```python
+age = 15
+
+if age < 18:
+    print("Minor")
+```
+
+Output:
+
+```text
+Minor
+```
+
+### Real-world example
+
+A system could check whether a user is below the minimum age requirement.
+
+---
+
+# 13. Using `>=`
+
+`>=` means greater than or equal to.
+
+```python
+marks = 40
+
+if marks >= 40:
+    print("Pass")
+```
+
+Output:
+
+```text
+Pass
+```
+
+This is useful when the boundary value is also accepted.
+
+---
+
+# 14. Using `<=`
+
+`<=` means less than or equal to.
+
+```python
+age = 18
+
+if age <= 18:
+    print("Age is 18 or below")
+```
+
+Output:
+
+```text
+Age is 18 or below
+```
+
+---
+
+# 15. Multiple Conditions Using `and`
+
+The `and` operator requires **all conditions to be True**.
+
+```python
+age = 25
+has_id = True
+
+if age >= 18 and has_id:
+    print("Entry allowed")
+```
+
+Output:
+
+```text
+Entry allowed
+```
+
+### Real-world example
+
+At an airport:
+
+```text
+Age requirement satisfied
+        AND
+Valid ID available
+        ↓
+   Entry allowed
+```
+
+Python:
+
+```python
+age = 25
+has_id = True
+
+if age >= 18 and has_id:
+    print("Entry allowed")
+else:
+    print("Entry denied")
+```
+
+---
+
+# 16. Multiple Conditions Using `or`
+
+The `or` operator requires **at least one condition to be True**.
+
+```python
+day = "Saturday"
+
+if day == "Saturday" or day == "Sunday":
+    print("Weekend")
+```
+
+Output:
+
+```text
+Weekend
+```
+
+### Real-world example
+
+A shop may be open on either Saturday or Sunday.
+
+```python
+day = "Sunday"
+
+if day == "Saturday" or day == "Sunday":
+    print("Shop is open")
+```
+
+---
+
+# 17. The `not` Operator
+
+`not` reverses a Boolean condition.
+
+Example:
+
+```python
+logged_in = False
+
+if not logged_in:
+    print("Please login")
+```
+
+Output:
+
+```text
+Please login
+```
+
+Because:
+
+```text
+logged_in = False
+not False = True
+```
+
+### Real-world example
+
+```python
+account_locked = False
+
+if not account_locked:
+    print("Account can be accessed")
+```
+
+---
+
+# 18. Combining `and`, `or`, and `not`
+
+Python allows you to combine logical operators.
+
+```python
+age = 25
+has_id = True
+blocked = False
+
+if age >= 18 and has_id and not blocked:
+    print("Access granted")
+else:
+    print("Access denied")
+```
+
+Output:
+
+```text
+Access granted
+```
+
+---
+
+# 19. `if-elif-else`
+
+Sometimes there are more than two possibilities.
+
+For this, Python provides `elif`.
+
+### Syntax
+
+```python
+if condition1:
+    # code
+elif condition2:
+    # code
+else:
+    # code
+```
+
+Example:
+
+```python
+marks = 75
+
+if marks >= 90:
+    print("Grade A+")
+elif marks >= 75:
+    print("Grade A")
+elif marks >= 60:
+    print("Grade B")
+else:
+    print("Needs improvement")
+```
+
+Output:
+
+```text
+Grade A
+```
+
+---
+
+# 20. How `if-elif-else` Works
+
+Python checks conditions from **top to bottom**.
+
+```text
+Condition 1?
+    |
+    +-- True → Execute it and stop
+    |
+    +-- False
+          ↓
+      Condition 2?
+          |
+          +-- True → Execute it and stop
+          |
+          +-- False
+                ↓
+            Check next condition
+                ↓
+              else
+```
+
+Only the first matching branch is executed.
+
+---
+
+# 21. Real-World Example — Exam Grades
+
+```python
+marks = 82
+
+if marks >= 90:
+    grade = "A+"
+elif marks >= 80:
+    grade = "A"
+elif marks >= 70:
+    grade = "B"
+elif marks >= 60:
+    grade = "C"
+elif marks >= 40:
+    grade = "D"
+else:
+    grade = "F"
+
+print("Grade:", grade)
+```
+
+Output:
+
+```text
+Grade: A
+```
+
+---
+
+# 22. Real-World Example — ATM
+
+```python
+balance = 5000
+withdrawal = 6000
+
+if withdrawal <= 0:
+    print("Invalid amount")
+elif withdrawal <= balance:
+    balance -= withdrawal
+    print("Withdrawal successful")
+    print("Remaining balance:", balance)
+else:
+    print("Insufficient balance")
+```
+
+Output:
+
+```text
+Insufficient balance
+```
+
+This is a practical example of:
+
+* `if`
+* `elif`
+* `else`
+* Comparison operators
+* Variables
+
+---
+
+# 23. Nested `if`
+
+An `if` statement can exist inside another `if` statement.
+
+This is called a **nested if**.
+
+```python
+age = 25
+has_id = True
+
+if age >= 18:
+    if has_id:
+        print("Entry allowed")
+    else:
+        print("ID required")
+else:
+    print("You are underage")
+```
+
+### Real-world example
+
+Imagine entering a restricted building:
+
+```text
+Age check
+   ↓
+18 or older?
+   ↓
+   Yes
+   ↓
+ID check
+   ↓
+Valid ID?
+   ↓
+   Yes
+   ↓
+Entry allowed
+```
+
+---
+
+# 24. Nested `if` With Login
+
+```python
+username = "admin"
+password = "python123"
+
+if username == "admin":
+    if password == "python123":
+        print("Login successful")
+    else:
+        print("Incorrect password")
+else:
+    print("Unknown username")
+```
+
+Output:
+
+```text
+Login successful
+```
+
+In real applications, authentication should use secure password handling rather than hard-coded passwords.
+
+---
+
+# 25. `if` With User Input
+
+Conditional statements become more useful when combined with `input()`.
+
+```python
+age = int(input("Enter your age: "))
+
+if age >= 18:
+    print("You are eligible")
+else:
+    print("You are not eligible")
+```
+
+Example:
+
+```text
+Enter your age: 20
+You are eligible
+```
+
+---
+
+# 26. Real-World Example — Electricity Bill
+
+```python
+units = int(input("Enter electricity units: "))
+
+if units <= 100:
+    bill = units * 2
+elif units <= 200:
+    bill = units * 3
+else:
+    bill = units * 5
+
+print("Electricity bill:", bill)
+```
+
+The program chooses a different calculation depending on the number of units.
+
+---
+
+# 27. Real-World Example — Shopping Discount
+
+```python
+amount = float(input("Enter shopping amount: "))
+
+if amount >= 5000:
+    discount = amount * 0.20
+elif amount >= 2000:
+    discount = amount * 0.10
+elif amount >= 1000:
+    discount = amount * 0.05
+else:
+    discount = 0
+
+final_amount = amount - discount
+
+print("Discount:", discount)
+print("Final amount:", final_amount)
+```
+
+Example:
+
+```text
+Enter shopping amount: 5000
+Discount: 1000.0
+Final amount: 4000.0
+```
+
+---
+
+# 28. Checking Even or Odd
+
+The modulo operator `%` is very useful with conditions.
+
+```python
+number = 10
+
+if number % 2 == 0:
+    print("Even number")
+else:
+    print("Odd number")
+```
+
+Output:
+
+```text
+Even number
+```
+
+Why?
+
+```text
+10 % 2 = 0
+```
+
+Therefore the number is even.
+
+---
+
+# 29. Checking Positive, Negative, or Zero
+
+```python
+number = -5
+
+if number > 0:
+    print("Positive")
+elif number < 0:
+    print("Negative")
+else:
+    print("Zero")
+```
+
+Output:
+
+```text
+Negative
+```
+
+---
+
+# 30. Checking a Number Range
+
+```python
+age = 25
+
+if 18 <= age <= 60:
+    print("Working-age group")
+else:
+    print("Outside working-age range")
+```
+
+Python supports chained comparisons like:
+
+```python
+18 <= age <= 60
+```
+
+which means:
+
+```python
+18 <= age and age <= 60
+```
+
+---
+
+# 31. Checking Membership With `in`
+
+You can use `in` inside conditions.
+
+```python
+languages = ["Python", "Java", "C"]
+
+if "Python" in languages:
+    print("Python is available")
+```
+
+Output:
+
+```text
+Python is available
+```
+
+### Real-world example
+
+Checking whether a product exists in stock:
+
+```python
+products = ["Laptop", "Mouse", "Keyboard"]
+
+if "Laptop" in products:
+    print("Laptop is available")
+else:
+    print("Laptop is unavailable")
+```
+
+---
+
+# 32. Checking Strings
+
+```python
+username = "admin"
+
+if username == "admin":
+    print("Administrator account")
+else:
+    print("Normal user")
+```
+
+---
+
+# 33. Checking Empty Values
+
+Python allows you to test whether something is considered "truthy" or "falsy".
+
+Example:
+
+```python
+username = ""
+
+if username:
+    print("Username entered")
+else:
+    print("Username is empty")
+```
+
+Output:
+
+```text
+Username is empty
+```
+
+An empty string is considered `False` in a Boolean context.
+
+---
+
+# 34. Truthy and Falsy Values
+
+Common falsy values include:
+
+```python
+False
+None
+0
+0.0
+""
+[]
+{}
+()
+```
+
+Example:
+
+```python
+items = []
+
+if items:
+    print("Items are available")
+else:
+    print("No items available")
+```
+
+Output:
+
+```text
+No items available
+```
+
+---
+
+# 35. Comparing Boolean Values
+
+You generally don't need to write:
+
+```python
+logged_in = True
+
+if logged_in == True:
+    print("Welcome")
+```
+
+A cleaner approach is:
+
+```python
+logged_in = True
+
+if logged_in:
+    print("Welcome")
+```
+
+For a false condition:
+
+```python
+logged_in = False
+
+if not logged_in:
+    print("Please login")
+```
+
+---
+
+# 36. Conditional Expression
+
+Python supports a short form of `if-else`.
+
+Example:
+
+```python
+age = 20
+
+status = "Adult" if age >= 18 else "Minor"
+
+print(status)
+```
+
+Output:
+
+```text
+Adult
+```
+
+The general syntax is:
+
+```python
+value_if_true if condition else value_if_false
+```
+
+This is useful for simple conditions.
+
+For complicated logic, normal `if-else` is usually easier to read.
+
+---
+
+# 37. `if` With Functions
+
+Conditions and functions can work together.
+
+```python
+def check_age(age):
+    if age >= 18:
+        return "Eligible"
+    else:
+        return "Not eligible"
+
+result = check_age(21)
+
+print(result)
+```
+
+Output:
+
+```text
+Eligible
+```
+
+---
+
+# 38. Real-World Login Validation
+
+Here's a slightly more complete example:
+
+```python
+def login(username, password):
+
+    if username == "admin" and password == "python123":
+        return "Login successful"
+    else:
+        return "Invalid credentials"
+
+username = input("Username: ")
+password = input("Password: ")
+
+print(login(username, password))
+```
+
+This demonstrates:
+
+```text
+Function
+   +
+Input
+   +
+if-else
+   +
+and
+   +
+Comparison
+   =
+Simple login program
+```
+
+Again, this is only a learning example; production authentication should use secure credential storage and authentication libraries.
+
+---
+
+# 39. Common Mistake — Using `=` Instead of `==`
+
+Wrong:
+
+```python
+age = 18
+
+if age = 18:
+    print("Age is 18")
+```
+
+Correct:
+
+```python
+age = 18
+
+if age == 18:
+    print("Age is 18")
+```
+
+Remember:
+
+```text
+=   → Assignment
+==  → Comparison
+```
+
+---
+
+# 40. Common Mistake — Forgetting `:`
+
+Wrong:
+
+```python
+if age >= 18
+    print("Adult")
+```
+
+Correct:
+
+```python
+if age >= 18:
+    print("Adult")
+```
+
+Python requires `:` after the condition.
+
+---
+
+# 41. Common Mistake — Incorrect Indentation
+
+Wrong:
+
+```python
+if age >= 18:
+print("Adult")
+```
+
+Correct:
+
+```python
+if age >= 18:
+    print("Adult")
+```
+
+---
+
+# 42. Common Mistake — Wrong `elif` Order
+
+Consider:
+
+```python
+marks = 95
+
+if marks >= 40:
+    print("Pass")
+elif marks >= 90:
+    print("A+")
+```
+
+Output:
+
+```text
+Pass
+```
+
+Why?
+
+Because `95 >= 40` is already `True`.
+
+Python stops checking after the first matching condition.
+
+Correct ordering:
+
+```python
+marks = 95
+
+if marks >= 90:
+    print("A+")
+elif marks >= 40:
+    print("Pass")
+else:
+    print("Fail")
+```
+
+Output:
+
+```text
+A+
+```
+
+---
+
+# 43. Real-World Example — Network Access
+
+Since I'm learning cybersecurity, here's a useful example.
+
+```python
+user_role = "admin"
+account_locked = False
+
+if user_role == "admin" and not account_locked:
+    print("Administrative access granted")
+else:
+    print("Access denied")
+```
+
+Output:
+
+```text
+Administrative access granted
+```
+
+This demonstrates how conditional logic can be used for access-control decisions.
+
+In real security systems, access control is much more complex and should not rely on a simple hard-coded condition.
+
+---
+
+# 44. Real-World Example — File Security
+
+Suppose we want to check whether a file has a safe extension:
+
+```python
+filename = "report.pdf"
+
+if filename.endswith(".pdf"):
+    print("PDF file")
+else:
+    print("Other file type")
+```
+
+Output:
+
+```text
+PDF file
+```
+
+---
+
+# 45. Real-World Example — Temperature
+
+```python
+temperature = 38
+
+if temperature >= 40:
+    print("Very hot")
+elif temperature >= 30:
+    print("Hot")
+elif temperature >= 20:
+    print("Normal")
+else:
+    print("Cold")
+```
+
+Output:
+
+```text
+Hot
+```
+
+---
+
+# 46. Real-World Example — Traffic Signal
+
+```python
+signal = "red"
+
+if signal == "red":
+    print("Stop")
+elif signal == "yellow":
+    print("Get ready")
+elif signal == "green":
+    print("Go")
+else:
+    print("Invalid signal")
+```
+
+Output:
+
+```text
+Stop
+```
+
+---
+
+# 47. Real-World Example — Password Length
+
+```python
+password = "python123"
+
+if len(password) >= 8:
+    print("Password length is acceptable")
+else:
+    print("Password is too short")
+```
+
+Output:
+
+```text
+Password length is acceptable
+```
+
+For real security systems, password strength requires more than simply checking length.
+
+---
+
+# 48. Real-World Example — Student Result
+
+```python
+marks = 72
+attendance = 85
+
+if marks >= 40 and attendance >= 75:
+    print("Student passed")
+else:
+    print("Student failed")
+```
+
+Output:
+
+```text
+Student passed
+```
+
+Here both conditions must be true.
+
+---
+
+# 49. Complete Mini Project — Simple ATM
+
+```python
+balance = 10000
+
+print("1. Check Balance")
+print("2. Deposit")
+print("3. Withdraw")
+
+choice = int(input("Enter your choice: "))
+
+if choice == 1:
+    print("Balance:", balance)
+
+elif choice == 2:
+    amount = float(input("Enter deposit amount: "))
+
+    if amount > 0:
+        balance += amount
+        print("Deposit successful")
+        print("New balance:", balance)
+    else:
+        print("Invalid amount")
+
+elif choice == 3:
+    amount = float(input("Enter withdrawal amount: "))
+
+    if amount <= 0:
+        print("Invalid amount")
+    elif amount <= balance:
+        balance -= amount
+        print("Withdrawal successful")
+        print("Remaining balance:", balance)
+    else:
+        print("Insufficient balance")
+
+else:
+    print("Invalid choice")
+```
+
+This small program combines:
+
+```text
+if
+elif
+else
+nested if
+comparison operators
+and conditions
+input()
+type conversion
+variables
+```
+
+---
+
+# 50. Practice Exercises
+
+## Exercise 1 — Even or Odd
+
+Write a program that accepts a number and checks whether it is:
+
+```text
+Even
+Odd
+```
+
+Example:
+
+```text
+Enter number: 7
+Odd
+```
+
+---
+
+## Exercise 2 — Positive, Negative, Zero
+
+Create a program that checks whether a number is:
+
+```text
+Positive
+Negative
+Zero
+```
+
+---
+
+## Exercise 3 — Voting Eligibility
+
+Ask the user for their age.
+
+If the age meets the legal requirement, print:
+
+```text
+Eligible to vote
+```
+
+Otherwise:
+
+```text
+Not eligible to vote
+```
+
+---
+
+## Exercise 4 — Student Grade
+
+Input marks and display:
+
+```text
+90+   → A+
+80+   → A
+70+   → B
+60+   → C
+40+   → D
+Below 40 → F
+```
+
+---
+
+## Exercise 5 — Login
+
+Ask for:
+
+```text
+Username
+Password
+```
+
+Check whether both credentials match your test values.
+
+---
+
+## Exercise 6 — ATM Withdrawal
+
+Create a program that:
+
+1. Stores a balance.
+2. Takes withdrawal amount.
+3. Checks whether the amount is positive.
+4. Checks whether sufficient balance exists.
+5. Updates the balance.
+
+---
+
+## Exercise 7 — Largest Number
+
+Take three numbers and determine the largest.
+
+Example:
+
+```text
+Enter first number: 10
+Enter second number: 25
+Enter third number: 15
+
+Largest: 25
+```
+
+---
+
+## Exercise 8 — Leap Year
+
+Write a program that checks whether a year is a leap year.
+
+Test it with:
+
+```text
+2024
+2025
+```
+
+---
+
+## Exercise 9 — Shopping Discount
+
+Create a program:
+
+```text
+₹5000 or more → 20% discount
+₹2000 or more → 10% discount
+₹1000 or more → 5% discount
+Below ₹1000   → No discount
+```
+
+Calculate the final price.
+
+---
+
+## Exercise 10 — Number Guessing
+
+Store a secret number:
+
+```python
+secret = 25
+```
+
+Ask the user to enter a number.
+
+Display:
+
+```text
+Correct
+Too high
+Too low
+```
+
+---
+
+# 🧠 Quick Revision
+
+## Basic `if`
+
+```python
+if condition:
+    statement
+```
+
+## `if-else`
+
+```python
+if condition:
+    statement
+else:
+    statement
+```
+
+## `if-elif-else`
+
+```python
+if condition1:
+    statement
+elif condition2:
+    statement
+else:
+    statement
+```
+
+## Logical operators
+
+```text
+and → All conditions must be True
+or  → At least one condition must be True
+not → Reverses the condition
+```
+
+## Comparison operators
+
+```text
+>    Greater than
+<    Less than
+>=   Greater than or equal to
+<=   Less than or equal to
+==   Equal to
+!=   Not equal to
+```
+
+---
+
+# 🎯 Day 09 Key Takeaway
+
+The main purpose of conditional statements is **decision making**.
+
+A Python program can follow different paths depending on the data it receives:
+
+```text
+                Condition
+                    |
+          +---------+---------+
+          |                   |
+        True                False
+          |                   |
+       if block            else block
+```
+
+When there are multiple possibilities:
+
+```text
+        if
+         ↓
+       elif
+         ↓
+       elif
+         ↓
+       else
+```
+
+Conditional statements are the foundation for building real programs such as:
+
+```text
+ATM systems
+Login systems
+Shopping applications
+Student management systems
+Banking applications
+Access-control systems
+Games
+Automation scripts
+Cybersecurity tools
+```
+
+### ⭐ Most Important Concepts Learned Today
+
+```text
+1. if statement
+2. else statement
+3. elif statement
+4. Nested if
+5. Comparison operators
+6. Logical operators
+7. and
+8. or
+9. not
+10. Truthy and falsy values
+11. Conditional expressions
+12. if with input()
+13. if with functions
+14. if with lists and strings
+15. Real-world decision-making
+```
+
+**Day 09 completed! 🐍🔥**

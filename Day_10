@@ -1,0 +1,383 @@
+Python For Loop
+
+📌 Introduction
+
+A "for" loop in Python is used to iterate (repeat) a block of code for each item in a sequence or collection.
+
+It is commonly used with:
+
+- Lists
+- Tuples
+- Strings
+- Dictionaries
+- Sets
+- "range()"
+- Other iterable objects
+
+Basic Syntax
+
+for variable in sequence:
+    # code to execute
+
+The loop takes each element from the sequence one by one and executes the code inside the loop.
+
+---
+
+1. Simple For Loop
+
+for i in range(5):
+    print(i)
+
+Output
+
+0
+1
+2
+3
+4
+
+"range(5)" generates numbers from "0" to "4".
+
+---
+
+2. Using For Loop with a List
+
+fruits = ["apple", "banana", "mango"]
+
+for fruit in fruits:
+    print(fruit)
+
+Output
+
+apple
+banana
+mango
+
+The loop accesses each item in the list one at a time.
+
+---
+
+3. Using For Loop with a String
+
+A string is also iterable.
+
+name = "Vikas"
+
+for character in name:
+    print(character)
+
+Output
+
+V
+i
+k
+a
+s
+
+This is useful when we need to process characters individually.
+
+---
+
+4. Using "range()"
+
+The "range()" function is commonly used with "for" loops.
+
+Example
+
+for i in range(1, 6):
+    print(i)
+
+Output
+
+1
+2
+3
+4
+5
+
+Syntax
+
+range(start, stop, step)
+
+- "start" → starting value
+- "stop" → ending limit (not included)
+- "step" → amount by which the value increases/decreases
+
+---
+
+5. Using Step
+
+for i in range(0, 10, 2):
+    print(i)
+
+Output
+
+0
+2
+4
+6
+8
+
+Here, the value increases by "2" each time.
+
+---
+
+6. Reverse For Loop
+
+We can use a negative step to count backwards.
+
+for i in range(5, 0, -1):
+    print(i)
+
+Output
+
+5
+4
+3
+2
+1
+
+---
+
+7. For Loop with "if" Condition
+
+A "for" loop can be combined with an "if" statement.
+
+for i in range(1, 11):
+    if i % 2 == 0:
+        print(i)
+
+Output
+
+2
+4
+6
+8
+10
+
+This program prints only even numbers.
+
+---
+
+8. Using "break"
+
+The "break" statement immediately terminates the loop.
+
+for i in range(1, 10):
+    if i == 5:
+        break
+    print(i)
+
+Output
+
+1
+2
+3
+4
+
+When "i" becomes "5", the loop stops.
+
+---
+
+9. Using "continue"
+
+The "continue" statement skips the current iteration and moves to the next one.
+
+for i in range(1, 6):
+    if i == 3:
+        continue
+    print(i)
+
+Output
+
+1
+2
+4
+5
+
+The number "3" is skipped.
+
+---
+
+10. Using "else" with For Loop
+
+Python allows an "else" block with a "for" loop.
+
+for i in range(5):
+    print(i)
+else:
+    print("Loop completed")
+
+Output
+
+0
+1
+2
+3
+4
+Loop completed
+
+The "else" block executes when the loop finishes normally.
+
+---
+
+11. For Loop with a Dictionary
+
+student = {
+    "name": "Vikas",
+    "course": "Cybersecurity",
+    "language": "Python"
+}
+
+for key, value in student.items():
+    print(key, ":", value)
+
+Output
+
+name : Vikas
+course : Cybersecurity
+language : Python
+
+---
+
+12. Nested For Loop
+
+A "for" loop can be placed inside another "for" loop.
+
+for i in range(1, 4):
+    for j in range(1, 4):
+        print(i, j)
+
+Output
+
+1 1
+1 2
+1 3
+2 1
+2 2
+2 3
+3 1
+3 2
+3 3
+
+This is called a nested loop.
+
+---
+
+🔐 For Loops in Cybersecurity
+
+For loops are extremely useful in cybersecurity because security tools often need to process many items automatically.
+
+For example, a loop can be used to:
+
+- Process multiple IP addresses
+- Analyze multiple files
+- Check multiple ports
+- Process log entries
+- Search for suspicious strings
+- Analyze lists of usernames
+- Process security alerts
+- Perform repetitive data analysis
+
+Example: Processing IP Addresses
+
+ip_addresses = [
+    "192.168.1.10",
+    "192.168.1.20",
+    "192.168.1.30"
+]
+
+for ip in ip_addresses:
+    print("Checking IP:", ip)
+
+Output
+
+Checking IP: 192.168.1.10
+Checking IP: 192.168.1.20
+Checking IP: 192.168.1.30
+
+This demonstrates how the same operation can be performed on multiple items.
+
+---
+
+📝 Practice Programs
+
+Program 1: Print numbers from 1 to 10
+
+for i in range(1, 11):
+    print(i)
+
+Program 2: Print even numbers
+
+for i in range(1, 21):
+    if i % 2 == 0:
+        print(i)
+
+Program 3: Calculate the sum of numbers
+
+total = 0
+
+for i in range(1, 11):
+    total = total + i
+
+print("Sum:", total)
+
+Output
+
+Sum: 55
+
+Program 4: Multiplication table
+
+number = 5
+
+for i in range(1, 11):
+    print(number, "x", i, "=", number * i)
+
+Output
+
+5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+...
+5 x 10 = 50
+
+---
+
+💡 Key Points
+
+- "for" loops are used for iteration.
+- "range()" is commonly used for generating numbers.
+- Python "for" loops can iterate through strings, lists, tuples, dictionaries, sets, and other iterable objects.
+- "break" stops the loop completely.
+- "continue" skips the current iteration.
+- A "for" loop can have an "else" block.
+- A loop inside another loop is called a nested loop.
+- Loops are important for automation and cybersecurity scripting.
+
+---
+
+🎯 What I Learned
+
+After learning Python "for" loops, I understand how to:
+
+- Iterate through collections.
+- Use "range()" with different start, stop, and step values.
+- Use "if" conditions inside loops.
+- Use "break" and "continue".
+- Work with nested loops.
+- Iterate through dictionaries.
+- Apply loops to basic cybersecurity-related tasks.
+
+🚀 Next Step
+
+Next, I will practice while loops, followed by more Python concepts such as:
+
+1. Lists
+2. Tuples
+3. Dictionaries
+4. Functions
+5. Exception Handling
+6. File Handling
+7. Modules
+8. Regular Expressions
+9. Python for Cybersecurity Automation

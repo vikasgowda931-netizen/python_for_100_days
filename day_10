@@ -1,0 +1,1819 @@
+# PYTHON LEARNING - DAY 10
+
+## Topics Covered
+
+1. Python Match Statement
+2. Python For Loop
+3. Python While Loop
+4. Loop Control Statements
+5. Real-World Examples
+6. Practice Exercises
+
+---
+
+# 1. PYTHON MATCH STATEMENT
+
+## What is a Match Statement?
+
+The `match` statement is used to compare a value against multiple possible patterns.
+
+It is similar to `switch` statements found in languages such as Java, C, and C++.
+
+Python introduced the `match` statement in Python 3.10.
+
+Instead of writing many `if`, `elif`, and `else` statements, we can sometimes use `match` to make the code easier to read.
+
+### Basic Syntax
+
+```python
+match variable:
+    case value1:
+        # code
+    case value2:
+        # code
+    case value3:
+        # code
+    case _:
+        # default code
+```
+
+The `_` is used as a default case.
+
+---
+
+# 2. Simple Match Example
+
+```python
+day = 1
+
+match day:
+    case 1:
+        print("Monday")
+    case 2:
+        print("Tuesday")
+    case 3:
+        print("Wednesday")
+    case 4:
+        print("Thursday")
+    case 5:
+        print("Friday")
+    case 6:
+        print("Saturday")
+    case 7:
+        print("Sunday")
+    case _:
+        print("Invalid day")
+```
+
+### Output
+
+```text
+Monday
+```
+
+### Explanation
+
+Python checks the value of `day`.
+
+Since:
+
+```python
+day = 1
+```
+
+Python matches:
+
+```python
+case 1:
+```
+
+Therefore:
+
+```text
+Monday
+```
+
+is printed.
+
+---
+
+# 3. Match Statement with User Input
+
+```python
+choice = int(input("Enter your choice: "))
+
+match choice:
+    case 1:
+        print("Add User")
+    case 2:
+        print("Delete User")
+    case 3:
+        print("View User")
+    case 4:
+        print("Exit")
+    case _:
+        print("Invalid choice")
+```
+
+### Real-World Example
+
+Imagine an administration system.
+
+The administrator sees:
+
+```text
+1. Add User
+2. Delete User
+3. View User
+4. Exit
+```
+
+The selected number can be processed using `match`.
+
+---
+
+# 4. Match Statement with Strings
+
+```python
+command = "start"
+
+match command:
+    case "start":
+        print("Starting server...")
+    case "stop":
+        print("Stopping server...")
+    case "restart":
+        print("Restarting server...")
+    case _:
+        print("Unknown command")
+```
+
+### Output
+
+```text
+Starting server...
+```
+
+### Real-World Use
+
+This type of logic can be used in:
+
+* Server management
+* Network tools
+* Command-line applications
+* Menu systems
+* Security tools
+* Automation scripts
+
+---
+
+# 5. Multiple Values in Match
+
+We can use `|` to match multiple values.
+
+```python
+day = "Saturday"
+
+match day:
+    case "Saturday" | "Sunday":
+        print("Weekend")
+    case "Monday" | "Tuesday" | "Wednesday" | "Thursday" | "Friday":
+        print("Weekday")
+    case _:
+        print("Invalid day")
+```
+
+### Output
+
+```text
+Weekend
+```
+
+Here:
+
+```python
+case "Saturday" | "Sunday":
+```
+
+means either `"Saturday"` OR `"Sunday"`.
+
+---
+
+# 6. Match with Conditions
+
+We can use `if` as a guard inside a `case`.
+
+```python
+age = 25
+
+match age:
+    case age if age < 13:
+        print("Child")
+    case age if age < 18:
+        print("Teenager")
+    case age if age >= 18:
+        print("Adult")
+```
+
+### Output
+
+```text
+Adult
+```
+
+---
+
+# 7. Match with Multiple Conditions
+
+```python
+marks = 85
+
+match marks:
+    case marks if marks >= 90:
+        print("Grade A+")
+    case marks if marks >= 80:
+        print("Grade A")
+    case marks if marks >= 70:
+        print("Grade B")
+    case marks if marks >= 60:
+        print("Grade C")
+    case _:
+        print("Fail")
+```
+
+### Output
+
+```text
+Grade A
+```
+
+---
+
+# 8. Why Use Match?
+
+`match` can make code easier to understand when you have many fixed choices or patterns.
+
+### Without Match
+
+```python
+command = "start"
+
+if command == "start":
+    print("Starting...")
+elif command == "stop":
+    print("Stopping...")
+elif command == "restart":
+    print("Restarting...")
+else:
+    print("Unknown command")
+```
+
+### With Match
+
+```python
+command = "start"
+
+match command:
+    case "start":
+        print("Starting...")
+    case "stop":
+        print("Stopping...")
+    case "restart":
+        print("Restarting...")
+    case _:
+        print("Unknown command")
+```
+
+Both can solve the same problem.
+
+---
+
+# 9. Important Match Concepts
+
+### `case`
+
+Defines a pattern that Python should check.
+
+```python
+case 1:
+```
+
+### `_`
+
+Acts as the default case.
+
+```python
+case _:
+    print("Invalid")
+```
+
+### `|`
+
+Matches multiple alternatives.
+
+```python
+case "yes" | "y":
+```
+
+### `if`
+
+Adds a condition to a case.
+
+```python
+case x if x > 10:
+```
+
+---
+
+# 10. PYTHON FOR LOOP
+
+## What is a For Loop?
+
+A `for` loop is used to execute a block of code repeatedly for each item in a sequence or iterable.
+
+For example:
+
+```python
+for item in collection:
+    # code
+```
+
+Python automatically moves from one item to the next.
+
+---
+
+# 11. Simple For Loop
+
+```python
+fruits = ["apple", "banana", "orange"]
+
+for fruit in fruits:
+    print(fruit)
+```
+
+### Output
+
+```text
+apple
+banana
+orange
+```
+
+### Explanation
+
+Python takes each item from the list one by one.
+
+First:
+
+```text
+apple
+```
+
+Then:
+
+```text
+banana
+```
+
+Then:
+
+```text
+orange
+```
+
+---
+
+# 12. For Loop with String
+
+A string is also iterable.
+
+```python
+name = "Niranjan"
+
+for letter in name:
+    print(letter)
+```
+
+### Output
+
+```text
+N
+i
+r
+a
+n
+j
+a
+n
+```
+
+### Real-World Example
+
+A security program might inspect each character of a password.
+
+```python
+password = "Admin123"
+
+for character in password:
+    print(character)
+```
+
+---
+
+# 13. For Loop with Numbers
+
+We commonly use `range()` with a `for` loop.
+
+```python
+for number in range(5):
+    print(number)
+```
+
+### Output
+
+```text
+0
+1
+2
+3
+4
+```
+
+Important:
+
+```python
+range(5)
+```
+
+starts from `0` and stops before `5`.
+
+---
+
+# 14. range() Function
+
+The `range()` function can have three forms.
+
+## range(stop)
+
+```python
+for i in range(5):
+    print(i)
+```
+
+Output:
+
+```text
+0
+1
+2
+3
+4
+```
+
+---
+
+## range(start, stop)
+
+```python
+for i in range(2, 6):
+    print(i)
+```
+
+Output:
+
+```text
+2
+3
+4
+5
+```
+
+---
+
+## range(start, stop, step)
+
+```python
+for i in range(0, 10, 2):
+    print(i)
+```
+
+Output:
+
+```text
+0
+2
+4
+6
+8
+```
+
+The `step` determines how much the value increases each time.
+
+---
+
+# 15. Reverse For Loop
+
+We can use a negative step.
+
+```python
+for i in range(10, 0, -1):
+    print(i)
+```
+
+Output:
+
+```text
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+```
+
+### Real-World Example
+
+Countdown before starting a system:
+
+```python
+for i in range(5, 0, -1):
+    print(i)
+
+print("System starting...")
+```
+
+Output:
+
+```text
+5
+4
+3
+2
+1
+System starting...
+```
+
+---
+
+# 16. For Loop with List
+
+```python
+users = ["admin", "john", "alice", "bob"]
+
+for user in users:
+    print("Checking user:", user)
+```
+
+Output:
+
+```text
+Checking user: admin
+Checking user: john
+Checking user: alice
+Checking user: bob
+```
+
+### Real-World Cybersecurity Example
+
+Imagine checking a list of usernames:
+
+```python
+users = ["admin", "root", "guest"]
+
+for user in users:
+    print("Checking:", user)
+```
+
+This demonstrates iteration over data.
+
+---
+
+# 17. For Loop with Dictionary
+
+```python
+user = {
+    "name": "John",
+    "age": 25,
+    "role": "admin"
+}
+
+for key in user:
+    print(key)
+```
+
+Output:
+
+```text
+name
+age
+role
+```
+
+To get both key and value:
+
+```python
+for key, value in user.items():
+    print(key, "=", value)
+```
+
+Output:
+
+```text
+name = John
+age = 25
+role = admin
+```
+
+---
+
+# 18. For Loop with Set
+
+```python
+colors = {"red", "green", "blue"}
+
+for color in colors:
+    print(color)
+```
+
+The order may not be guaranteed because sets are unordered collections.
+
+---
+
+# 19. Nested For Loop
+
+A loop inside another loop is called a nested loop.
+
+```python
+for i in range(3):
+    for j in range(2):
+        print(i, j)
+```
+
+Output:
+
+```text
+0 0
+0 1
+1 0
+1 1
+2 0
+2 1
+```
+
+### Real-World Example
+
+Imagine checking multiple servers and multiple ports.
+
+```python
+servers = ["Server1", "Server2"]
+
+ports = [80, 443]
+
+for server in servers:
+    for port in ports:
+        print("Checking", server, "port", port)
+```
+
+Output:
+
+```text
+Checking Server1 port 80
+Checking Server1 port 443
+Checking Server2 port 80
+Checking Server2 port 443
+```
+
+---
+
+# 20. For Loop with else
+
+Python allows an `else` block with a loop.
+
+```python
+for i in range(5):
+    print(i)
+else:
+    print("Loop completed")
+```
+
+Output:
+
+```text
+0
+1
+2
+3
+4
+Loop completed
+```
+
+The `else` runs when the loop finishes normally.
+
+---
+
+# 21. PYTHON WHILE LOOP
+
+## What is a While Loop?
+
+A `while` loop repeatedly executes code as long as a condition is `True`.
+
+### Syntax
+
+```python
+while condition:
+    # code
+```
+
+---
+
+# 22. Simple While Loop
+
+```python
+count = 1
+
+while count <= 5:
+    print(count)
+    count += 1
+```
+
+Output:
+
+```text
+1
+2
+3
+4
+5
+```
+
+### How It Works
+
+Initially:
+
+```python
+count = 1
+```
+
+Python checks:
+
+```python
+count <= 5
+```
+
+If the condition is true, the code executes.
+
+Then:
+
+```python
+count += 1
+```
+
+increases the value.
+
+This continues until the condition becomes false.
+
+---
+
+# 23. Why Increment is Important
+
+Consider:
+
+```python
+count = 1
+
+while count <= 5:
+    print(count)
+```
+
+This creates an infinite loop because `count` never changes.
+
+The condition will always remain:
+
+```text
+True
+```
+
+Therefore, always make sure the loop has a way to eventually become false.
+
+Correct:
+
+```python
+count = 1
+
+while count <= 5:
+    print(count)
+    count += 1
+```
+
+---
+
+# 24. Real-World While Loop Example
+
+Imagine a login system that allows a user to try a password up to three times.
+
+```python
+attempts = 0
+
+while attempts < 3:
+    password = input("Enter password: ")
+
+    if password == "admin123":
+        print("Login successful")
+        break
+
+    print("Incorrect password")
+    attempts += 1
+```
+
+This demonstrates how a `while` loop can repeatedly perform an operation until a condition changes.
+
+---
+
+# 25. While Loop with User Input
+
+```python
+command = ""
+
+while command != "exit":
+    command = input("Enter command: ")
+    print("You entered:", command)
+```
+
+The loop continues until the user enters:
+
+```text
+exit
+```
+
+### Real-World Use
+
+This type of loop is commonly used in:
+
+* Command-line applications
+* Menu systems
+* Interactive programs
+* Monitoring systems
+* Automation programs
+
+---
+
+# 26. While Loop Menu Example
+
+```python
+choice = ""
+
+while choice != "4":
+
+    print("\n1. Add User")
+    print("2. View User")
+    print("3. Delete User")
+    print("4. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        print("Adding user...")
+    elif choice == "2":
+        print("Viewing users...")
+    elif choice == "3":
+        print("Deleting user...")
+    elif choice == "4":
+        print("Exiting...")
+    else:
+        print("Invalid choice")
+```
+
+This is a realistic example of an interactive menu.
+
+---
+
+# 27. FOR LOOP VS WHILE LOOP
+
+## For Loop
+
+Use a `for` loop when you know that you want to iterate over a sequence or collection.
+
+Example:
+
+```python
+users = ["John", "Alice", "Bob"]
+
+for user in users:
+    print(user)
+```
+
+The loop processes every user.
+
+---
+
+## While Loop
+
+Use a `while` loop when repetition depends mainly on a condition.
+
+Example:
+
+```python
+password = ""
+
+while password != "admin123":
+    password = input("Enter password: ")
+```
+
+The loop continues until the condition changes.
+
+---
+
+# 28. Important Difference
+
+### For Loop
+
+```python
+for i in range(5):
+    print(i)
+```
+
+Best when the number of iterations or collection is known.
+
+### While Loop
+
+```python
+i = 0
+
+while i < 5:
+    print(i)
+    i += 1
+```
+
+Best when repetition depends on a condition.
+
+---
+
+# 29. BREAK STATEMENT
+
+The `break` statement immediately stops a loop.
+
+```python
+for i in range(10):
+    if i == 5:
+        break
+
+    print(i)
+```
+
+Output:
+
+```text
+0
+1
+2
+3
+4
+```
+
+When `i` becomes `5`, the loop stops.
+
+---
+
+# 30. Real-World Break Example
+
+Suppose we search for a particular username.
+
+```python
+users = ["john", "alice", "admin", "bob"]
+
+for user in users:
+    if user == "admin":
+        print("Admin found!")
+        break
+
+    print("Checking:", user)
+```
+
+Output:
+
+```text
+Checking: john
+Checking: alice
+Admin found!
+```
+
+Once the admin is found, there is no need to continue searching.
+
+---
+
+# 31. CONTINUE STATEMENT
+
+The `continue` statement skips the current iteration and moves to the next iteration.
+
+```python
+for i in range(5):
+    if i == 2:
+        continue
+
+    print(i)
+```
+
+Output:
+
+```text
+0
+1
+3
+4
+```
+
+The value `2` is skipped.
+
+---
+
+# 32. Real-World Continue Example
+
+Suppose we have a list containing inactive users.
+
+```python
+users = ["john", "inactive", "alice", "bob"]
+
+for user in users:
+
+    if user == "inactive":
+        continue
+
+    print("Processing:", user)
+```
+
+Output:
+
+```text
+Processing: john
+Processing: alice
+Processing: bob
+```
+
+The inactive user is skipped.
+
+---
+
+# 33. PASS STATEMENT
+
+`pass` is a placeholder.
+
+It does nothing.
+
+```python
+for i in range(5):
+
+    if i == 2:
+        pass
+
+    print(i)
+```
+
+Output:
+
+```text
+0
+1
+2
+3
+4
+```
+
+`pass` is useful when you want to leave a block empty temporarily.
+
+Example:
+
+```python
+def future_function():
+    pass
+```
+
+This allows Python to accept the function even though we have not implemented it yet.
+
+---
+
+# 34. Nested While Loop
+
+A `while` loop can contain another `while` loop.
+
+```python
+i = 1
+
+while i <= 3:
+
+    j = 1
+
+    while j <= 2:
+        print(i, j)
+        j += 1
+
+    i += 1
+```
+
+Output:
+
+```text
+1 1
+1 2
+2 1
+2 2
+3 1
+3 2
+```
+
+---
+
+# 35. Combining Match and Loop
+
+We can combine `match` with loops.
+
+```python
+commands = ["start", "stop", "restart", "status"]
+
+for command in commands:
+
+    match command:
+
+        case "start":
+            print("Starting server")
+
+        case "stop":
+            print("Stopping server")
+
+        case "restart":
+            print("Restarting server")
+
+        case "status":
+            print("Checking server status")
+
+        case _:
+            print("Unknown command")
+```
+
+Output:
+
+```text
+Starting server
+Stopping server
+Restarting server
+Checking server status
+```
+
+This demonstrates how different Python concepts can work together.
+
+---
+
+# 36. Real-World Cybersecurity Example
+
+Suppose we have a list of suspicious IP addresses.
+
+```python
+suspicious_ips = [
+    "192.168.1.10",
+    "10.0.0.5",
+    "172.16.0.20"
+]
+
+for ip in suspicious_ips:
+    print("Investigating IP:", ip)
+```
+
+Output:
+
+```text
+Investigating IP: 192.168.1.10
+Investigating IP: 10.0.0.5
+Investigating IP: 172.16.0.20
+```
+
+This demonstrates iteration through collected data.
+
+In real cybersecurity tools, loops are commonly used to process:
+
+* IP addresses
+* Log entries
+* Files
+* Network connections
+* User accounts
+* Alerts
+* Security events
+
+---
+
+# 37. Real-World Log Monitoring Example
+
+Suppose we have log messages.
+
+```python
+logs = [
+    "INFO User logged in",
+    "WARNING Failed login",
+    "INFO File opened",
+    "WARNING Failed login",
+    "ERROR Database connection failed"
+]
+
+for log in logs:
+
+    if "WARNING" in log:
+        print("Security Warning:", log)
+
+    elif "ERROR" in log:
+        print("Critical Error:", log)
+```
+
+Output:
+
+```text
+Security Warning: WARNING Failed login
+Security Warning: WARNING Failed login
+Critical Error: ERROR Database connection failed
+```
+
+This demonstrates how loops and conditions can process security logs.
+
+---
+
+# 38. While Loop for Monitoring
+
+A monitoring program may repeatedly check a condition.
+
+Simple demonstration:
+
+```python
+server_status = "running"
+
+while server_status == "running":
+    print("Server is running")
+    server_status = "stopped"
+
+print("Monitoring stopped")
+```
+
+Output:
+
+```text
+Server is running
+Monitoring stopped
+```
+
+In real systems, monitoring would usually involve actual system or network data rather than manually changing a variable.
+
+---
+
+# 39. Common Mistakes with For Loops
+
+### Mistake 1: Incorrect indentation
+
+Wrong:
+
+```python
+for i in range(5):
+print(i)
+```
+
+Correct:
+
+```python
+for i in range(5):
+    print(i)
+```
+
+Python uses indentation to define blocks.
+
+---
+
+### Mistake 2: Forgetting range behavior
+
+```python
+for i in range(5):
+    print(i)
+```
+
+Output:
+
+```text
+0
+1
+2
+3
+4
+```
+
+It does not print `5`.
+
+---
+
+# 40. Common Mistakes with While Loops
+
+### Mistake 1: Forgetting to update the variable
+
+Wrong:
+
+```python
+count = 1
+
+while count <= 5:
+    print(count)
+```
+
+This can create an infinite loop.
+
+Correct:
+
+```python
+count = 1
+
+while count <= 5:
+    print(count)
+    count += 1
+```
+
+---
+
+### Mistake 2: Incorrect condition
+
+```python
+count = 1
+
+while count >= 5:
+    print(count)
+```
+
+The loop will not execute because:
+
+```text
+1 >= 5
+```
+
+is false.
+
+---
+
+# 41. Infinite While Loop
+
+Sometimes an infinite loop is intentional.
+
+Example:
+
+```python
+while True:
+    command = input("Enter command: ")
+
+    if command == "exit":
+        break
+```
+
+The loop continues forever until the user enters:
+
+```text
+exit
+```
+
+The `break` statement then terminates it.
+
+This pattern can be useful for interactive applications and continuously running programs.
+
+---
+
+# 42. Choosing the Correct Loop
+
+Use a `for` loop when:
+
+```text
+You want to process every item in a collection.
+```
+
+Example:
+
+```python
+for user in users:
+    print(user)
+```
+
+Use a `while` loop when:
+
+```text
+You want to continue until a condition changes.
+```
+
+Example:
+
+```python
+while password != correct_password:
+    password = input("Enter password: ")
+```
+
+---
+
+# 43. QUICK COMPARISON
+
+| Concept    | Purpose                        | Example                 |
+| ---------- | ------------------------------ | ----------------------- |
+| `match`    | Match patterns/choices         | Menu commands           |
+| `for`      | Iterate over items             | Process users           |
+| `while`    | Repeat while condition is true | Login attempts          |
+| `break`    | Stop loop                      | Stop after finding item |
+| `continue` | Skip current iteration         | Skip inactive users     |
+| `pass`     | Do nothing / placeholder       | Empty function          |
+
+---
+
+# 44. PRACTICE EXERCISES
+
+## Exercise 1 - Match Statement
+
+Create a program that asks the user to enter a number from 1 to 5.
+
+Print:
+
+```text
+1 -> Add
+2 -> Delete
+3 -> Update
+4 -> View
+5 -> Exit
+```
+
+Use a `match` statement.
+
+---
+
+## Exercise 2 - Day Matcher
+
+Ask the user to enter a day.
+
+Use `match` to determine whether it is:
+
+```text
+Weekday
+```
+
+or:
+
+```text
+Weekend
+```
+
+---
+
+## Exercise 3 - For Loop
+
+Create a list:
+
+```python
+students = ["John", "Alice", "Bob", "David"]
+```
+
+Use a `for` loop to print every student.
+
+---
+
+## Exercise 4 - Numbers
+
+Print numbers from `1` to `20` using a `for` loop.
+
+---
+
+## Exercise 5 - Even Numbers
+
+Print all even numbers between `1` and `50`.
+
+Expected:
+
+```text
+2
+4
+6
+...
+50
+```
+
+---
+
+## Exercise 6 - Countdown
+
+Create a countdown from `10` to `1`.
+
+Output:
+
+```text
+10
+9
+8
+...
+1
+```
+
+Then print:
+
+```text
+Launch!
+```
+
+---
+
+## Exercise 7 - While Loop
+
+Use a `while` loop to print:
+
+```text
+1
+2
+3
+4
+5
+```
+
+---
+
+## Exercise 8 - Password Attempts
+
+Create a program that gives the user three attempts to enter the correct password.
+
+If correct:
+
+```text
+Login successful
+```
+
+Otherwise:
+
+```text
+Account locked
+```
+
+---
+
+## Exercise 9 - Break
+
+Search for `"admin"` in this list:
+
+```python
+users = ["john", "alice", "bob", "admin", "guest"]
+```
+
+Use `break` when `"admin"` is found.
+
+---
+
+## Exercise 10 - Continue
+
+Given:
+
+```python
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
+Use `continue` to skip odd numbers and print only even numbers.
+
+---
+
+## Exercise 11 - Log Analysis
+
+Given:
+
+```python
+logs = [
+    "INFO Login successful",
+    "WARNING Failed login",
+    "INFO File accessed",
+    "ERROR Unauthorized access",
+    "WARNING Failed login"
+]
+```
+
+Use a loop to print only:
+
+```text
+WARNING
+ERROR
+```
+
+messages.
+
+---
+
+## Exercise 12 - Server Monitoring
+
+Create a program that repeatedly asks:
+
+```text
+Enter server status:
+```
+
+If the user enters:
+
+```text
+running
+```
+
+print:
+
+```text
+Server is running
+```
+
+If the user enters:
+
+```text
+stopped
+```
+
+print:
+
+```text
+Server stopped
+```
+
+and terminate the loop.
+
+---
+
+# 45. MINI PROJECT - SIMPLE SECURITY COMMAND TOOL
+
+This project combines:
+
+* `while`
+* `match`
+* `for`
+* `break`
+
+```python
+users = ["admin", "john", "alice"]
+
+while True:
+
+    print("\n===== SECURITY TOOL =====")
+    print("1. View Users")
+    print("2. Check User")
+    print("3. Show Status")
+    print("4. Exit")
+
+    choice = input("Enter your choice: ")
+
+    match choice:
+
+        case "1":
+            print("\nUsers:")
+
+            for user in users:
+                print(user)
+
+        case "2":
+            username = input("Enter username: ")
+
+            if username in users:
+                print("User exists")
+            else:
+                print("User not found")
+
+        case "3":
+            print("Security system is running")
+
+        case "4":
+            print("Exiting security tool...")
+            break
+
+        case _:
+            print("Invalid choice")
+```
+
+### Concepts Used
+
+```text
+while True
+```
+
+Keeps the program running.
+
+```text
+match choice
+```
+
+Processes the user's menu selection.
+
+```text
+for user in users
+```
+
+Processes each user.
+
+```text
+break
+```
+
+Exits the program.
+
+---
+
+# 46. DAY 10 SUMMARY
+
+Today I learned about Python loops and the match statement.
+
+### Match Statement
+
+Used for matching a value against different patterns.
+
+```python
+match value:
+    case 1:
+        print("One")
+    case _:
+        print("Other")
+```
+
+### For Loop
+
+Used to iterate through sequences or collections.
+
+```python
+for item in items:
+    print(item)
+```
+
+### While Loop
+
+Used to repeatedly execute code while a condition is true.
+
+```python
+while condition:
+    print("Running")
+```
+
+### Break
+
+Stops the loop.
+
+```python
+break
+```
+
+### Continue
+
+Skips the current iteration.
+
+```python
+continue
+```
+
+### Pass
+
+Acts as a placeholder.
+
+```python
+pass
+```
+
+---
+
+# 47. KEY TAKEAWAYS
+
+1. `match` is useful when handling multiple patterns or choices.
+2. `case` defines a pattern inside a `match` statement.
+3. `_` works as the default case.
+4. `|` allows multiple alternatives in a case.
+5. `for` loops are useful for iterating through collections.
+6. `range()` generates a sequence of numbers.
+7. `while` loops execute as long as their condition is true.
+8. A `while` loop must normally have a way for its condition to become false.
+9. `break` terminates a loop immediately.
+10. `continue` skips the current iteration.
+11. `pass` is used as a placeholder.
+12. Loops are extremely important for automation.
+13. Loops are widely used in cybersecurity for processing logs, IP addresses, files, users, alerts, and other data.
+14. `match`, loops, and conditions can be combined to build larger programs.
+15. Practicing small programs is the best way to understand loops.
+
+---
+
+# END OF DAY 10
+
+## Topics Completed
+
+* [x] Match Statement
+* [x] Case
+* [x] Default Case
+* [x] Multiple Match Patterns
+* [x] Match with Conditions
+* [x] For Loop
+* [x] range()
+* [x] Reverse range
+* [x] Nested For Loop
+* [x] For Loop with List
+* [x] For Loop with Dictionary
+* [x] For Loop with Set
+* [x] For Loop with Else
+* [x] While Loop
+* [x] Infinite Loop
+* [x] Nested While Loop
+* [x] Break
+* [x] Continue
+* [x] Pass
+* [x] Real-World Examples
+* [x] Cybersecurity Examples
+* [x] Practice Exercises
+* [x] Mini Project

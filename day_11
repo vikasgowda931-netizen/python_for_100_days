@@ -1,0 +1,2712 @@
+# 🐍 PYTHON LEARNING — DAY 11
+
+# FUNCTIONS IN PYTHON
+
+Today I learned about **Functions in Python** from W3Schools.
+
+Functions are one of the most important concepts in Python because they allow us to organize code, avoid repetition, improve readability, and create reusable programs.
+
+---
+
+# 1. What is a Function?
+
+A function is a reusable block of code that performs a specific task.
+
+Instead of writing the same code multiple times, we can write it once inside a function and call it whenever we need it.
+
+Basic syntax:
+
+```python
+def function_name():
+    # code
+```
+
+Example:
+
+```python
+def greet():
+    print("Hello, welcome to Python!")
+
+greet()
+```
+
+Output:
+
+```text
+Hello, welcome to Python!
+```
+
+Here:
+
+```text
+def
+```
+
+is used to define a function.
+
+```text
+greet
+```
+
+is the function name.
+
+```text
+()
+```
+
+contains parameters if required.
+
+```text
+:
+```
+
+starts the function body.
+
+---
+
+# 2. Why Do We Use Functions?
+
+Functions are useful because they provide:
+
+* Code reusability
+* Better organization
+* Less code duplication
+* Easier debugging
+* Better readability
+* Easier maintenance
+* Modular programming
+
+Without a function:
+
+```python
+print("Welcome to the website")
+print("Welcome to the website")
+print("Welcome to the website")
+```
+
+With a function:
+
+```python
+def welcome():
+    print("Welcome to the website")
+
+welcome()
+welcome()
+welcome()
+```
+
+The second approach is cleaner and reusable.
+
+---
+
+# 3. Real-World Example of a Function
+
+Imagine an online shopping application.
+
+The application needs to calculate the total price many times.
+
+Instead of writing the calculation repeatedly:
+
+```python
+price = 1000
+tax = 100
+total = price + tax
+print(total)
+```
+
+We can create:
+
+```python
+def calculate_total(price, tax):
+    return price + tax
+```
+
+Then:
+
+```python
+print(calculate_total(1000, 100))
+print(calculate_total(500, 50))
+```
+
+Output:
+
+```text
+1100
+550
+```
+
+The function can be reused for many products.
+
+---
+
+# 4. Creating a Function
+
+Use the `def` keyword.
+
+Example:
+
+```python
+def my_function():
+    print("Hello Python")
+```
+
+At this point, Python has created the function, but the function has not been executed yet.
+
+---
+
+# 5. Calling a Function
+
+To execute a function, we call it using its name followed by parentheses.
+
+```python
+def my_function():
+    print("Hello Python")
+
+my_function()
+```
+
+Output:
+
+```text
+Hello Python
+```
+
+The function is executed when:
+
+```python
+my_function()
+```
+
+is called.
+
+---
+
+# 6. Function Execution Flow
+
+Consider:
+
+```python
+def greet():
+    print("Hello")
+
+print("Start")
+
+greet()
+
+print("End")
+```
+
+Execution happens like this:
+
+```text
+Start
+  ↓
+greet() called
+  ↓
+Function body executes
+  ↓
+Hello
+  ↓
+End
+```
+
+Output:
+
+```text
+Start
+Hello
+End
+```
+
+Python does not execute the function body when it sees the `def` statement. It executes it when the function is called.
+
+---
+
+# 7. Function Parameters
+
+Parameters are variables defined inside the function definition.
+
+Example:
+
+```python
+def greet(name):
+    print("Hello", name)
+
+greet("Rahul")
+```
+
+Output:
+
+```text
+Hello Rahul
+```
+
+Here:
+
+```text
+name
+```
+
+is the parameter.
+
+```text
+"Rahul"
+```
+
+is the argument passed to the function.
+
+---
+
+# 8. Parameters vs Arguments
+
+These two terms are related but different.
+
+### Parameter
+
+A parameter is the variable listed in the function definition.
+
+```python
+def greet(name):
+    print(name)
+```
+
+Here:
+
+```text
+name
+```
+
+is a parameter.
+
+### Argument
+
+An argument is the actual value passed when calling the function.
+
+```python
+greet("Rahul")
+```
+
+Here:
+
+```text
+"Rahul"
+```
+
+is an argument.
+
+Simple way to remember:
+
+```text
+Function definition → Parameter
+
+Function call → Argument
+```
+
+---
+
+# 9. Multiple Parameters
+
+A function can have multiple parameters.
+
+Example:
+
+```python
+def add(a, b):
+    print(a + b)
+
+add(10, 20)
+```
+
+Output:
+
+```text
+30
+```
+
+Here:
+
+```text
+a → 10
+b → 20
+```
+
+---
+
+# 10. Real-World Example — Login System
+
+A login system may require a username and password.
+
+```python
+def login(username, password):
+    if username == "admin" and password == "1234":
+        print("Login successful")
+    else:
+        print("Invalid credentials")
+
+login("admin", "1234")
+```
+
+Output:
+
+```text
+Login successful
+```
+
+The function can be reused whenever a login attempt occurs.
+
+In a real application, passwords should never be stored as plain text like this. This is only a learning example.
+
+---
+
+# 11. Arguments Can Be Different Data Types
+
+Python functions can accept different data types.
+
+Example:
+
+```python
+def display(value):
+    print(value)
+
+display(100)
+display("Python")
+display(10.5)
+display(True)
+```
+
+Output:
+
+```text
+100
+Python
+10.5
+True
+```
+
+---
+
+# 12. Return Statement
+
+The `return` statement sends a value back from a function.
+
+Example:
+
+```python
+def add(a, b):
+    return a + b
+
+result = add(10, 20)
+
+print(result)
+```
+
+Output:
+
+```text
+30
+```
+
+The function calculates:
+
+```text
+10 + 20 = 30
+```
+
+and returns `30`.
+
+---
+
+# 13. print() vs return
+
+This is a very important concept.
+
+### Using print():
+
+```python
+def add(a, b):
+    print(a + b)
+
+add(10, 20)
+```
+
+The function displays the result.
+
+### Using return:
+
+```python
+def add(a, b):
+    return a + b
+
+result = add(10, 20)
+
+print(result)
+```
+
+The function gives the result back to the caller.
+
+The returned value can then be stored, reused, or passed to another function.
+
+Example:
+
+```python
+def add(a, b):
+    return a + b
+
+result = add(10, 20)
+
+new_result = result * 2
+
+print(new_result)
+```
+
+Output:
+
+```text
+60
+```
+
+---
+
+# 14. Function Without Return
+
+A function doesn't have to return a value.
+
+Example:
+
+```python
+def welcome():
+    print("Welcome to Python")
+
+welcome()
+```
+
+This function performs an action but does not explicitly return a value.
+
+If a Python function reaches the end without returning a value, it returns:
+
+```python
+None
+```
+
+Example:
+
+```python
+def test():
+    print("Hello")
+
+result = test()
+
+print(result)
+```
+
+Output:
+
+```text
+Hello
+None
+```
+
+---
+
+# 15. Returning Multiple Values
+
+Python allows a function to return multiple values.
+
+Example:
+
+```python
+def calculate(a, b):
+    return a + b, a - b, a * b
+
+result = calculate(10, 5)
+
+print(result)
+```
+
+Output:
+
+```text
+(15, 5, 50)
+```
+
+We can also unpack them:
+
+```python
+def calculate(a, b):
+    return a + b, a - b, a * b
+
+addition, subtraction, multiplication = calculate(10, 5)
+
+print(addition)
+print(subtraction)
+print(multiplication)
+```
+
+Output:
+
+```text
+15
+5
+50
+```
+
+---
+
+# 16. Default Parameter Value
+
+A function can have a default value for a parameter.
+
+Example:
+
+```python
+def greet(name="User"):
+    print("Hello", name)
+
+greet()
+```
+
+Output:
+
+```text
+Hello User
+```
+
+If we provide a value:
+
+```python
+greet("Rahul")
+```
+
+Output:
+
+```text
+Hello Rahul
+```
+
+The provided argument replaces the default value.
+
+---
+
+# 17. Real-World Example — Shipping
+
+Suppose an online shopping system has a default shipping charge.
+
+```python
+def calculate_shipping(price, shipping=50):
+    return price + shipping
+
+print(calculate_shipping(1000))
+```
+
+Output:
+
+```text
+1050
+```
+
+We can also provide a different shipping charge:
+
+```python
+print(calculate_shipping(1000, 100))
+```
+
+Output:
+
+```text
+1100
+```
+
+---
+
+# 18. Positional Arguments
+
+Arguments are normally assigned to parameters based on their position.
+
+Example:
+
+```python
+def student(name, age):
+    print("Name:", name)
+    print("Age:", age)
+
+student("Rahul", 20)
+```
+
+Output:
+
+```text
+Name: Rahul
+Age: 20
+```
+
+The first argument goes to the first parameter.
+
+The second argument goes to the second parameter.
+
+---
+
+# 19. Keyword Arguments
+
+We can specify parameter names when calling a function.
+
+Example:
+
+```python
+def student(name, age):
+    print("Name:", name)
+    print("Age:", age)
+
+student(age=20, name="Rahul")
+```
+
+Output:
+
+```text
+Name: Rahul
+Age: 20
+```
+
+The order doesn't matter when using keyword arguments.
+
+---
+
+# 20. Positional and Keyword Arguments Together
+
+Example:
+
+```python
+def student(name, age, city):
+    print(name)
+    print(age)
+    print(city)
+
+student("Rahul", age=20, city="Bangalore")
+```
+
+This is valid because the positional argument comes before the keyword arguments.
+
+Avoid placing a positional argument after a keyword argument.
+
+Incorrect:
+
+```python
+student(name="Rahul", 20, city="Bangalore")
+```
+
+---
+
+# 21. Arbitrary Arguments — *args
+
+Sometimes we don't know how many arguments a function will receive.
+
+Python provides:
+
+```text
+*args
+```
+
+Example:
+
+```python
+def add_numbers(*numbers):
+    total = 0
+
+    for number in numbers:
+        total += number
+
+    return total
+
+print(add_numbers(10, 20))
+print(add_numbers(10, 20, 30))
+print(add_numbers(1, 2, 3, 4, 5))
+```
+
+Output:
+
+```text
+30
+60
+15
+```
+
+`*args` collects positional arguments into a tuple.
+
+---
+
+# 22. Real-World Example — Shopping Cart
+
+A shopping cart can contain different numbers of products.
+
+```python
+def calculate_cart(*prices):
+    total = 0
+
+    for price in prices:
+        total += price
+
+    return total
+
+print(calculate_cart(100, 200))
+print(calculate_cart(100, 200, 300, 400))
+```
+
+Output:
+
+```text
+300
+1000
+```
+
+This is useful because the number of products can change.
+
+---
+
+# 23. Arbitrary Keyword Arguments — **kwargs
+
+`**kwargs` allows a function to accept an arbitrary number of keyword arguments.
+
+Example:
+
+```python
+def user_info(**details):
+    print(details)
+
+user_info(name="Rahul", age=20, city="Bangalore")
+```
+
+Output:
+
+```text
+{'name': 'Rahul', 'age': 20, 'city': 'Bangalore'}
+```
+
+`**kwargs` stores the arguments as a dictionary.
+
+---
+
+# 24. Accessing **kwargs Values
+
+Example:
+
+```python
+def user_info(**details):
+    print("Name:", details["name"])
+    print("City:", details["city"])
+
+user_info(name="Rahul", city="Bangalore")
+```
+
+Output:
+
+```text
+Name: Rahul
+City: Bangalore
+```
+
+---
+
+# 25. Real-World Example — User Registration
+
+```python
+def register_user(**user):
+    print("Registration details:")
+    
+    for key, value in user.items():
+        print(key, ":", value)
+
+register_user(
+    username="rahul123",
+    email="rahul@example.com",
+    age=20
+)
+```
+
+This allows the function to accept different user details.
+
+---
+
+# 26. Combining *args and **kwargs
+
+A function can accept both.
+
+Example:
+
+```python
+def information(*args, **kwargs):
+    print("Arguments:", args)
+    print("Keyword arguments:", kwargs)
+
+information(
+    "Python",
+    "Linux",
+    name="Rahul",
+    age=20
+)
+```
+
+Output:
+
+```text
+Arguments: ('Python', 'Linux')
+Keyword arguments: {'name': 'Rahul', 'age': 20}
+```
+
+---
+
+# 27. Passing a List to a Function
+
+Example:
+
+```python
+def display_names(names):
+    for name in names:
+        print(name)
+
+students = ["Rahul", "Amit", "Priya"]
+
+display_names(students)
+```
+
+Output:
+
+```text
+Rahul
+Amit
+Priya
+```
+
+Functions can accept lists, tuples, sets, dictionaries, and other objects.
+
+---
+
+# 28. Passing a Dictionary to a Function
+
+Example:
+
+```python
+def display_user(user):
+    print("Name:", user["name"])
+    print("Age:", user["age"])
+
+user = {
+    "name": "Rahul",
+    "age": 20
+}
+
+display_user(user)
+```
+
+Output:
+
+```text
+Name: Rahul
+Age: 20
+```
+
+---
+
+# 29. Passing a Tuple to a Function
+
+Example:
+
+```python
+def display_numbers(numbers):
+    for number in numbers:
+        print(number)
+
+numbers = (10, 20, 30)
+
+display_numbers(numbers)
+```
+
+---
+
+# 30. Passing a Set to a Function
+
+Example:
+
+```python
+def display_skills(skills):
+    for skill in skills:
+        print(skill)
+
+skills = {"Python", "Linux", "Networking"}
+
+display_skills(skills)
+```
+
+---
+
+# 31. Function With Different Data Types
+
+Example:
+
+```python
+def display_info(name, age, skills):
+    print("Name:", name)
+    print("Age:", age)
+    print("Skills:", skills)
+
+display_info(
+    "Rahul",
+    20,
+    ["Python", "Linux", "Networking"]
+)
+```
+
+---
+
+# 32. Function Scope
+
+Variables created inside a function normally have **local scope**.
+
+Example:
+
+```python
+def test():
+    x = 10
+    print(x)
+
+test()
+```
+
+The variable `x` exists inside the function.
+
+Trying to access it outside:
+
+```python
+def test():
+    x = 10
+
+test()
+
+print(x)
+```
+
+will cause an error because `x` is local to the function.
+
+---
+
+# 33. Local Variables
+
+A variable created inside a function is called a local variable.
+
+Example:
+
+```python
+def calculate():
+    price = 100
+    tax = 10
+
+    print(price + tax)
+
+calculate()
+```
+
+`price` and `tax` are local variables.
+
+---
+
+# 34. Global Variables
+
+A variable created outside a function is called a global variable.
+
+Example:
+
+```python
+name = "Rahul"
+
+def greet():
+    print("Hello", name)
+
+greet()
+```
+
+Output:
+
+```text
+Hello Rahul
+```
+
+The function can access the global variable.
+
+---
+
+# 35. Global Variable vs Local Variable
+
+Example:
+
+```python
+x = 100
+
+def test():
+    x = 50
+    print("Inside:", x)
+
+test()
+
+print("Outside:", x)
+```
+
+Output:
+
+```text
+Inside: 50
+Outside: 100
+```
+
+The local variable doesn't replace the global variable.
+
+---
+
+# 36. global Keyword
+
+The `global` keyword allows a function to modify a global variable.
+
+Example:
+
+```python
+count = 0
+
+def increase():
+    global count
+    count += 1
+
+increase()
+increase()
+
+print(count)
+```
+
+Output:
+
+```text
+2
+```
+
+However, excessive use of global variables can make programs harder to understand and maintain.
+
+---
+
+# 37. Nested Functions
+
+A function can be defined inside another function.
+
+Example:
+
+```python
+def outer():
+    
+    def inner():
+        print("Inside inner function")
+    
+    inner()
+
+outer()
+```
+
+Output:
+
+```text
+Inside inner function
+```
+
+The `inner()` function exists inside `outer()`.
+
+---
+
+# 38. Real-World Example — Authentication
+
+```python
+def login():
+    
+    def validate_username(username):
+        return len(username) >= 5
+    
+    def validate_password(password):
+        return len(password) >= 8
+    
+    username = "rahul123"
+    password = "securepass"
+
+    if validate_username(username) and validate_password(password):
+        print("Validation successful")
+    else:
+        print("Validation failed")
+
+login()
+```
+
+Nested functions can be useful when helper functionality only belongs to the outer function.
+
+---
+
+# 39. Recursive Functions
+
+A recursive function is a function that calls itself.
+
+Example:
+
+```python
+def countdown(number):
+    if number == 0:
+        return
+
+    print(number)
+
+    countdown(number - 1)
+
+countdown(5)
+```
+
+Output:
+
+```text
+5
+4
+3
+2
+1
+```
+
+The function keeps calling itself until the stopping condition is reached.
+
+---
+
+# 40. Base Case in Recursion
+
+Every recursive function needs a condition that stops the recursion.
+
+Example:
+
+```python
+def countdown(number):
+    if number == 0:
+        return
+
+    print(number)
+    countdown(number - 1)
+```
+
+This condition:
+
+```python
+if number == 0:
+    return
+```
+
+is the base case.
+
+Without a proper stopping condition, recursion can continue until Python raises a recursion-related error.
+
+---
+
+# 41. Real-World Example — Folder Structure
+
+Recursion can be useful for problems involving nested structures.
+
+Imagine:
+
+```text
+Company
+│
+├── HR
+│   ├── Employees
+│   └── Documents
+│
+├── IT
+│   ├── Servers
+│   └── Backups
+│
+└── Finance
+    ├── Reports
+    └── Bills
+```
+
+A recursive function can process folders inside folders.
+
+This concept is useful in:
+
+* File systems
+* Tree structures
+* Searching
+* Algorithms
+* Data structures
+* Cybersecurity tools
+
+---
+
+# 42. Lambda Functions
+
+A lambda is a small anonymous function.
+
+Syntax:
+
+```python
+lambda arguments: expression
+```
+
+Example:
+
+```python
+square = lambda x: x * x
+
+print(square(5))
+```
+
+Output:
+
+```text
+25
+```
+
+Equivalent normal function:
+
+```python
+def square(x):
+    return x * x
+```
+
+---
+
+# 43. Lambda With Multiple Arguments
+
+Example:
+
+```python
+add = lambda a, b: a + b
+
+print(add(10, 20))
+```
+
+Output:
+
+```text
+30
+```
+
+---
+
+# 44. Real-World Example — Calculate Discount
+
+```python
+discount = lambda price, percentage: price - (price * percentage / 100)
+
+print(discount(1000, 10))
+```
+
+Output:
+
+```text
+900.0
+```
+
+Lambda functions are useful for short operations, especially when used with functions such as `sorted()`, `map()`, and `filter()`.
+
+---
+
+# 45. Function Annotations
+
+Python allows us to provide type hints.
+
+Example:
+
+```python
+def add(a: int, b: int) -> int:
+    return a + b
+```
+
+This indicates:
+
+```text
+a → expected int
+b → expected int
+return → expected int
+```
+
+Type hints help make code easier to understand.
+
+They don't automatically enforce the types at runtime.
+
+---
+
+# 46. Docstrings
+
+A docstring describes what a function does.
+
+Example:
+
+```python
+def add(a, b):
+    """
+    Adds two numbers and returns the result.
+    """
+    return a + b
+```
+
+We can access the documentation using:
+
+```python
+print(add.__doc__)
+```
+
+Output:
+
+```text
+Adds two numbers and returns the result.
+```
+
+Docstrings are useful for maintaining larger projects.
+
+---
+
+# 47. Function Naming
+
+Use meaningful names.
+
+Good:
+
+```python
+def calculate_total():
+    pass
+```
+
+```python
+def validate_password():
+    pass
+```
+
+```python
+def scan_ports():
+    pass
+```
+
+Bad:
+
+```python
+def x():
+    pass
+```
+
+Good function names make code easier to understand.
+
+Python naming convention usually uses:
+
+```text
+snake_case
+```
+
+Examples:
+
+```text
+calculate_total
+validate_user
+check_password
+scan_network
+read_log_file
+```
+
+---
+
+# 48. pass in Functions
+
+Sometimes we want to create a function but implement it later.
+
+Use:
+
+```python
+def future_function():
+    pass
+```
+
+`pass` does nothing.
+
+It simply prevents Python from producing an indentation error when the function body is intentionally empty.
+
+---
+
+# 49. Function Calling Another Function
+
+Functions can call other functions.
+
+Example:
+
+```python
+def add(a, b):
+    return a + b
+
+def multiply(a, b):
+    return a * b
+
+def calculate(a, b):
+    total = add(a, b)
+    result = multiply(total, 2)
+
+    return result
+
+print(calculate(10, 20))
+```
+
+Output:
+
+```text
+60
+```
+
+This helps break a large program into smaller components.
+
+---
+
+# 50. Real-World Example — Cybersecurity Tool
+
+Suppose we want to create a simple security analysis program.
+
+We can divide it into functions:
+
+```python
+def read_log():
+    print("Reading log file")
+
+
+def find_failed_logins():
+    print("Searching for failed logins")
+
+
+def generate_report():
+    print("Generating report")
+
+
+def main():
+    read_log()
+    find_failed_logins()
+    generate_report()
+
+
+main()
+```
+
+Output:
+
+```text
+Reading log file
+Searching for failed logins
+Generating report
+```
+
+This is much easier to maintain than putting everything into one large block of code.
+
+---
+
+# 51. The main() Function Pattern
+
+Large Python programs often use a `main()` function.
+
+Example:
+
+```python
+def greet():
+    print("Hello")
+
+
+def main():
+    greet()
+
+
+if __name__ == "__main__":
+    main()
+```
+
+The condition:
+
+```python
+if __name__ == "__main__":
+```
+
+ensures that `main()` runs when the file is executed directly.
+
+This pattern becomes especially useful when working with Python modules and larger projects.
+
+---
+
+# 52. Functions and Code Reusability
+
+Without functions:
+
+```python
+price1 = 100
+tax1 = price1 * 0.18
+print(price1 + tax1)
+
+price2 = 200
+tax2 = price2 * 0.18
+print(price2 + tax2)
+
+price3 = 300
+tax3 = price3 * 0.18
+print(price3 + tax3)
+```
+
+With a function:
+
+```python
+def calculate_price(price):
+    tax = price * 0.18
+    return price + tax
+
+print(calculate_price(100))
+print(calculate_price(200))
+print(calculate_price(300))
+```
+
+The second version is easier to maintain.
+
+If the tax rate changes, we only need to modify the function.
+
+---
+
+# 53. Functions and Modularity
+
+A large application can be divided into smaller functions.
+
+For example, a banking application could contain:
+
+```text
+login()
+check_balance()
+deposit_money()
+withdraw_money()
+transfer_money()
+logout()
+```
+
+A cybersecurity application could contain:
+
+```text
+scan_host()
+scan_ports()
+analyze_packet()
+read_log()
+detect_suspicious_activity()
+generate_report()
+```
+
+Each function performs one specific responsibility.
+
+---
+
+# 54. Function Design Principle
+
+A good function should generally perform **one clear task**.
+
+Instead of:
+
+```python
+def everything():
+    # login
+    # calculate payment
+    # send email
+    # generate report
+    # backup database
+```
+
+Prefer:
+
+```python
+def login():
+    pass
+
+def calculate_payment():
+    pass
+
+def send_email():
+    pass
+
+def generate_report():
+    pass
+
+def backup_database():
+    pass
+```
+
+This makes the application easier to test and maintain.
+
+---
+
+# 55. Functions With User Input
+
+Example:
+
+```python
+def greet(name):
+    print("Hello", name)
+
+name = input("Enter your name: ")
+
+greet(name)
+```
+
+Example output:
+
+```text
+Enter your name: Rahul
+Hello Rahul
+```
+
+---
+
+# 56. Real-World Example — ATM
+
+```python
+def check_balance(balance):
+    print("Current balance:", balance)
+
+
+def deposit(balance, amount):
+    return balance + amount
+
+
+def withdraw(balance, amount):
+    if amount <= balance:
+        return balance - amount
+    else:
+        print("Insufficient balance")
+        return balance
+
+
+balance = 5000
+
+check_balance(balance)
+
+balance = deposit(balance, 1000)
+
+balance = withdraw(balance, 2000)
+
+check_balance(balance)
+```
+
+Output:
+
+```text
+Current balance: 5000
+Current balance: 4000
+```
+
+This demonstrates how functions can represent different operations in a real-world system.
+
+---
+
+# 57. Functions With Conditions
+
+Functions can contain conditional statements.
+
+Example:
+
+```python
+def check_age(age):
+    if age >= 18:
+        return "Eligible"
+    else:
+        return "Not eligible"
+
+print(check_age(20))
+```
+
+Output:
+
+```text
+Eligible
+```
+
+---
+
+# 58. Functions With Loops
+
+Functions can contain loops.
+
+Example:
+
+```python
+def print_numbers(numbers):
+    for number in numbers:
+        print(number)
+
+print_numbers([10, 20, 30, 40])
+```
+
+Output:
+
+```text
+10
+20
+30
+40
+```
+
+Functions can combine many Python concepts.
+
+---
+
+# 59. Functions With Exception Handling
+
+Functions can also handle errors.
+
+Example:
+
+```python
+def divide(a, b):
+    try:
+        return a / b
+    except ZeroDivisionError:
+        return "Cannot divide by zero"
+
+print(divide(10, 2))
+print(divide(10, 0))
+```
+
+Output:
+
+```text
+5.0
+Cannot divide by zero
+```
+
+---
+
+# 60. Real-World Cybersecurity Example — Password Strength
+
+```python
+def check_password(password):
+    if len(password) >= 8:
+        return "Password length is acceptable"
+    else:
+        return "Password is too short"
+
+
+password = input("Enter password: ")
+
+print(check_password(password))
+```
+
+This is a basic educational example.
+
+Real password-security systems should use stronger validation and secure password handling.
+
+---
+
+# 61. Real-World Cybersecurity Example — IP Validation
+
+We can create a simple function:
+
+```python
+def validate_ip(ip):
+    parts = ip.split(".")
+
+    if len(parts) != 4:
+        return False
+
+    for part in parts:
+        if not part.isdigit():
+            return False
+
+        number = int(part)
+
+        if number < 0 or number > 255:
+            return False
+
+    return True
+
+
+print(validate_ip("192.168.1.10"))
+print(validate_ip("300.168.1.10"))
+```
+
+Output:
+
+```text
+True
+False
+```
+
+This demonstrates how functions can be used to build cybersecurity utilities.
+
+---
+
+# 62. Real-World Cybersecurity Example — Log Analysis
+
+Suppose we have login attempts:
+
+```python
+logs = [
+    "failed",
+    "failed",
+    "success",
+    "failed",
+    "failed"
+]
+```
+
+We can create:
+
+```python
+def count_failed_logins(logs):
+    count = 0
+
+    for log in logs:
+        if log == "failed":
+            count += 1
+
+    return count
+
+
+print(count_failed_logins(logs))
+```
+
+Output:
+
+```text
+4
+```
+
+This basic idea can later be extended into a real log-analysis tool.
+
+---
+
+# 63. Functions Can Be Stored in Variables
+
+Python treats functions as objects.
+
+Example:
+
+```python
+def greet():
+    print("Hello")
+
+message = greet
+
+message()
+```
+
+Output:
+
+```text
+Hello
+```
+
+Here:
+
+```python
+message = greet
+```
+
+stores a reference to the function.
+
+---
+
+# 64. Passing a Function to Another Function
+
+Example:
+
+```python
+def greet():
+    return "Hello"
+
+
+def execute(function):
+    print(function())
+
+
+execute(greet)
+```
+
+Output:
+
+```text
+Hello
+```
+
+Functions can therefore be passed around like other Python objects.
+
+---
+
+# 65. Higher-Order Functions
+
+A function that:
+
+* accepts another function as an argument, or
+* returns another function
+
+is called a **higher-order function**.
+
+Example:
+
+```python
+def execute(function):
+    return function()
+
+
+def greet():
+    return "Hello Python"
+
+
+print(execute(greet))
+```
+
+Output:
+
+```text
+Hello Python
+```
+
+This concept becomes important when learning functional programming and decorators.
+
+---
+
+# 66. Function Returning a Function
+
+Example:
+
+```python
+def create_greeting():
+    
+    def greet():
+        print("Hello Python")
+    
+    return greet
+
+
+message = create_greeting()
+
+message()
+```
+
+Output:
+
+```text
+Hello Python
+```
+
+---
+
+# 67. Decorators — Introduction
+
+A decorator is a function that modifies or extends the behavior of another function.
+
+Simple example:
+
+```python
+def logger(function):
+    
+    def wrapper():
+        print("Function started")
+        function()
+        print("Function finished")
+    
+    return wrapper
+
+
+@logger
+def greet():
+    print("Hello Python")
+
+
+greet()
+```
+
+Output:
+
+```text
+Function started
+Hello Python
+Function finished
+```
+
+Decorators are widely used in:
+
+* Web applications
+* Logging
+* Authentication
+* Access control
+* APIs
+* Frameworks
+
+---
+
+# 68. Real-World Cybersecurity Use of Functions
+
+Functions are extremely useful in cybersecurity automation.
+
+For example:
+
+```python
+def scan_port():
+    pass
+
+def analyze_banner():
+    pass
+
+def detect_service():
+    pass
+
+def save_result():
+    pass
+
+def generate_report():
+    pass
+```
+
+A security scanner can combine these functions:
+
+```python
+def main():
+    scan_port()
+    analyze_banner()
+    detect_service()
+    save_result()
+    generate_report()
+```
+
+This makes the security tool modular.
+
+---
+
+# 69. Advantages of Functions
+
+Functions provide many advantages:
+
+### 1. Reusability
+
+Write once and use many times.
+
+### 2. Readability
+
+Code becomes easier to understand.
+
+### 3. Maintainability
+
+Changes can be made in one location.
+
+### 4. Debugging
+
+Problems can be isolated to individual functions.
+
+### 5. Modularity
+
+Large applications can be divided into smaller parts.
+
+### 6. Testing
+
+Individual functions can be tested separately.
+
+### 7. Collaboration
+
+Different developers can work on different functions.
+
+---
+
+# 70. Common Mistakes With Functions
+
+## Mistake 1 — Forgetting Parentheses
+
+Incorrect:
+
+```python
+greet
+```
+
+Correct:
+
+```python
+greet()
+```
+
+---
+
+## Mistake 2 — Forgetting Indentation
+
+Incorrect:
+
+```python
+def greet():
+print("Hello")
+```
+
+Correct:
+
+```python
+def greet():
+    print("Hello")
+```
+
+---
+
+## Mistake 3 — Calling Before Definition
+
+Avoid:
+
+```python
+greet()
+
+def greet():
+    print("Hello")
+```
+
+Define the function before calling it in normal top-to-bottom execution.
+
+---
+
+## Mistake 4 — Forgetting return
+
+Incorrect:
+
+```python
+def add(a, b):
+    a + b
+```
+
+Better:
+
+```python
+def add(a, b):
+    return a + b
+```
+
+---
+
+## Mistake 5 — Confusing print and return
+
+```python
+print()
+```
+
+displays something.
+
+```python
+return
+```
+
+sends a value back to the caller.
+
+---
+
+## Mistake 6 — Too Many Responsibilities
+
+Avoid creating one huge function that performs unrelated tasks.
+
+Prefer multiple small functions.
+
+---
+
+# 71. Function Cheat Sheet
+
+```text
+def
+→ Define a function
+
+()
+→ Function parameters / calling syntax
+
+return
+→ Return a value
+
+*args
+→ Variable number of positional arguments
+
+**kwargs
+→ Variable number of keyword arguments
+
+lambda
+→ Anonymous function
+
+global
+→ Modify a global variable inside a function
+
+pass
+→ Empty placeholder
+
+__doc__
+→ Function documentation
+
+__name__
+→ Name of a function/module object
+```
+
+---
+
+# 72. Basic Function Template
+
+```python
+def function_name(parameters):
+    # function body
+    return result
+```
+
+Example:
+
+```python
+def calculate_total(price, tax):
+    total = price + tax
+    return total
+
+result = calculate_total(1000, 100)
+
+print(result)
+```
+
+---
+
+# 73. Function Learning Exercise 1
+
+Create a function:
+
+```text
+greet_user()
+```
+
+It should print:
+
+```text
+Welcome to Python!
+```
+
+---
+
+# 74. Function Learning Exercise 2
+
+Create:
+
+```text
+add_numbers(a, b)
+```
+
+It should return the sum.
+
+Example:
+
+```python
+print(add_numbers(10, 20))
+```
+
+Expected:
+
+```text
+30
+```
+
+---
+
+# 75. Function Learning Exercise 3
+
+Create:
+
+```text
+is_even(number)
+```
+
+Return:
+
+```text
+True
+```
+
+if the number is even and:
+
+```text
+False
+```
+
+if it is odd.
+
+---
+
+# 76. Function Learning Exercise 4
+
+Create:
+
+```text
+calculate_area(length, width)
+```
+
+Formula:
+
+```text
+Area = length × width
+```
+
+Example:
+
+```python
+print(calculate_area(10, 5))
+```
+
+Expected:
+
+```text
+50
+```
+
+---
+
+# 77. Function Learning Exercise 5
+
+Create:
+
+```text
+find_max(numbers)
+```
+
+The function should find the largest number in a list.
+
+Example:
+
+```python
+numbers = [10, 50, 20, 80, 30]
+
+print(find_max(numbers))
+```
+
+Expected:
+
+```text
+80
+```
+
+---
+
+# 78. Function Learning Exercise 6
+
+Create:
+
+```text
+count_vowels(text)
+```
+
+Example:
+
+```python
+print(count_vowels("cybersecurity"))
+```
+
+The function should count:
+
+```text
+a
+e
+i
+o
+u
+```
+
+---
+
+# 79. Function Learning Exercise 7 — Cybersecurity
+
+Create:
+
+```text
+check_port(port)
+```
+
+Return:
+
+```text
+"HTTP"
+```
+
+for port `80`.
+
+Return:
+
+```text
+"HTTPS"
+```
+
+for port `443`.
+
+Return:
+
+```text
+"SSH"
+```
+
+for port `22`.
+
+Otherwise:
+
+```text
+"Unknown"
+```
+
+Example:
+
+```python
+print(check_port(22))
+print(check_port(80))
+print(check_port(443))
+```
+
+---
+
+# 80. Function Learning Exercise 8 — Log Analysis
+
+Create:
+
+```text
+count_failed_attempts(logs)
+```
+
+Input:
+
+```python
+logs = [
+    "failed",
+    "success",
+    "failed",
+    "failed",
+    "success"
+]
+```
+
+Expected result:
+
+```text
+3
+```
+
+---
+
+# 81. Function Learning Exercise 9 — Password Validation
+
+Create:
+
+```text
+validate_password(password)
+```
+
+Requirements:
+
+```text
+Length >= 8
+Contains uppercase letter
+Contains lowercase letter
+Contains number
+```
+
+Return:
+
+```text
+True
+```
+
+if requirements are satisfied.
+
+Otherwise:
+
+```text
+False
+```
+
+---
+
+# 82. Function Learning Exercise 10 — Mini Security Tool
+
+Create a program containing:
+
+```python
+def check_ip():
+    pass
+
+def check_port():
+    pass
+
+def analyze_log():
+    pass
+
+def generate_report():
+    pass
+```
+
+Then create:
+
+```python
+def main():
+    check_ip()
+    check_port()
+    analyze_log()
+    generate_report()
+```
+
+Finally:
+
+```python
+if __name__ == "__main__":
+    main()
+```
+
+This will give you practice organizing a program using multiple functions.
+
+---
+
+# 83. Important Concepts Learned Today
+
+```text
+✓ What is a function?
+✓ Why functions are used
+✓ Creating functions
+✓ Calling functions
+✓ Parameters
+✓ Arguments
+✓ Multiple parameters
+✓ Return statement
+✓ print vs return
+✓ Returning multiple values
+✓ Default parameters
+✓ Positional arguments
+✓ Keyword arguments
+✓ *args
+✓ **kwargs
+✓ Passing lists to functions
+✓ Passing dictionaries to functions
+✓ Passing tuples to functions
+✓ Passing sets to functions
+✓ Local variables
+✓ Global variables
+✓ global keyword
+✓ Nested functions
+✓ Recursive functions
+✓ Base case
+✓ Lambda functions
+✓ Function annotations
+✓ Docstrings
+✓ pass
+✓ Function composition
+✓ main() function
+✓ __name__
+✓ Higher-order functions
+✓ Functions as objects
+✓ Decorators
+✓ Functions with conditions
+✓ Functions with loops
+✓ Functions with exception handling
+✓ Functions in cybersecurity automation
+```
+
+---
+
+# 🧠 FINAL SUMMARY
+
+A function is a reusable block of code designed to perform a specific task.
+
+Basic structure:
+
+```python
+def function_name(parameters):
+    # code
+    return result
+```
+
+Example:
+
+```python
+def calculate_total(price, tax):
+    return price + tax
+
+total = calculate_total(1000, 100)
+
+print(total)
+```
+
+Output:
+
+```text
+1100
+```
+
+The important idea is:
+
+```text
+             FUNCTION
+                 │
+        ┌────────┴────────┐
+        │                 │
+     Input              Output
+   Parameters            return
+        │                 │
+        └────────┬────────┘
+                 ↓
+             Processing
+```
+
+Functions help us transform:
+
+```text
+Large Program
+     ↓
+Small Tasks
+     ↓
+Individual Functions
+     ↓
+Reusable Code
+     ↓
+Maintainable Program
+```
+
+For cybersecurity, functions are especially important because security tools often contain many separate operations.
+
+For example:
+
+```text
+             SECURITY TOOL
+                  │
+       ┌──────────┼───────────┐
+       ↓          ↓           ↓
+   Scan Port   Analyze Log   Check IP
+       │          │           │
+       └──────────┼───────────┘
+                  ↓
+             Generate Report
+```
+
+Instead of writing one huge program, we can create separate functions for each task.
+
+This makes Python extremely useful for:
+
+```text
+Cybersecurity Automation
+Network Scanning
+Log Analysis
+File Analysis
+Threat Detection
+Incident Response
+Digital Forensics
+Security Tool Development
+```
+
+## 🚀 Day 11 Key Takeaway
+
+**Functions allow us to write code once and reuse it whenever we need it.**
+
+The most important concepts to remember are:
+
+```text
+def       → Create a function
+call()    → Execute a function
+parameter → Variable in function definition
+argument  → Value passed to function
+return    → Send value back
+*args     → Multiple positional arguments
+**kwargs  → Multiple keyword arguments
+lambda    → Small anonymous function
+scope     → Where variables can be accessed
+recursion → Function calling itself
+decorator → Modify/enhance function behavior
+```
+
+The goal is not just to memorize the syntax.
+
+The goal is to learn how to look at a large problem and think:
+
+```text
+"Can I divide this problem into smaller reusable functions?"
+```
+
+That is one of the fundamental skills of a Python programmer.

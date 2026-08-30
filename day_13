@@ -1,0 +1,1475 @@
+# 🐍 PYTHON LEARNING – DAY 13
+
+# Python Arrays
+
+Today I learned about **Arrays in Python** in depth.
+
+Topics covered:
+
+* What is an array?
+* Why arrays are used
+* Creating arrays
+* Array data types
+* Accessing array elements
+* Updating array elements
+* Adding elements
+* Removing elements
+* Looping through arrays
+* Searching arrays
+* Sorting arrays
+* Slicing arrays
+* Copying arrays
+* Array methods
+* Arrays vs Lists
+* Real-world examples
+* Cybersecurity use cases
+* Practical exercises
+
+---
+
+# 1. What is an Array?
+
+An **array** is a data structure used to store multiple values in a single variable.
+
+Instead of creating separate variables:
+
+```python
+ip1 = "192.168.1.10"
+ip2 = "192.168.1.11"
+ip3 = "192.168.1.12"
+```
+
+we can store them together:
+
+```python
+ips = ["192.168.1.10", "192.168.1.11", "192.168.1.12"]
+```
+
+Conceptually:
+
+```text
+Array
+  |
+  +---- 192.168.1.10
+  +---- 192.168.1.11
+  +---- 192.168.1.12
+```
+
+Arrays are useful when we have many related values.
+
+---
+
+# 2. Arrays in Python
+
+Python does not use arrays in exactly the same way as languages such as C or Java.
+
+For many general-purpose situations, Python programmers use:
+
+```python
+list
+```
+
+as the main collection type.
+
+Python also provides an actual array data structure through the built-in:
+
+```python
+array
+```
+
+module.
+
+We can import it using:
+
+```python
+from array import array
+```
+
+---
+
+# 3. Creating an Array
+
+Basic syntax:
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30, 40, 50])
+
+print(numbers)
+```
+
+Output:
+
+```text
+array('i', [10, 20, 30, 40, 50])
+```
+
+Here:
+
+```text
+array
+```
+
+is the array object.
+
+```text
+'i'
+```
+
+is the type code.
+
+```text
+[10, 20, 30, 40, 50]
+```
+
+contains the values.
+
+---
+
+# 4. What is a Type Code?
+
+Python arrays require us to specify the type of data they contain.
+
+For example:
+
+```python
+array('i', [10, 20, 30])
+```
+
+means an array of integers.
+
+Some commonly used type codes are:
+
+| Type Code | Meaning                         |
+| --------- | ------------------------------- |
+| `b`       | signed integer                  |
+| `B`       | unsigned integer                |
+| `i`       | signed integer                  |
+| `I`       | unsigned integer                |
+| `f`       | floating-point                  |
+| `d`       | double-precision floating-point |
+
+Example:
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30])
+print(numbers)
+```
+
+---
+
+# 5. Integer Array
+
+Example:
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30, 40])
+
+print(numbers)
+```
+
+Output:
+
+```text
+array('i', [10, 20, 30, 40])
+```
+
+---
+
+# 6. Float Array
+
+We can store floating-point numbers using:
+
+```python
+'f'
+```
+
+Example:
+
+```python
+from array import array
+
+temperatures = array('f', [25.5, 26.3, 27.8, 28.1])
+
+print(temperatures)
+```
+
+Output:
+
+```text
+array('f', [25.5, 26.3, 27.8, 28.1])
+```
+
+---
+
+# 7. Important Property of Arrays
+
+Unlike Python lists, arrays are designed to contain values of the **same basic type**.
+
+For example:
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30])
+```
+
+The array expects integer values.
+
+Trying to insert a string:
+
+```python
+numbers.append("hello")
+```
+
+will result in a type-related error.
+
+This is one of the major differences between arrays and lists.
+
+---
+
+# 8. Accessing Array Elements
+
+Arrays use indexing.
+
+Indexing starts from:
+
+```text
+0
+```
+
+Example:
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30, 40, 50])
+
+print(numbers[0])
+print(numbers[1])
+print(numbers[2])
+```
+
+Output:
+
+```text
+10
+20
+30
+```
+
+The array looks like:
+
+```text
+Index:   0    1    2    3    4
+        -------------------------
+Value:  10   20   30   40   50
+```
+
+---
+
+# 9. Accessing the Last Element
+
+We can use negative indexing.
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30, 40, 50])
+
+print(numbers[-1])
+```
+
+Output:
+
+```text
+50
+```
+
+Negative indexes work from the end.
+
+```text
+-5   -4   -3   -2   -1
+ |    |    |    |    |
+10   20   30   40   50
+```
+
+---
+
+# 10. Updating Array Elements
+
+We can change an existing value.
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30, 40])
+
+numbers[1] = 100
+
+print(numbers)
+```
+
+Output:
+
+```text
+array('i', [10, 100, 30, 40])
+```
+
+Initially:
+
+```text
+10 20 30 40
+```
+
+After:
+
+```text
+10 100 30 40
+```
+
+---
+
+# 11. Adding Elements Using append()
+
+The `append()` method adds one element to the end.
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30])
+
+numbers.append(40)
+
+print(numbers)
+```
+
+Output:
+
+```text
+array('i', [10, 20, 30, 40])
+```
+
+---
+
+# 12. Adding Multiple Elements Using extend()
+
+The `extend()` method adds multiple elements.
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30])
+
+numbers.extend([40, 50, 60])
+
+print(numbers)
+```
+
+Output:
+
+```text
+array('i', [10, 20, 30, 40, 50, 60])
+```
+
+---
+
+# 13. Inserting an Element
+
+The `insert()` method adds an element at a specific index.
+
+Syntax:
+
+```python
+array.insert(index, value)
+```
+
+Example:
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30, 40])
+
+numbers.insert(2, 25)
+
+print(numbers)
+```
+
+Output:
+
+```text
+array('i', [10, 20, 25, 30, 40])
+```
+
+The value `25` was inserted at index `2`.
+
+---
+
+# 14. Removing an Element Using remove()
+
+The `remove()` method removes the first occurrence of a value.
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30, 40])
+
+numbers.remove(30)
+
+print(numbers)
+```
+
+Output:
+
+```text
+array('i', [10, 20, 40])
+```
+
+---
+
+# 15. Removing the Last Element Using pop()
+
+`pop()` removes and returns an element.
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30, 40])
+
+removed = numbers.pop()
+
+print("Removed:", removed)
+print(numbers)
+```
+
+Output:
+
+```text
+Removed: 40
+array('i', [10, 20, 30])
+```
+
+---
+
+# 16. Pop Using an Index
+
+We can also specify the index.
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30, 40])
+
+removed = numbers.pop(1)
+
+print("Removed:", removed)
+print(numbers)
+```
+
+Output:
+
+```text
+Removed: 20
+array('i', [10, 30, 40])
+```
+
+---
+
+# 17. Finding the Length of an Array
+
+Use:
+
+```python
+len()
+```
+
+Example:
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30, 40])
+
+print(len(numbers))
+```
+
+Output:
+
+```text
+4
+```
+
+---
+
+# 18. Looping Through an Array
+
+We can use a `for` loop.
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30, 40])
+
+for number in numbers:
+    print(number)
+```
+
+Output:
+
+```text
+10
+20
+30
+40
+```
+
+---
+
+# 19. Using an Array with a for Loop
+
+Real-world example:
+
+Suppose we have employee IDs:
+
+```python
+from array import array
+
+employee_ids = array('i', [101, 102, 103, 104])
+
+for employee_id in employee_ids:
+    print("Employee ID:", employee_id)
+```
+
+Output:
+
+```text
+Employee ID: 101
+Employee ID: 102
+Employee ID: 103
+Employee ID: 104
+```
+
+---
+
+# 20. Searching an Array
+
+We can use the `index()` method.
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30, 40])
+
+position = numbers.index(30)
+
+print(position)
+```
+
+Output:
+
+```text
+2
+```
+
+This means:
+
+```text
+30
+```
+
+is located at index:
+
+```text
+2
+```
+
+---
+
+# 21. Checking Whether an Element Exists
+
+We can use the `in` operator.
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30, 40])
+
+if 30 in numbers:
+    print("30 exists in the array")
+else:
+    print("30 does not exist")
+```
+
+Output:
+
+```text
+30 exists in the array
+```
+
+---
+
+# 22. Counting Elements
+
+Use:
+
+```python
+count()
+```
+
+Example:
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 20, 30, 20])
+
+print(numbers.count(20))
+```
+
+Output:
+
+```text
+3
+```
+
+The value `20` occurs three times.
+
+---
+
+# 23. Array Slicing
+
+Arrays support slicing.
+
+Example:
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30, 40, 50])
+
+print(numbers[1:4])
+```
+
+Output:
+
+```text
+array('i', [20, 30, 40])
+```
+
+The syntax is:
+
+```python
+array[start:stop]
+```
+
+The `stop` index is not included.
+
+---
+
+# 24. Slicing with Step
+
+Example:
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30, 40, 50, 60])
+
+print(numbers[::2])
+```
+
+Output:
+
+```text
+array('i', [10, 30, 50])
+```
+
+Here:
+
+```text
+::2
+```
+
+means take every second element.
+
+---
+
+# 25. Reverse an Array
+
+We can use slicing:
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30, 40])
+
+print(numbers[::-1])
+```
+
+Output:
+
+```text
+array('i', [40, 30, 20, 10])
+```
+
+---
+
+# 26. Convert Array to List
+
+We can use:
+
+```python
+list()
+```
+
+Example:
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30])
+
+number_list = list(numbers)
+
+print(number_list)
+```
+
+Output:
+
+```text
+[10, 20, 30]
+```
+
+---
+
+# 27. Convert List to Array
+
+Example:
+
+```python
+from array import array
+
+numbers = [10, 20, 30]
+
+number_array = array('i', numbers)
+
+print(number_array)
+```
+
+Output:
+
+```text
+array('i', [10, 20, 30])
+```
+
+---
+
+# 28. Array Buffer Information
+
+Python arrays are stored in a compact representation.
+
+We can check:
+
+```python
+itemsize
+```
+
+Example:
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30])
+
+print(numbers.itemsize)
+```
+
+`itemsize` tells us the number of bytes used to store each element.
+
+The exact value can depend on the platform and type code.
+
+---
+
+# 29. Real-World Example: Student Marks
+
+Suppose we have marks of students:
+
+```python
+from array import array
+
+marks = array('i', [85, 72, 91, 68, 95])
+
+for mark in marks:
+    print(mark)
+```
+
+Calculate the total:
+
+```python
+total = sum(marks)
+
+print("Total:", total)
+```
+
+Calculate the average:
+
+```python
+average = sum(marks) / len(marks)
+
+print("Average:", average)
+```
+
+This is useful when processing numerical data.
+
+---
+
+# 30. Real-World Example: Temperature Monitoring
+
+Imagine a temperature monitoring system records temperatures:
+
+```python
+from array import array
+
+temperatures = array('f', [28.5, 29.2, 30.1, 31.5, 29.8])
+
+print("Highest:", max(temperatures))
+print("Lowest:", min(temperatures))
+print("Average:", sum(temperatures) / len(temperatures))
+```
+
+Output might look like:
+
+```text
+Highest: 31.5
+Lowest: 28.5
+Average: 29.82
+```
+
+This demonstrates how arrays can be used to process numerical sensor data.
+
+---
+
+# 31. Real-World Example: Employee IDs
+
+```python
+from array import array
+
+employee_ids = array('i', [1001, 1002, 1003, 1004])
+
+new_employee = 1005
+
+employee_ids.append(new_employee)
+
+for employee_id in employee_ids:
+    print("Employee:", employee_id)
+```
+
+This could represent a simple collection of employee identification numbers.
+
+---
+
+# 32. Real-World Example: Network Ports
+
+Arrays can also represent numerical network data.
+
+```python
+from array import array
+
+ports = array('H', [22, 53, 80, 443])
+
+for port in ports:
+    print("Port:", port)
+```
+
+Output:
+
+```text
+Port: 22
+Port: 53
+Port: 80
+Port: 443
+```
+
+These ports could represent common services such as:
+
+```text
+22  → SSH
+53  → DNS
+80  → HTTP
+443 → HTTPS
+```
+
+---
+
+# 33. Cybersecurity Example: Monitoring Ports
+
+Suppose a security tool stores discovered ports:
+
+```python
+from array import array
+
+open_ports = array('H', [22, 80, 443])
+
+if 22 in open_ports:
+    print("SSH port detected")
+
+if 3389 in open_ports:
+    print("RDP port detected")
+else:
+    print("RDP port not detected")
+```
+
+This demonstrates how a numerical collection can be searched programmatically.
+
+In a real security tool, network scanning should only be performed against systems you are authorized to test.
+
+---
+
+# 34. Cybersecurity Example: Failed Login Attempts
+
+Suppose we record the number of failed login attempts for several accounts:
+
+```python
+from array import array
+
+failed_attempts = array('I', [2, 5, 1, 8, 3])
+
+for attempts in failed_attempts:
+    if attempts >= 5:
+        print("Possible suspicious activity:", attempts)
+```
+
+Output:
+
+```text
+Possible suspicious activity: 5
+Possible suspicious activity: 8
+```
+
+A real SOC system would use much more sophisticated detection logic, but this demonstrates the basic idea of processing security-related numerical data.
+
+---
+
+# 35. Cybersecurity Example: Packet Sizes
+
+Suppose we collect packet sizes:
+
+```python
+from array import array
+
+packet_sizes = array('I', [512, 1024, 1500, 64, 900])
+
+for size in packet_sizes:
+    if size > 1000:
+        print("Large packet:", size)
+```
+
+Output:
+
+```text
+Large packet: 1024
+Large packet: 1500
+```
+
+This can help demonstrate how Python can process numerical network data.
+
+---
+
+# 36. Array vs List
+
+One of the most important things to understand is the difference between:
+
+```text
+Array
+```
+
+and:
+
+```text
+List
+```
+
+### List
+
+```python
+numbers = [10, 20, 30]
+```
+
+### Array
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30])
+```
+
+---
+
+# 37. Main Difference
+
+Python lists can contain different types:
+
+```python
+data = [10, "hello", 3.14, True]
+```
+
+Arrays are intended for elements of a specified basic type:
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30])
+```
+
+Therefore:
+
+```text
+List  → flexible
+Array → type-specific and compact
+```
+
+---
+
+# 38. Array vs List Comparison
+
+| Feature                       | List                   | Array                     |
+| ----------------------------- | ---------------------- | ------------------------- |
+| Multiple values               | Yes                    | Yes                       |
+| Mixed data types              | Yes                    | No, generally same type   |
+| Easy to use                   | Very easy              | Slightly more specialized |
+| Numeric storage               | General Python objects | Compact typed storage     |
+| Common general-purpose choice | Yes                    | Less common               |
+| Requires import               | No                     | `from array import array` |
+| Type code required            | No                     | Yes                       |
+
+---
+
+# 39. When Should I Use a List?
+
+Use a list when:
+
+* You need different data types.
+* You need a general-purpose collection.
+* You frequently work with strings and objects.
+* You want maximum flexibility.
+
+Example:
+
+```python
+user = ["Niranjan", 21, "Cybersecurity"]
+```
+
+A list is appropriate because it contains different types.
+
+---
+
+# 40. When Should I Use an Array?
+
+Use an array when:
+
+* You have many values of the same basic type.
+* You want compact typed storage.
+* You are working with numerical data.
+* You specifically need the `array` module.
+
+Example:
+
+```python
+from array import array
+
+temperatures = array('f', [25.5, 26.2, 27.1])
+```
+
+---
+
+# 41. Array Methods
+
+Some useful array methods include:
+
+```text
+append()
+extend()
+insert()
+remove()
+pop()
+index()
+count()
+reverse()
+```
+
+Example:
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30, 20])
+
+numbers.append(40)
+
+numbers.insert(1, 15)
+
+numbers.remove(20)
+
+print(numbers.index(30))
+
+print(numbers.count(20))
+
+numbers.reverse()
+
+print(numbers)
+```
+
+---
+
+# 42. Practical Exercise 1
+
+Create an integer array:
+
+```python
+from array import array
+
+numbers = array('i', [10, 20, 30, 40, 50])
+```
+
+Tasks:
+
+1. Print the first element.
+2. Print the last element.
+3. Add `60`.
+4. Remove `20`.
+5. Print the length.
+6. Check whether `40` exists.
+7. Print the array in reverse.
+
+---
+
+# 43. Practical Exercise 2
+
+Create an array containing student marks:
+
+```python
+from array import array
+
+marks = array('i', [78, 85, 92, 67, 88])
+```
+
+Tasks:
+
+```text
+Find the highest mark.
+Find the lowest mark.
+Calculate the total.
+Calculate the average.
+Count how many marks are above 80.
+```
+
+---
+
+# 44. Practical Exercise 3
+
+Create an array of network ports:
+
+```python
+from array import array
+
+ports = array('H', [22, 53, 80, 443, 3306])
+```
+
+Write a program that checks whether:
+
+```text
+22
+80
+443
+3389
+```
+
+exist in the array.
+
+Expected concept:
+
+```python
+if port in ports:
+    print("Port found")
+```
+
+---
+
+# 45. Practical Exercise 4 – Security Monitoring
+
+Create:
+
+```python
+from array import array
+
+failed_logins = array('I', [1, 3, 7, 2, 10, 4, 6])
+```
+
+Write a program that prints:
+
+```text
+Normal
+```
+
+for attempts below `5`, and:
+
+```text
+Suspicious
+```
+
+for attempts `5` or greater.
+
+Example:
+
+```python
+for attempts in failed_logins:
+    if attempts >= 5:
+        print(attempts, "Suspicious")
+    else:
+        print(attempts, "Normal")
+```
+
+---
+
+# 46. Practical Exercise 5 – Temperature Monitoring
+
+Create:
+
+```python
+from array import array
+
+temperatures = array('f', [25.4, 26.7, 30.1, 35.5, 28.9])
+```
+
+Write a program that:
+
+1. Finds the highest temperature.
+2. Finds the lowest temperature.
+3. Calculates the average.
+4. Prints temperatures above `30`.
+
+---
+
+# 47. Important Things I Learned
+
+Today I learned that Python provides a dedicated array through:
+
+```python
+from array import array
+```
+
+An array stores multiple values of a specified basic type.
+
+Example:
+
+```python
+numbers = array('i', [10, 20, 30])
+```
+
+I learned how to:
+
+```text
+Create arrays
+Access elements
+Modify elements
+Add elements
+Remove elements
+Search elements
+Count elements
+Slice arrays
+Loop through arrays
+Convert arrays and lists
+```
+
+I also learned the difference between:
+
+```text
+Python List
+        vs
+Python Array
+```
+
+---
+
+# 48. Important Syntax Cheat Sheet
+
+### Import
+
+```python
+from array import array
+```
+
+### Create
+
+```python
+numbers = array('i', [10, 20, 30])
+```
+
+### Access
+
+```python
+print(numbers[0])
+```
+
+### Update
+
+```python
+numbers[0] = 100
+```
+
+### Add one
+
+```python
+numbers.append(40)
+```
+
+### Add multiple
+
+```python
+numbers.extend([50, 60])
+```
+
+### Insert
+
+```python
+numbers.insert(1, 15)
+```
+
+### Remove by value
+
+```python
+numbers.remove(20)
+```
+
+### Remove by index
+
+```python
+numbers.pop(1)
+```
+
+### Find position
+
+```python
+numbers.index(30)
+```
+
+### Count
+
+```python
+numbers.count(20)
+```
+
+### Length
+
+```python
+len(numbers)
+```
+
+### Search
+
+```python
+30 in numbers
+```
+
+### Reverse
+
+```python
+numbers.reverse()
+```
+
+### Slice
+
+```python
+numbers[1:4]
+```
+
+### Convert to list
+
+```python
+list(numbers)
+```
+
+---
+
+# 49. Key Takeaway
+
+The most important concept I learned today is:
+
+```text
+Python Array
+     |
+     ├── Stores multiple values
+     |
+     ├── Uses a specified type
+     |
+     ├── Supports indexing
+     |
+     ├── Supports adding/removing values
+     |
+     ├── Supports iteration
+     |
+     └── Useful for compact numerical data
+```
+
+Python lists are usually the better general-purpose choice, while the `array` module is useful when I specifically want a typed, compact array of basic values.
+
+---
+
+# 🎯 Day 13 Summary
+
+Today I learned about **arrays in Python** and how they can be used to store and process collections of values.
+
+I learned:
+
+* What arrays are
+* How to create arrays
+* Array type codes
+* Indexing
+* Negative indexing
+* Updating elements
+* `append()`
+* `extend()`
+* `insert()`
+* `remove()`
+* `pop()`
+* `index()`
+* `count()`
+* `len()`
+* Array slicing
+* Reversing arrays
+* Converting arrays to lists
+* Converting lists to arrays
+* Array vs list
+* Real-world numerical data processing
+* Cybersecurity-related examples
+
+## 🐍 My Learning Progress
+
+```text
+Python Day 13 ✅
+
+Topic:
+Python Arrays
+
+Status:
+Completed ✅
+
+Practice:
+Completed ✅
+
+Real-world examples:
+Completed ✅
+
+Cybersecurity examples:
+Completed ✅
+```
+
+## 🚀 Next Step
+
+I will continue practicing Python data structures and learn how they can be used for **automation and cybersecurity tasks**.

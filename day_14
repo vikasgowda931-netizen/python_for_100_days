@@ -1,0 +1,2180 @@
+# 🐍 PYTHON LEARNING — DAY 14
+
+## Python Iterators
+
+**Learning Source:** W3Schools
+**Topic:** Iterators in Python
+**Focus:** Understanding iterables, iterators, `iter()`, `next()`, `StopIteration`, `for` loops, custom iterators, and real-world applications.
+
+---
+
+# 📌 1. What is an Iterator?
+
+An **iterator** is an object that allows us to go through the elements of a collection **one at a time**.
+
+For example, imagine you have:
+
+```python
+numbers = [10, 20, 30, 40, 50]
+```
+
+Instead of accessing everything at once, an iterator can give you:
+
+```text
+10
+20
+30
+40
+50
+```
+
+one value at a time.
+
+Think of an iterator like a **bookmark in a book**.
+
+Suppose a book contains:
+
+```text
+Page 1
+Page 2
+Page 3
+Page 4
+Page 5
+```
+
+The bookmark remembers where you currently are.
+
+```text
+Read page 1
+    ↓
+Move bookmark
+    ↓
+Read page 2
+    ↓
+Move bookmark
+    ↓
+Read page 3
+```
+
+An iterator works in a similar way.
+
+---
+
+# 📌 2. Why Do We Need Iterators?
+
+Imagine you have a huge file containing:
+
+```text
+10 million lines
+```
+
+If you try to load everything into memory at once, it could consume a lot of memory.
+
+Instead, you can process the data one item at a time.
+
+```text
+File
+ ↓
+Line 1 → Process
+Line 2 → Process
+Line 3 → Process
+Line 4 → Process
+...
+```
+
+This is one reason iterators are important for:
+
+* Large files
+* Large datasets
+* Log processing
+* Network data
+* Security monitoring
+* Automation
+* Data pipelines
+
+---
+
+# 📌 3. Iterable vs Iterator
+
+This is one of the most important concepts.
+
+Two terms you need to understand are:
+
+```text
+Iterable
+Iterator
+```
+
+They are related, but they are not exactly the same.
+
+---
+
+# 📌 4. What is an Iterable?
+
+An **iterable** is an object that can be iterated over.
+
+Examples include:
+
+```python
+list
+tuple
+string
+set
+dictionary
+```
+
+For example:
+
+```python
+numbers = [10, 20, 30, 40]
+```
+
+A list is an iterable.
+
+You can use:
+
+```python
+for number in numbers:
+    print(number)
+```
+
+Output:
+
+```text
+10
+20
+30
+40
+```
+
+---
+
+# 📌 5. Examples of Iterables
+
+### List
+
+```python
+numbers = [10, 20, 30]
+```
+
+### Tuple
+
+```python
+numbers = (10, 20, 30)
+```
+
+### String
+
+```python
+name = "Niranjan"
+```
+
+### Set
+
+```python
+numbers = {10, 20, 30}
+```
+
+### Dictionary
+
+```python
+user = {
+    "name": "Niranjan",
+    "role": "admin"
+}
+```
+
+All of these can be iterated over.
+
+---
+
+# 📌 6. What is an Iterator?
+
+An iterator is an object that keeps track of its current position while going through an iterable.
+
+Example:
+
+```python
+numbers = [10, 20, 30]
+
+iterator = iter(numbers)
+```
+
+Now:
+
+```text
+numbers
+   ↓
+[10, 20, 30]
+
+   ↓ iter()
+
+iterator
+   ↓
+10 → 20 → 30
+```
+
+The iterator remembers where it currently is.
+
+---
+
+# 📌 7. The `iter()` Function
+
+Python provides:
+
+```python
+iter()
+```
+
+to create an iterator from an iterable.
+
+Example:
+
+```python
+numbers = [10, 20, 30, 40]
+
+iterator = iter(numbers)
+```
+
+Now `iterator` can be used with `next()`.
+
+---
+
+# 📌 8. The `next()` Function
+
+The `next()` function retrieves the next value from an iterator.
+
+Example:
+
+```python
+numbers = [10, 20, 30]
+
+iterator = iter(numbers)
+
+print(next(iterator))
+print(next(iterator))
+print(next(iterator))
+```
+
+Output:
+
+```text
+10
+20
+30
+```
+
+Each call moves the iterator forward.
+
+---
+
+# 📌 9. Understanding `iter()` and `next()`
+
+Consider:
+
+```python
+numbers = [10, 20, 30]
+```
+
+Create iterator:
+
+```python
+iterator = iter(numbers)
+```
+
+Think of it as:
+
+```text
+Iterator
+   ↓
+[10, 20, 30]
+ ↑
+Current position
+```
+
+First:
+
+```python
+next(iterator)
+```
+
+returns:
+
+```text
+10
+```
+
+Position moves forward:
+
+```text
+Iterator
+   ↓
+[10, 20, 30]
+     ↑
+Current position
+```
+
+Next:
+
+```python
+next(iterator)
+```
+
+returns:
+
+```text
+20
+```
+
+Next:
+
+```python
+next(iterator)
+```
+
+returns:
+
+```text
+30
+```
+
+The iterator moves forward one item at a time.
+
+---
+
+# 📌 10. What Happens When There Are No More Items?
+
+Suppose:
+
+```python
+numbers = [10, 20]
+```
+
+Then:
+
+```python
+iterator = iter(numbers)
+
+print(next(iterator))
+print(next(iterator))
+print(next(iterator))
+```
+
+The first two calls return:
+
+```text
+10
+20
+```
+
+But the third call has no value left.
+
+Python raises:
+
+```text
+StopIteration
+```
+
+This exception tells Python:
+
+> There are no more items to iterate over.
+
+---
+
+# 📌 11. `StopIteration`
+
+Example:
+
+```python
+numbers = [10, 20]
+
+iterator = iter(numbers)
+
+print(next(iterator))
+print(next(iterator))
+
+print(next(iterator))
+```
+
+Output:
+
+```text
+10
+20
+
+StopIteration
+```
+
+You normally don't see this when using a `for` loop because Python handles it automatically.
+
+---
+
+# 📌 12. Using `try` and `except`
+
+We can manually handle `StopIteration`.
+
+```python
+numbers = [10, 20]
+
+iterator = iter(numbers)
+
+try:
+    print(next(iterator))
+    print(next(iterator))
+    print(next(iterator))
+
+except StopIteration:
+    print("No more items.")
+```
+
+Output:
+
+```text
+10
+20
+No more items.
+```
+
+---
+
+# 📌 13. Iterator State
+
+One of the most important properties of an iterator is that it remembers its state.
+
+Example:
+
+```python
+numbers = [10, 20, 30]
+
+iterator = iter(numbers)
+
+print(next(iterator))
+```
+
+Output:
+
+```text
+10
+```
+
+Then:
+
+```python
+print(next(iterator))
+```
+
+Output:
+
+```text
+20
+```
+
+It does not go back to `10`.
+
+It remembers that `10` has already been consumed.
+
+---
+
+# 📌 14. Real-World Analogy — Queue
+
+Imagine customers waiting in a bank:
+
+```text
+Customer A
+Customer B
+Customer C
+Customer D
+```
+
+The bank processes one customer at a time.
+
+```text
+Customer A → Processed
+Customer B → Processed
+Customer C → Processed
+Customer D → Processed
+```
+
+The iterator behaves like the employee processing the queue.
+
+It remembers which customer comes next.
+
+---
+
+# 📌 15. Strings Are Iterable
+
+A string is iterable.
+
+Example:
+
+```python
+name = "Niranjan"
+
+for character in name:
+    print(character)
+```
+
+Output:
+
+```text
+N
+i
+r
+a
+n
+j
+a
+n
+```
+
+We can also manually create an iterator:
+
+```python
+name = "Niranjan"
+
+iterator = iter(name)
+
+print(next(iterator))
+print(next(iterator))
+print(next(iterator))
+```
+
+Output:
+
+```text
+N
+i
+r
+```
+
+---
+
+# 📌 16. Tuples Are Iterable
+
+```python
+numbers = (10, 20, 30)
+
+iterator = iter(numbers)
+
+print(next(iterator))
+print(next(iterator))
+print(next(iterator))
+```
+
+Output:
+
+```text
+10
+20
+30
+```
+
+---
+
+# 📌 17. Dictionaries Are Iterable
+
+Example:
+
+```python
+user = {
+    "name": "Niranjan",
+    "role": "admin",
+    "department": "security"
+}
+```
+
+If you iterate over a dictionary:
+
+```python
+for item in user:
+    print(item)
+```
+
+Output:
+
+```text
+name
+role
+department
+```
+
+By default, dictionary iteration gives you the keys.
+
+---
+
+# 📌 18. Iterating Over Dictionary Values
+
+Use:
+
+```python
+for value in user.values():
+    print(value)
+```
+
+Output:
+
+```text
+Niranjan
+admin
+security
+```
+
+---
+
+# 📌 19. Iterating Over Dictionary Items
+
+Use:
+
+```python
+for key, value in user.items():
+    print(key, value)
+```
+
+Output:
+
+```text
+name Niranjan
+role admin
+department security
+```
+
+---
+
+# 📌 20. How Does a `for` Loop Work?
+
+This is a very important concept.
+
+When you write:
+
+```python
+numbers = [10, 20, 30]
+
+for number in numbers:
+    print(number)
+```
+
+Python internally uses the iterator protocol.
+
+Conceptually, it does something similar to:
+
+```python
+iterator = iter(numbers)
+
+while True:
+
+    try:
+        number = next(iterator)
+
+        print(number)
+
+    except StopIteration:
+        break
+```
+
+So:
+
+```text
+for loop
+   ↓
+iter()
+   ↓
+next()
+   ↓
+next()
+   ↓
+next()
+   ↓
+StopIteration
+   ↓
+Loop ends
+```
+
+This is why understanding iterators helps you understand how Python's `for` loop works internally.
+
+---
+
+# 📌 21. Iterator Protocol
+
+Python has a concept called the **iterator protocol**.
+
+An iterator should provide:
+
+```python
+__iter__()
+```
+
+and:
+
+```python
+__next__()
+```
+
+`__iter__()` returns the iterator.
+
+`__next__()` returns the next item.
+
+When there are no more items:
+
+```python
+__next__()
+```
+
+should raise:
+
+```text
+StopIteration
+```
+
+---
+
+# 📌 22. Creating Our Own Iterator
+
+We can create a custom iterator using a class.
+
+Example:
+
+```python
+class NumberIterator:
+
+    def __init__(self, numbers):
+
+        self.numbers = numbers
+        self.index = 0
+
+    def __iter__(self):
+
+        return self
+
+    def __next__(self):
+
+        if self.index >= len(self.numbers):
+
+            raise StopIteration
+
+        value = self.numbers[self.index]
+
+        self.index += 1
+
+        return value
+```
+
+Now:
+
+```python
+numbers = NumberIterator([10, 20, 30, 40])
+
+print(next(numbers))
+print(next(numbers))
+print(next(numbers))
+print(next(numbers))
+```
+
+Output:
+
+```text
+10
+20
+30
+40
+```
+
+---
+
+# 📌 23. Understanding the Custom Iterator
+
+Let's understand it step by step.
+
+### Constructor
+
+```python
+def __init__(self, numbers):
+```
+
+This receives the data.
+
+```python
+self.numbers = numbers
+```
+
+stores the data.
+
+Then:
+
+```python
+self.index = 0
+```
+
+sets the starting position.
+
+Think:
+
+```text
+index = 0
+
+[10, 20, 30, 40]
+ ↑
+Current position
+```
+
+---
+
+# 📌 24. The `__iter__()` Method
+
+```python
+def __iter__(self):
+    return self
+```
+
+This tells Python:
+
+> This object is an iterator.
+
+---
+
+# 📌 25. The `__next__()` Method
+
+```python
+def __next__(self):
+```
+
+This tells Python what should happen when it asks for the next item.
+
+First:
+
+```python
+if self.index >= len(self.numbers):
+```
+
+checks whether we've reached the end.
+
+If yes:
+
+```python
+raise StopIteration
+```
+
+If not:
+
+```python
+value = self.numbers[self.index]
+```
+
+gets the current value.
+
+Then:
+
+```python
+self.index += 1
+```
+
+moves the position forward.
+
+Finally:
+
+```python
+return value
+```
+
+returns the current value.
+
+---
+
+# 📌 26. Using Custom Iterator with a `for` Loop
+
+Our custom iterator can also work with:
+
+```python
+for number in numbers:
+    print(number)
+```
+
+Example:
+
+```python
+numbers = NumberIterator([10, 20, 30, 40])
+
+for number in numbers:
+
+    print(number)
+```
+
+Output:
+
+```text
+10
+20
+30
+40
+```
+
+Python automatically handles:
+
+```text
+iter()
+next()
+StopIteration
+```
+
+for us.
+
+---
+
+# 📌 27. Real-World Example — Processing Security Logs
+
+Imagine a security system produces thousands of logs:
+
+```text
+LOGIN SUCCESS
+LOGIN FAILED
+PORT SCAN
+ACCESS DENIED
+FILE MODIFIED
+LOGIN SUCCESS
+```
+
+Instead of loading a huge log file completely into memory, we can process entries one at a time.
+
+Example:
+
+```python
+security_logs = [
+    "LOGIN SUCCESS",
+    "LOGIN FAILED",
+    "PORT SCAN",
+    "ACCESS DENIED",
+    "FILE MODIFIED"
+]
+
+log_iterator = iter(security_logs)
+
+while True:
+
+    try:
+
+        log = next(log_iterator)
+
+        print("Processing:", log)
+
+    except StopIteration:
+
+        print("Finished processing logs.")
+
+        break
+```
+
+Output:
+
+```text
+Processing: LOGIN SUCCESS
+Processing: LOGIN FAILED
+Processing: PORT SCAN
+Processing: ACCESS DENIED
+Processing: FILE MODIFIED
+Finished processing logs.
+```
+
+---
+
+# 📌 28. Why This Is Useful in Cybersecurity
+
+Security systems often process large amounts of information.
+
+Examples:
+
+```text
+Firewall logs
+Web server logs
+Authentication logs
+Network events
+SIEM events
+System logs
+Application logs
+```
+
+Instead of loading everything into memory, processing data incrementally can be useful.
+
+For example:
+
+```text
+Log file
+   ↓
+Read one event
+   ↓
+Analyze event
+   ↓
+Read next event
+   ↓
+Analyze event
+   ↓
+Continue...
+```
+
+This approach can reduce memory usage.
+
+---
+
+# 📌 29. Real-World Example — Reading a Large File
+
+Suppose:
+
+```text
+server.log
+```
+
+contains millions of lines.
+
+Instead of:
+
+```python
+file = open("server.log")
+
+data = file.read()
+```
+
+which attempts to read the entire file into memory, you can iterate over the file:
+
+```python
+with open("server.log", "r") as file:
+
+    for line in file:
+
+        print(line.strip())
+```
+
+The file object is iterable.
+
+This allows you to process lines sequentially.
+
+---
+
+# 📌 30. Security Log Detection Example
+
+Suppose a log file contains:
+
+```text
+INFO User logged in
+INFO File opened
+ERROR Login failed
+INFO User logged out
+ERROR Login failed
+WARNING Suspicious activity
+```
+
+We can process it line by line:
+
+```python
+with open("server.log", "r") as file:
+
+    for line in file:
+
+        if "ERROR" in line:
+
+            print("Security alert:", line.strip())
+```
+
+This is a simple example of how iteration can be used in security automation.
+
+---
+
+# 📌 31. Iterator vs List
+
+Suppose:
+
+```python
+numbers = [1, 2, 3, 4, 5]
+```
+
+The list stores the collection.
+
+An iterator gives access to its elements sequentially.
+
+Think:
+
+```text
+List
+ ↓
+Stores data
+
+Iterator
+ ↓
+Moves through data
+```
+
+A useful mental model is:
+
+```text
+Iterable = Something you can iterate over
+
+Iterator = The object that performs/remembers the iteration
+```
+
+---
+
+# 📌 32. Important Difference
+
+A list:
+
+```python
+numbers = [10, 20, 30]
+```
+
+is an iterable.
+
+You can create an iterator from it:
+
+```python
+iterator = iter(numbers)
+```
+
+Then:
+
+```python
+next(iterator)
+```
+
+returns:
+
+```text
+10
+```
+
+So:
+
+```text
+List
+ ↓
+iter()
+ ↓
+Iterator
+ ↓
+next()
+ ↓
+10
+ ↓
+next()
+ ↓
+20
+```
+
+---
+
+# 📌 33. Iterator Is Usually Consumed
+
+Example:
+
+```python
+numbers = [10, 20, 30]
+
+iterator = iter(numbers)
+
+print(list(iterator))
+```
+
+Output:
+
+```text
+[10, 20, 30]
+```
+
+Now the iterator has reached the end.
+
+If you do:
+
+```python
+print(list(iterator))
+```
+
+you get:
+
+```text
+[]
+```
+
+Why?
+
+Because the iterator has already been consumed.
+
+To iterate again, create a new iterator:
+
+```python
+iterator = iter(numbers)
+```
+
+---
+
+# 📌 34. Iterable Can Usually Be Iterated Again
+
+For example:
+
+```python
+numbers = [10, 20, 30]
+
+for number in numbers:
+    print(number)
+
+for number in numbers:
+    print(number)
+```
+
+Both loops work.
+
+But an iterator may be exhausted after one complete traversal.
+
+This is an important distinction.
+
+---
+
+# 📌 35. Real-World Analogy — Conveyor Belt
+
+Imagine a factory conveyor belt:
+
+```text
+📦 📦 📦 📦 📦
+ ↓
+Processing machine
+```
+
+The conveyor moves products one at a time.
+
+```text
+Product 1 → Process
+Product 2 → Process
+Product 3 → Process
+Product 4 → Process
+```
+
+An iterator is similar to this process.
+
+It keeps moving forward through the data.
+
+---
+
+# 📌 36. Iterator vs Iterable Analogy
+
+Think about a shopping cart containing products.
+
+```text
+Shopping Cart
+----------------
+Laptop
+Mouse
+Keyboard
+Monitor
+```
+
+The cart is like the **iterable**.
+
+A person taking products from the cart one by one is like the **iterator**.
+
+```text
+Cart
+ ↓
+Iterator
+ ↓
+Laptop
+ ↓
+Mouse
+ ↓
+Keyboard
+ ↓
+Monitor
+```
+
+---
+
+# 📌 37. Custom Iterator — Counting Example
+
+Let's create an iterator that counts from 1 to 5.
+
+```python
+class Counter:
+
+    def __init__(self, maximum):
+
+        self.maximum = maximum
+        self.current = 1
+
+    def __iter__(self):
+
+        return self
+
+    def __next__(self):
+
+        if self.current > self.maximum:
+
+            raise StopIteration
+
+        value = self.current
+
+        self.current += 1
+
+        return value
+```
+
+Use:
+
+```python
+counter = Counter(5)
+
+for number in counter:
+
+    print(number)
+```
+
+Output:
+
+```text
+1
+2
+3
+4
+5
+```
+
+---
+
+# 📌 38. Understanding the Counter
+
+Initially:
+
+```text
+current = 1
+```
+
+First `next()`:
+
+```text
+1
+```
+
+Then:
+
+```text
+current = 2
+```
+
+Next:
+
+```text
+2
+```
+
+Then:
+
+```text
+current = 3
+```
+
+This continues until:
+
+```text
+current > maximum
+```
+
+Then:
+
+```python
+raise StopIteration
+```
+
+and the loop ends.
+
+---
+
+# 📌 39. Iterator with a Database-Like Example
+
+Imagine a database contains users:
+
+```python
+users = [
+    "Alice",
+    "Bob",
+    "Charlie",
+    "David"
+]
+```
+
+Create an iterator:
+
+```python
+user_iterator = iter(users)
+```
+
+Process users one by one:
+
+```python
+while True:
+
+    try:
+
+        user = next(user_iterator)
+
+        print("Checking user:", user)
+
+    except StopIteration:
+
+        break
+```
+
+Output:
+
+```text
+Checking user: Alice
+Checking user: Bob
+Checking user: Charlie
+Checking user: David
+```
+
+This pattern can be useful when processing large collections.
+
+---
+
+# 📌 40. Iterator and Memory
+
+One major advantage of iterator-based processing is that you can process data incrementally.
+
+Conceptually:
+
+### Loading everything
+
+```text
+Large dataset
+     ↓
+Memory
+     ↓
+Process
+```
+
+Potentially large memory requirement.
+
+### Iterative processing
+
+```text
+Large dataset
+     ↓
+One item
+     ↓
+Process
+     ↓
+Next item
+     ↓
+Process
+```
+
+This can be much more memory-efficient for suitable workloads.
+
+---
+
+# 📌 41. Iterator vs Generator
+
+You may encounter **generators** next.
+
+Generators are a convenient way of creating iterators.
+
+For example:
+
+```python
+def numbers():
+
+    yield 1
+    yield 2
+    yield 3
+```
+
+Then:
+
+```python
+for number in numbers():
+
+    print(number)
+```
+
+Output:
+
+```text
+1
+2
+3
+```
+
+Generators use `yield` and are closely related to iterators.
+
+A useful learning path is:
+
+```text
+Iterable
+   ↓
+Iterator
+   ↓
+__iter__()
+   ↓
+__next__()
+   ↓
+StopIteration
+   ↓
+Generator
+   ↓
+yield
+```
+
+---
+
+# 📌 42. Important Built-In Iterables
+
+Common Python iterables include:
+
+```python
+list
+tuple
+str
+set
+dict
+range
+file objects
+```
+
+Examples:
+
+```python
+for item in [1, 2, 3]:
+    print(item)
+```
+
+```python
+for item in (1, 2, 3):
+    print(item)
+```
+
+```python
+for character in "Python":
+    print(character)
+```
+
+```python
+for number in range(5):
+    print(number)
+```
+
+---
+
+# 📌 43. `range()` Is an Important Example
+
+Example:
+
+```python
+for number in range(5):
+    print(number)
+```
+
+Output:
+
+```text
+0
+1
+2
+3
+4
+```
+
+`range()` provides an iterable sequence of numbers without requiring you to manually construct a list containing all those numbers.
+
+---
+
+# 📌 44. Practical Cybersecurity Example — Failed Login Detection
+
+Imagine:
+
+```python
+login_events = [
+    "SUCCESS alice",
+    "FAILED bob",
+    "FAILED bob",
+    "SUCCESS charlie",
+    "FAILED bob"
+]
+```
+
+We can iterate through them:
+
+```python
+events = iter(login_events)
+
+while True:
+
+    try:
+
+        event = next(events)
+
+        if event.startswith("FAILED"):
+
+            print("Security Alert:", event)
+
+    except StopIteration:
+
+        break
+```
+
+Output:
+
+```text
+Security Alert: FAILED bob
+Security Alert: FAILED bob
+Security Alert: FAILED bob
+```
+
+This is a simple example of event processing.
+
+---
+
+# 📌 45. Practical Automation Example
+
+Suppose you have many files:
+
+```python
+files = [
+    "report.txt",
+    "server.log",
+    "users.csv",
+    "backup.zip"
+]
+```
+
+You can process them one at a time:
+
+```python
+file_iterator = iter(files)
+
+while True:
+
+    try:
+
+        filename = next(file_iterator)
+
+        print("Processing:", filename)
+
+    except StopIteration:
+
+        break
+```
+
+Output:
+
+```text
+Processing: report.txt
+Processing: server.log
+Processing: users.csv
+Processing: backup.zip
+```
+
+---
+
+# 📌 46. Why `for` Loops Are Easier
+
+Although you can manually use:
+
+```python
+iter()
+next()
+StopIteration
+```
+
+most of the time you'll simply write:
+
+```python
+for item in collection:
+
+    print(item)
+```
+
+Python handles the iterator mechanics for you.
+
+Therefore:
+
+```python
+for item in collection:
+```
+
+is usually preferred for normal iteration.
+
+Manual `iter()` and `next()` are especially useful when you need explicit control over iteration.
+
+---
+
+# 📌 47. Important Concepts to Remember
+
+### Iterable
+
+Something that can provide an iterator.
+
+Examples:
+
+```text
+list
+tuple
+string
+set
+dictionary
+range
+file
+```
+
+### Iterator
+
+An object that produces values one at a time and remembers its position.
+
+### `iter()`
+
+Creates/obtains an iterator.
+
+```python
+iterator = iter(data)
+```
+
+### `next()`
+
+Gets the next value.
+
+```python
+value = next(iterator)
+```
+
+### `StopIteration`
+
+Signals that there are no more values.
+
+```python
+raise StopIteration
+```
+
+### `__iter__()`
+
+Defines how an object provides its iterator.
+
+### `__next__()`
+
+Defines how the next value is produced.
+
+---
+
+# 🧪 48. Hands-On Practice
+
+## Exercise 1 — Basic Iterator
+
+Create:
+
+```python
+numbers = [10, 20, 30, 40, 50]
+```
+
+Create an iterator and use `next()` to print every number.
+
+Expected:
+
+```text
+10
+20
+30
+40
+50
+```
+
+---
+
+# 🧪 Exercise 2 — String Iterator
+
+Create:
+
+```python
+word = "CYBER"
+```
+
+Create an iterator and print every character using `next()`.
+
+Expected:
+
+```text
+C
+Y
+B
+E
+R
+```
+
+---
+
+# 🧪 Exercise 3 — Handle StopIteration
+
+Create:
+
+```python
+numbers = [1, 2, 3]
+```
+
+Call `next()` four times.
+
+Use:
+
+```python
+try
+except
+```
+
+to handle `StopIteration`.
+
+---
+
+# 🧪 Exercise 4 — Dictionary Iterator
+
+Create:
+
+```python
+user = {
+    "username": "niranjan",
+    "role": "admin",
+    "department": "security"
+}
+```
+
+Iterate over:
+
+```text
+keys
+values
+key-value pairs
+```
+
+---
+
+# 🧪 Exercise 5 — Security Logs
+
+Create:
+
+```python
+logs = [
+    "INFO Login successful",
+    "ERROR Login failed",
+    "INFO File opened",
+    "WARNING Suspicious activity",
+    "ERROR Access denied"
+]
+```
+
+Use an iterator to process each log.
+
+Print only:
+
+```text
+ERROR
+WARNING
+```
+
+messages.
+
+---
+
+# 🧪 Exercise 6 — Create Your Own Iterator
+
+Create a class called:
+
+```python
+SecurityEvents
+```
+
+It should iterate through:
+
+```python
+[
+    "Login",
+    "Logout",
+    "File Access",
+    "Port Scan"
+]
+```
+
+Implement:
+
+```python
+__iter__()
+__next__()
+```
+
+---
+
+# 🧪 Exercise 7 — Number Counter
+
+Create an iterator that generates:
+
+```text
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
+
+Stop after 10.
+
+---
+
+# 🧪 Exercise 8 — File Processing
+
+Create a file:
+
+```text
+security.log
+```
+
+Add several log entries.
+
+Use:
+
+```python
+with open(...)
+```
+
+and iterate through the file line by line.
+
+Print only lines containing:
+
+```text
+ERROR
+```
+
+---
+
+# 📌 49. Common Mistakes
+
+### Mistake 1
+
+Calling `next()` directly on a list:
+
+```python
+numbers = [1, 2, 3]
+
+next(numbers)
+```
+
+This doesn't work because the list itself is not an iterator.
+
+Instead:
+
+```python
+iterator = iter(numbers)
+
+next(iterator)
+```
+
+---
+
+### Mistake 2
+
+Forgetting that iterators are consumed.
+
+```python
+iterator = iter([1, 2, 3])
+
+print(list(iterator))
+print(list(iterator))
+```
+
+The second result will be empty because the iterator has already been exhausted.
+
+---
+
+### Mistake 3
+
+Forgetting `StopIteration` in a custom iterator.
+
+A custom `__next__()` method should signal the end by raising:
+
+```python
+StopIteration
+```
+
+---
+
+# 🧠 50. Quick Revision
+
+```text
+Iterable
+   ↓
+Can be iterated over
+   ↓
+list, tuple, string, set, dict, range, file
+```
+
+```text
+iter()
+   ↓
+Creates/gets iterator
+```
+
+```text
+Iterator
+   ↓
+Remembers current position
+```
+
+```text
+next()
+   ↓
+Returns next item
+```
+
+```text
+No items left
+   ↓
+StopIteration
+```
+
+---
+
+# 🔐 51. Cybersecurity Connection
+
+Iterators are useful because cybersecurity systems frequently deal with **large amounts of data**.
+
+Examples:
+
+```text
+Firewall logs
+Authentication logs
+Web server logs
+Network events
+PCAP-related processing
+Security alerts
+CSV datasets
+Threat intelligence feeds
+System events
+```
+
+Instead of thinking:
+
+```text
+"Load everything and then process it."
+```
+
+you can often think:
+
+```text
+"Read one item → process it → move to the next item."
+```
+
+For example:
+
+```text
+10 GB log file
+      ↓
+Read one line
+      ↓
+Check for suspicious activity
+      ↓
+Read next line
+      ↓
+Check again
+      ↓
+Continue...
+```
+
+This is a very useful concept for cybersecurity automation.
+
+---
+
+# 🎯 52. What I Learned Today
+
+Today I learned about **Python Iterators** from W3Schools.
+
+I learned:
+
+* What an iterable is
+* What an iterator is
+* Difference between iterable and iterator
+* `iter()`
+* `next()`
+* `StopIteration`
+* Iterator state
+* How `for` loops use iterators
+* Iterator protocol
+* `__iter__()`
+* `__next__()`
+* How to create custom iterators
+* How iterators can process data sequentially
+* How file objects can be iterated over
+* Difference between iterators and collections
+* Basic relationship between iterators and generators
+* How iterators can be useful for large datasets
+* How iterators can be applied to cybersecurity and automation
+
+---
+
+# 🏆 DAY 14 COMPLETE
+
+**Python Topic:** Iterators
+**Learning Platform:** W3Schools
+**Status:** ✅ Completed
+
+### Key Takeaway:
+
+> **An iterable is something you can loop over, while an iterator is the object that remembers where you are and provides the next item one at a time.**
+
+The most important functions and methods are:
+
+```python
+iter()
+next()
+__iter__()
+__next__()
+```
+
+And when there are no more values:
+
+```python
+StopIteration
+```
+
+### Mental Model
+
+```text
+             ITERABLE
+                 │
+                 │ iter()
+                 ▼
+             ITERATOR
+                 │
+                 │ next()
+                 ▼
+              ITEM 1
+                 │
+                 │ next()
+                 ▼
+              ITEM 2
+                 │
+                 │ next()
+                 ▼
+              ITEM 3
+                 │
+                 ▼
+          No items remaining
+                 │
+                 ▼
+          StopIteration
+```
+
+**Day 14 Learning Progress:**
+
+```text
+🐍 Python
+│
+├── Day 01 → Python Basics
+├── Day 02 → Variables & Data Types
+├── Day 03 → Strings
+├── ...
+├── Day 13 → Functions / Decorators
+└── Day 14 → Iterators ✅
+```
+
+Keep practicing `iter()` and `next()` manually until the idea becomes comfortable. Once this is clear, **Python generators (`yield`) will become much easier to understand**, because generators are closely connected to the iterator concept.

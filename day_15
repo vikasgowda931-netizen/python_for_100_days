@@ -1,0 +1,1663 @@
+# 🐍 PYTHON LEARNING - DAY 15
+
+## 📅 Topics Covered
+
+Today I learned about:
+
+1. Python Modules
+2. Python Dates and Time
+3. Python `math` Module
+4. Python `json` Module
+5. Real-World Examples
+6. Cybersecurity Use Cases
+7. Practice Exercises
+
+---
+
+# 1. PYTHON MODULES
+
+## What is a Module?
+
+A **module** is simply a Python file containing code such as:
+
+* Functions
+* Variables
+* Classes
+* Constants
+
+Modules allow us to organize our code and reuse it in different programs.
+
+Think of a module like a **toolbox**.
+
+For example:
+
+```text
+Toolbox
+├── hammer
+├── screwdriver
+├── wrench
+└── pliers
+```
+
+Instead of creating every tool again, you take the toolbox when you need it.
+
+In Python:
+
+```text
+Module
+├── functions
+├── variables
+├── classes
+└── constants
+```
+
+---
+
+## Why Do We Use Modules?
+
+Modules help us:
+
+* Reuse code
+* Organize large programs
+* Avoid writing the same code repeatedly
+* Make programs easier to maintain
+* Use functionality created by other developers
+
+---
+
+# 2. Importing a Module
+
+Python provides many built-in modules.
+
+For example:
+
+```python
+import math
+
+print(math.sqrt(25))
+```
+
+Output:
+
+```text
+5.0
+```
+
+Here:
+
+```python
+import math
+```
+
+means:
+
+> Bring the `math` module into my program.
+
+Then:
+
+```python
+math.sqrt(25)
+```
+
+means:
+
+> Use the `sqrt()` function from the `math` module.
+
+---
+
+# 3. Creating Your Own Module
+
+Suppose we create a file called:
+
+```text
+calculator.py
+```
+
+Inside it:
+
+```python
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+```
+
+Now create another file:
+
+```text
+main.py
+```
+
+Import the module:
+
+```python
+import calculator
+
+print(calculator.add(10, 5))
+print(calculator.subtract(10, 5))
+```
+
+Output:
+
+```text
+15
+5
+```
+
+---
+
+# 4. Import Specific Functions
+
+Instead of importing the entire module:
+
+```python
+import calculator
+```
+
+we can import specific functions:
+
+```python
+from calculator import add
+
+print(add(10, 5))
+```
+
+Output:
+
+```text
+15
+```
+
+---
+
+# 5. Import Everything
+
+You can technically do:
+
+```python
+from calculator import *
+```
+
+But this is generally **not recommended** because it can make it unclear where names came from and can cause naming conflicts.
+
+Prefer:
+
+```python
+import calculator
+```
+
+or:
+
+```python
+from calculator import add
+```
+
+---
+
+# 6. Module Alias
+
+We can give a module a shorter name.
+
+```python
+import math as m
+
+print(m.sqrt(100))
+```
+
+Output:
+
+```text
+10.0
+```
+
+Here:
+
+```text
+math → m
+```
+
+Now we can use:
+
+```python
+m.sqrt()
+```
+
+instead of:
+
+```python
+math.sqrt()
+```
+
+---
+
+# 7. Python Built-in Modules
+
+Python comes with many useful modules.
+
+Some examples:
+
+```text
+math
+random
+datetime
+json
+os
+sys
+re
+statistics
+```
+
+These modules provide functionality that we can use instead of writing everything ourselves.
+
+---
+
+# 8. Real-World Module Example
+
+Imagine you are building a cybersecurity tool.
+
+You might organize it like this:
+
+```text
+security_tool/
+│
+├── main.py
+├── scanner.py
+├── network.py
+├── logger.py
+└── utils.py
+```
+
+Each module can have a specific responsibility.
+
+For example:
+
+```python
+# scanner.py
+
+def scan_port(port):
+    print("Checking port:", port)
+```
+
+Then:
+
+```python
+# main.py
+
+import scanner
+
+scanner.scan_port(80)
+```
+
+This makes large projects much easier to manage.
+
+---
+
+# 9. PYTHON DATES AND TIME
+
+Python provides the `datetime` module for working with:
+
+* Dates
+* Times
+* Date and time calculations
+* Formatting dates
+* Comparing dates
+
+Import it:
+
+```python
+import datetime
+```
+
+---
+
+# 10. Get the Current Date and Time
+
+```python
+import datetime
+
+now = datetime.datetime.now()
+
+print(now)
+```
+
+Example output:
+
+```text
+2026-09-01 21:30:45.123456
+```
+
+The result contains:
+
+```text
+2026
+ ↓
+year
+
+09
+ ↓
+month
+
+01
+ ↓
+day
+
+21
+ ↓
+hour
+
+30
+ ↓
+minute
+
+45
+ ↓
+second
+```
+
+---
+
+# 11. Get Only the Current Date
+
+```python
+import datetime
+
+today = datetime.date.today()
+
+print(today)
+```
+
+Output:
+
+```text
+2026-09-01
+```
+
+---
+
+# 12. Get Individual Date Components
+
+```python
+import datetime
+
+today = datetime.date.today()
+
+print(today.year)
+print(today.month)
+print(today.day)
+```
+
+Example:
+
+```text
+2026
+9
+1
+```
+
+---
+
+# 13. Create a Specific Date
+
+```python
+import datetime
+
+date = datetime.date(2026, 9, 1)
+
+print(date)
+```
+
+Output:
+
+```text
+2026-09-01
+```
+
+---
+
+# 14. Create a Specific Date and Time
+
+```python
+import datetime
+
+dt = datetime.datetime(2026, 9, 1, 21, 30, 0)
+
+print(dt)
+```
+
+Output:
+
+```text
+2026-09-01 21:30:00
+```
+
+---
+
+# 15. Formatting Dates with `strftime()`
+
+Sometimes we don't want:
+
+```text
+2026-09-01
+```
+
+We might want:
+
+```text
+01-09-2026
+```
+
+We can use:
+
+```python
+import datetime
+
+today = datetime.date.today()
+
+formatted = today.strftime("%d-%m-%Y")
+
+print(formatted)
+```
+
+Output:
+
+```text
+01-09-2026
+```
+
+Important format codes:
+
+```text
+%Y → Year
+%m → Month
+%d → Day
+%H → Hour
+%M → Minute
+%S → Second
+```
+
+Example:
+
+```python
+print(today.strftime("%d/%m/%Y"))
+```
+
+Output:
+
+```text
+01/09/2026
+```
+
+---
+
+# 16. Real-World Date Example
+
+Imagine you are building a cybersecurity logging system.
+
+Whenever an event occurs, you want to record the timestamp.
+
+```python
+import datetime
+
+event_time = datetime.datetime.now()
+
+print("Security event:", event_time)
+```
+
+Output:
+
+```text
+Security event: 2026-09-01 21:35:12
+```
+
+This is useful for:
+
+* Security logs
+* Login records
+* Incident reports
+* File monitoring
+* Audit systems
+
+---
+
+# 17. Date Calculations
+
+Python allows us to perform calculations with dates.
+
+```python
+import datetime
+
+today = datetime.date.today()
+
+future = today + datetime.timedelta(days=7)
+
+print("Today:", today)
+print("After 7 days:", future)
+```
+
+Example:
+
+```text
+Today: 2026-09-01
+After 7 days: 2026-09-08
+```
+
+---
+
+# 18. Difference Between Dates
+
+```python
+import datetime
+
+date1 = datetime.date(2026, 9, 1)
+date2 = datetime.date(2026, 9, 15)
+
+difference = date2 - date1
+
+print(difference.days)
+```
+
+Output:
+
+```text
+14
+```
+
+So there are 14 days between the two dates.
+
+---
+
+# 19. Real-World Example — Password Expiration
+
+Imagine an organization requires passwords to be changed every 90 days.
+
+```python
+import datetime
+
+password_changed = datetime.date(2026, 7, 1)
+
+expiration_date = password_changed + datetime.timedelta(days=90)
+
+print("Password expires:", expiration_date)
+```
+
+This concept can be used when building:
+
+* Authentication systems
+* Password policies
+* Subscription systems
+* License expiration systems
+
+---
+
+# 20. PYTHON `math` MODULE
+
+The `math` module provides mathematical functions.
+
+Import it:
+
+```python
+import math
+```
+
+It provides functions for:
+
+* Square roots
+* Powers
+* Rounding
+* Trigonometry
+* Logarithms
+* Constants
+* Factorials
+* Ceiling/floor operations
+
+---
+
+# 21. Square Root
+
+```python
+import math
+
+print(math.sqrt(25))
+```
+
+Output:
+
+```text
+5.0
+```
+
+Because:
+
+```text
+5 × 5 = 25
+```
+
+---
+
+# 22. Power
+
+```python
+import math
+
+print(math.pow(2, 3))
+```
+
+Output:
+
+```text
+8.0
+```
+
+Because:
+
+```text
+2³ = 8
+```
+
+---
+
+# 23. `ceil()`
+
+`ceil()` rounds a number **up**.
+
+```python
+import math
+
+print(math.ceil(4.2))
+```
+
+Output:
+
+```text
+5
+```
+
+Another example:
+
+```python
+print(math.ceil(4.9))
+```
+
+Output:
+
+```text
+5
+```
+
+---
+
+# 24. `floor()`
+
+`floor()` rounds a number **down**.
+
+```python
+import math
+
+print(math.floor(4.9))
+```
+
+Output:
+
+```text
+4
+```
+
+---
+
+# 25. `fabs()`
+
+`fabs()` returns the absolute value as a floating-point number.
+
+```python
+import math
+
+print(math.fabs(-25))
+```
+
+Output:
+
+```text
+25.0
+```
+
+---
+
+# 26. Factorial
+
+Factorial is represented by:
+
+```text
+n!
+```
+
+For example:
+
+```text
+5! = 5 × 4 × 3 × 2 × 1
+```
+
+Therefore:
+
+```text
+5! = 120
+```
+
+Python:
+
+```python
+import math
+
+print(math.factorial(5))
+```
+
+Output:
+
+```text
+120
+```
+
+---
+
+# 27. Mathematical Constants
+
+The `math` module provides constants.
+
+### Pi
+
+```python
+import math
+
+print(math.pi)
+```
+
+Output:
+
+```text
+3.141592653589793
+```
+
+### Euler's number
+
+```python
+print(math.e)
+```
+
+Output:
+
+```text
+2.718281828459045
+```
+
+---
+
+# 28. Real-World Example — Circle Calculator
+
+Suppose you want to calculate the area of a circle.
+
+Formula:
+
+```text
+Area = π × r²
+```
+
+Python:
+
+```python
+import math
+
+radius = 5
+
+area = math.pi * radius ** 2
+
+print("Area:", area)
+```
+
+Output:
+
+```text
+Area: 78.53981633974483
+```
+
+---
+
+# 29. Real-World Example — File Size Calculation
+
+Suppose you have:
+
+```text
+size = 1048576
+```
+
+bytes.
+
+You know:
+
+```text
+1 MB = 1024 × 1024 bytes
+```
+
+You can calculate:
+
+```python
+size = 1048576
+
+mb = size / (1024 ** 2)
+
+print("Size:", mb, "MB")
+```
+
+Output:
+
+```text
+Size: 1.0 MB
+```
+
+This type of calculation is useful in:
+
+* File analysis
+* Disk analysis
+* System administration
+* Digital forensics
+
+---
+
+# 30. PYTHON `json` MODULE
+
+JSON stands for:
+
+> **JavaScript Object Notation**
+
+Despite the name, JSON is widely used by many programming languages.
+
+JSON is commonly used to exchange and store structured data.
+
+For example:
+
+```json
+{
+    "name": "Niranjan",
+    "age": 20,
+    "skills": ["Python", "Linux", "Networking"]
+}
+```
+
+JSON is extremely common in:
+
+* APIs
+* Web applications
+* Configuration files
+* Cloud services
+* Security tools
+* Automation
+
+---
+
+# 31. Why Do We Need JSON?
+
+Imagine a Python program needs to communicate with a web server.
+
+Python data:
+
+```python
+user = {
+    "name": "Niranjan",
+    "age": 20
+}
+```
+
+The application can convert this into JSON:
+
+```json
+{
+    "name": "Niranjan",
+    "age": 20
+}
+```
+
+Then another application can understand the data.
+
+---
+
+# 32. Import JSON
+
+```python
+import json
+```
+
+---
+
+# 33. Python Dictionary → JSON
+
+Use:
+
+```python
+json.dumps()
+```
+
+Example:
+
+```python
+import json
+
+user = {
+    "name": "Niranjan",
+    "age": 20,
+    "language": "Python"
+}
+
+json_data = json.dumps(user)
+
+print(json_data)
+```
+
+Output:
+
+```text
+{"name": "Niranjan", "age": 20, "language": "Python"}
+```
+
+---
+
+# 34. What Does `dumps()` Mean?
+
+Think:
+
+```text
+Python object
+      ↓
+   dumps()
+      ↓
+JSON string
+```
+
+The `s` in `dumps` refers to **string**.
+
+So:
+
+```python
+json.dumps()
+```
+
+means:
+
+> Convert Python data into a JSON string.
+
+---
+
+# 35. JSON → Python
+
+Now the opposite.
+
+Use:
+
+```python
+json.loads()
+```
+
+Example:
+
+```python
+import json
+
+data = '{"name": "Niranjan", "age": 20}'
+
+user = json.loads(data)
+
+print(user)
+print(user["name"])
+```
+
+Output:
+
+```text
+{'name': 'Niranjan', 'age': 20}
+Niranjan
+```
+
+Think:
+
+```text
+JSON string
+     ↓
+  loads()
+     ↓
+Python object
+```
+
+---
+
+# 36. `dumps()` vs `loads()`
+
+Remember:
+
+```text
+dumps → Python → JSON
+loads → JSON → Python
+```
+
+Easy memory trick:
+
+```text
+dump = put Python data into JSON
+load = bring JSON data into Python
+```
+
+---
+
+# 37. Pretty JSON with `indent`
+
+Without formatting:
+
+```python
+print(json.dumps(user))
+```
+
+You get:
+
+```json
+{"name": "Niranjan", "age": 20, "language": "Python"}
+```
+
+For readable formatting:
+
+```python
+print(json.dumps(user, indent=4))
+```
+
+Output:
+
+```json
+{
+    "name": "Niranjan",
+    "age": 20,
+    "language": "Python"
+}
+```
+
+This is called **pretty printing**.
+
+---
+
+# 38. JSON Sorting
+
+You can sort dictionary keys:
+
+```python
+import json
+
+user = {
+    "name": "Niranjan",
+    "age": 20,
+    "language": "Python"
+}
+
+print(json.dumps(user, indent=4, sort_keys=True))
+```
+
+---
+
+# 39. Writing JSON to a File
+
+Suppose:
+
+```python
+import json
+
+user = {
+    "name": "Niranjan",
+    "age": 20,
+    "skills": [
+        "Python",
+        "Linux",
+        "Networking"
+    ]
+}
+
+with open("user.json", "w") as file:
+    json.dump(user, file, indent=4)
+```
+
+This creates:
+
+```text
+user.json
+```
+
+with:
+
+```json
+{
+    "name": "Niranjan",
+    "age": 20,
+    "skills": [
+        "Python",
+        "Linux",
+        "Networking"
+    ]
+}
+```
+
+---
+
+# 40. Reading JSON From a File
+
+```python
+import json
+
+with open("user.json", "r") as file:
+    user = json.load(file)
+
+print(user)
+```
+
+Access individual values:
+
+```python
+print(user["name"])
+print(user["skills"])
+```
+
+---
+
+# 41. `dump()` vs `dumps()`
+
+This is very important.
+
+### `dumps()`
+
+Python → JSON **string**
+
+```python
+json.dumps(data)
+```
+
+### `dump()`
+
+Python → JSON **file**
+
+```python
+json.dump(data, file)
+```
+
+---
+
+# 42. `loads()` vs `load()`
+
+### `loads()`
+
+JSON **string** → Python
+
+```python
+json.loads(data)
+```
+
+### `load()`
+
+JSON **file** → Python
+
+```python
+json.load(file)
+```
+
+Remember:
+
+```text
+dumps → string
+dump  → file
+
+loads → string
+load  → file
+```
+
+---
+
+# 43. Real-World JSON API Example
+
+Imagine a cybersecurity API returns:
+
+```json
+{
+    "ip": "192.168.1.10",
+    "status": "suspicious",
+    "risk_score": 85
+}
+```
+
+Python can process it:
+
+```python
+import json
+
+response = '''
+{
+    "ip": "192.168.1.10",
+    "status": "suspicious",
+    "risk_score": 85
+}
+'''
+
+data = json.loads(response)
+
+print("IP:", data["ip"])
+print("Status:", data["status"])
+print("Risk Score:", data["risk_score"])
+```
+
+Output:
+
+```text
+IP: 192.168.1.10
+Status: suspicious
+Risk Score: 85
+```
+
+This is similar to how security automation tools process API responses.
+
+---
+
+# 44. Real-World Cybersecurity Example — Security Events
+
+Imagine your security tool stores events as JSON:
+
+```json
+{
+    "timestamp": "2026-09-01 21:30:00",
+    "event": "failed_login",
+    "username": "admin",
+    "ip": "192.168.1.50"
+}
+```
+
+Python can read the data:
+
+```python
+import json
+
+event = '''
+{
+    "timestamp": "2026-09-01 21:30:00",
+    "event": "failed_login",
+    "username": "admin",
+    "ip": "192.168.1.50"
+}
+'''
+
+data = json.loads(event)
+
+print("Event:", data["event"])
+print("Username:", data["username"])
+print("IP:", data["ip"])
+```
+
+Output:
+
+```text
+Event: failed_login
+Username: admin
+IP: 192.168.1.50
+```
+
+This demonstrates how Python can process structured security information.
+
+---
+
+# 45. Combining `datetime` + `json`
+
+We can create a security event automatically.
+
+```python
+import datetime
+import json
+
+event = {
+    "timestamp": datetime.datetime.now().isoformat(),
+    "event": "login_attempt",
+    "username": "admin",
+    "status": "failed"
+}
+
+print(json.dumps(event, indent=4))
+```
+
+Output will look similar to:
+
+```json
+{
+    "timestamp": "2026-09-01T21:30:00.123456",
+    "event": "login_attempt",
+    "username": "admin",
+    "status": "failed"
+}
+```
+
+This is a good example of multiple Python modules working together.
+
+---
+
+# 46. Combining `math` + `json`
+
+Suppose a security system calculates a risk score.
+
+```python
+import math
+import json
+
+score = math.sqrt(8100)
+
+result = {
+    "risk_score": score,
+    "status": "high"
+}
+
+print(json.dumps(result, indent=4))
+```
+
+Output:
+
+```json
+{
+    "risk_score": 90.0,
+    "status": "high"
+}
+```
+
+---
+
+# 47. Complete Mini Project
+
+## 🔐 Security Event Logger
+
+Let's combine:
+
+* `datetime`
+* `json`
+
+```python
+import datetime
+import json
+
+username = input("Enter username: ")
+ip_address = input("Enter IP address: ")
+status = input("Enter login status: ")
+
+event = {
+    "timestamp": datetime.datetime.now().isoformat(),
+    "username": username,
+    "ip_address": ip_address,
+    "status": status
+}
+
+with open("security_event.json", "w") as file:
+    json.dump(event, file, indent=4)
+
+print("Security event saved successfully.")
+```
+
+If you enter:
+
+```text
+Enter username: admin
+Enter IP address: 192.168.1.10
+Enter login status: failed
+```
+
+The file becomes:
+
+```json
+{
+    "timestamp": "2026-09-01T21:30:00.123456",
+    "username": "admin",
+    "ip_address": "192.168.1.10",
+    "status": "failed"
+}
+```
+
+This is a simple example of how Python can be used for security automation.
+
+---
+
+# 48. Important Things I Learned Today
+
+## Modules
+
+```python
+import math
+```
+
+Use functionality from another module.
+
+```python
+from math import sqrt
+```
+
+Import a specific function.
+
+```python
+import math as m
+```
+
+Create an alias.
+
+---
+
+## `datetime`
+
+```python
+import datetime
+
+datetime.date.today()
+datetime.datetime.now()
+datetime.timedelta(days=7)
+```
+
+Used for dates, times, timestamps, and date calculations.
+
+---
+
+## `math`
+
+```python
+import math
+
+math.sqrt()
+math.pow()
+math.ceil()
+math.floor()
+math.factorial()
+math.pi
+math.e
+```
+
+Used for mathematical calculations.
+
+---
+
+## `json`
+
+```python
+import json
+
+json.dumps()
+json.loads()
+json.dump()
+json.load()
+```
+
+Used to convert and store structured data.
+
+---
+
+# 🧠 Easy Memory Tricks
+
+### Modules
+
+```text
+Module = Toolbox 🧰
+```
+
+---
+
+### Dates
+
+```text
+datetime = Calendar + Clock 📅⏰
+```
+
+---
+
+### Math
+
+```text
+math = Calculator 🧮
+```
+
+---
+
+### JSON
+
+```text
+JSON = Common language for structured data 🌐
+```
+
+---
+
+# 🎯 Practice Exercises
+
+## Exercise 1 — Current Date
+
+Write a program that prints:
+
+```text
+Today's date: YYYY-MM-DD
+```
+
+---
+
+## Exercise 2 — Future Date
+
+Ask the user for a number of days and print the date after that many days.
+
+Example:
+
+```text
+Enter days: 10
+
+Future date: 2026-09-11
+```
+
+---
+
+## Exercise 3 — Age Calculator
+
+Ask the user for their birth year and calculate their approximate age.
+
+---
+
+## Exercise 4 — Math Calculator
+
+Ask the user for a number and display:
+
+* Square root
+* Square
+* Floor
+* Ceiling
+
+---
+
+## Exercise 5 — JSON Conversion
+
+Create a Python dictionary:
+
+```python
+student = {
+    "name": "Your Name",
+    "age": 20,
+    "course": "Cybersecurity"
+}
+```
+
+Convert it into JSON.
+
+---
+
+## Exercise 6 — JSON File
+
+Create a `student.json` file using Python.
+
+Then read the file and print:
+
+```text
+Name:
+Age:
+Course:
+```
+
+---
+
+## Exercise 7 — Security Event
+
+Create a program that asks for:
+
+```text
+Username
+IP address
+Login status
+```
+
+and stores the information in a JSON file together with the current timestamp.
+
+---
+
+# 🚀 Day 15 Summary
+
+Today I learned how Python modules make programs more organized and reusable.
+
+I learned how to:
+
+* Import modules
+* Create my own modules
+* Import specific functions
+* Use aliases
+* Work with dates and times
+* Format dates using `strftime()`
+* Perform date calculations with `timedelta`
+* Use the `math` module
+* Calculate square roots and powers
+* Use mathematical constants
+* Round numbers using `ceil()` and `floor()`
+* Understand JSON
+* Convert Python objects to JSON
+* Convert JSON back to Python
+* Read and write JSON files
+* Use JSON with timestamps
+* Combine Python modules in a cybersecurity-related project
+
+## 🔐 Cybersecurity Connection
+
+These concepts are important for cybersecurity because Python security tools often need to:
+
+```text
+Read logs
+   ↓
+Process data
+   ↓
+Calculate values
+   ↓
+Add timestamps
+   ↓
+Store structured information
+   ↓
+Send/receive API data
+```
+
+For example:
+
+```text
+datetime → timestamps
+math     → calculations
+json     → structured data
+modules  → organize the security tool
+```
+
+These are foundational Python skills that will be useful later when learning **Python automation, APIs, log analysis, networking, and cybersecurity tools**.

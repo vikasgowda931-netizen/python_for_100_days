@@ -1,0 +1,2040 @@
+# 🐍 PYTHON LEARNING — DAY 16
+
+## 🔎 Topic: Regular Expressions (Regex) in Python
+
+Today I learned about **Regular Expressions (Regex)** in Python.
+
+Regex is extremely useful for **searching, matching, extracting, validating, and replacing text**.
+
+It is especially useful in:
+
+* 🔐 Cybersecurity
+* 📊 Data processing
+* 📝 Text analysis
+* 📧 Email validation
+* 🌐 Web scraping
+* 📄 Log analysis
+* 🔍 Finding patterns in files
+* 🤖 Automation
+
+---
+
+# 1. What is Regex?
+
+**Regex** stands for **Regular Expression**.
+
+A regular expression is a pattern used to search for specific text inside a larger piece of text.
+
+### Simple example
+
+Suppose we have:
+
+```text
+My phone number is 9876543210
+```
+
+We want to find the phone number.
+
+Instead of manually searching for it, we can create a regex pattern:
+
+```regex
+[0-9]{10}
+```
+
+This means:
+
+```text
+Find exactly 10 digits.
+```
+
+Python can then find the number automatically.
+
+---
+
+# 2. Regex Module in Python
+
+Python provides the built-in `re` module for regular expressions.
+
+Import it using:
+
+```python
+import re
+```
+
+Example:
+
+```python
+import re
+
+text = "My phone number is 9876543210"
+
+result = re.search(r"[0-9]{10}", text)
+
+print(result)
+```
+
+Output will contain a match object.
+
+To get the actual matched text:
+
+```python
+print(result.group())
+```
+
+Output:
+
+```text
+9876543210
+```
+
+---
+
+# 3. Why Use `r` Before Regex?
+
+You will often see:
+
+```python
+r"\d+"
+```
+
+The `r` means **raw string**.
+
+It tells Python not to treat backslashes as normal escape characters.
+
+Example:
+
+```python
+pattern = r"\d+"
+```
+
+This is preferred when writing regex patterns.
+
+---
+
+# 4. Important Regex Functions
+
+The Python `re` module provides several important functions.
+
+| Function         | Purpose                               |
+| ---------------- | ------------------------------------- |
+| `re.search()`    | Finds the first match                 |
+| `re.match()`     | Checks from the beginning             |
+| `re.fullmatch()` | Checks the entire string              |
+| `re.findall()`   | Returns all matches                   |
+| `re.finditer()`  | Returns match objects for all matches |
+| `re.split()`     | Splits text using a regex             |
+| `re.sub()`       | Replaces matching text                |
+| `re.compile()`   | Creates a reusable regex pattern      |
+
+---
+
+# 5. `re.search()`
+
+`re.search()` searches the entire string and returns the first match.
+
+Example:
+
+```python
+import re
+
+text = "I am learning Python"
+
+result = re.search(r"Python", text)
+
+print(result.group())
+```
+
+Output:
+
+```text
+Python
+```
+
+### Real-world example
+
+Searching a log for the word `ERROR`:
+
+```python
+import re
+
+log = "2026-09-02 ERROR Login failed"
+
+result = re.search(r"ERROR", log)
+
+if result:
+    print("Error found")
+```
+
+Output:
+
+```text
+Error found
+```
+
+---
+
+# 6. `re.match()`
+
+`re.match()` checks only the **beginning of the string**.
+
+Example:
+
+```python
+import re
+
+text = "Python is powerful"
+
+result = re.match(r"Python", text)
+
+print(result.group())
+```
+
+Output:
+
+```text
+Python
+```
+
+But:
+
+```python
+import re
+
+text = "I love Python"
+
+result = re.match(r"Python", text)
+
+print(result)
+```
+
+Output:
+
+```text
+None
+```
+
+Because `Python` is not at the beginning.
+
+---
+
+# 7. Difference Between `search()` and `match()`
+
+### `search()`
+
+Searches anywhere:
+
+```python
+re.search(r"Python", "I love Python")
+```
+
+Finds:
+
+```text
+Python
+```
+
+### `match()`
+
+Searches only from the beginning:
+
+```python
+re.match(r"Python", "I love Python")
+```
+
+Returns:
+
+```text
+None
+```
+
+---
+
+# 8. `re.fullmatch()`
+
+`fullmatch()` requires the **entire string** to match the pattern.
+
+Example:
+
+```python
+import re
+
+text = "12345"
+
+result = re.fullmatch(r"\d+", text)
+
+if result:
+    print("Valid number")
+```
+
+Output:
+
+```text
+Valid number
+```
+
+But:
+
+```python
+text = "12345abc"
+```
+
+will not fully match.
+
+---
+
+# 9. Character Classes
+
+Character classes allow us to specify which characters can match.
+
+## `[abc]`
+
+Matches one character that is either:
+
+```text
+a
+b
+c
+```
+
+Example:
+
+```python
+import re
+
+text = "cat"
+
+result = re.search(r"[abc]", text)
+
+print(result.group())
+```
+
+Output:
+
+```text
+c
+```
+
+---
+
+# 10. `[a-z]`
+
+Matches lowercase letters from `a` to `z`.
+
+Example:
+
+```python
+import re
+
+text = "hello123"
+
+result = re.findall(r"[a-z]", text)
+
+print(result)
+```
+
+Output:
+
+```text
+['h', 'e', 'l', 'l', 'o']
+```
+
+---
+
+# 11. `[A-Z]`
+
+Matches uppercase letters.
+
+```python
+import re
+
+text = "Hello WORLD"
+
+result = re.findall(r"[A-Z]", text)
+
+print(result)
+```
+
+Output:
+
+```text
+['H', 'W', 'O', 'R', 'L', 'D']
+```
+
+---
+
+# 12. `[0-9]`
+
+Matches digits.
+
+```python
+import re
+
+text = "My PIN is 1234"
+
+result = re.findall(r"[0-9]", text)
+
+print(result)
+```
+
+Output:
+
+```text
+['1', '2', '3', '4']
+```
+
+---
+
+# 13. `\d` — Digit
+
+`\d` matches a digit.
+
+Equivalent to:
+
+```regex
+[0-9]
+```
+
+Example:
+
+```python
+import re
+
+text = "I have 25 apples"
+
+result = re.findall(r"\d", text)
+
+print(result)
+```
+
+Output:
+
+```text
+['2', '5']
+```
+
+---
+
+# 14. `\D` — Not a Digit
+
+`\D` matches anything that is NOT a digit.
+
+Example:
+
+```python
+import re
+
+text = "abc123"
+
+result = re.findall(r"\D", text)
+
+print(result)
+```
+
+Output:
+
+```text
+['a', 'b', 'c']
+```
+
+---
+
+# 15. `\w` — Word Character
+
+`\w` generally matches:
+
+* letters
+* digits
+* underscore
+
+Example:
+
+```python
+import re
+
+text = "hello_123"
+
+result = re.findall(r"\w", text)
+
+print(result)
+```
+
+---
+
+# 16. `\W` — Non-Word Character
+
+`\W` matches characters that are not word characters.
+
+Example:
+
+```python
+import re
+
+text = "hello@123!"
+
+result = re.findall(r"\W", text)
+
+print(result)
+```
+
+Output:
+
+```text
+['@', '!']
+```
+
+---
+
+# 17. `\s` — Whitespace
+
+`\s` matches whitespace such as:
+
+* spaces
+* tabs
+* newlines
+
+Example:
+
+```python
+import re
+
+text = "Hello World"
+
+result = re.findall(r"\s", text)
+
+print(result)
+```
+
+Output:
+
+```text
+[' ']
+```
+
+---
+
+# 18. `\S` — Non-Whitespace
+
+`\S` matches anything that is not whitespace.
+
+```python
+import re
+
+text = "Hello World"
+
+result = re.findall(r"\S+", text)
+
+print(result)
+```
+
+Output:
+
+```text
+['Hello', 'World']
+```
+
+---
+
+# 19. Dot `.`
+
+The dot matches almost any single character.
+
+Example:
+
+```python
+import re
+
+text = "cat"
+
+result = re.search(r"c.t", text)
+
+print(result.group())
+```
+
+Output:
+
+```text
+cat
+```
+
+It can also match:
+
+```text
+cut
+cot
+c9t
+```
+
+because `.` means:
+
+```text
+Any single character
+```
+
+---
+
+# 20. Quantifiers
+
+Quantifiers specify **how many times something should appear**.
+
+Important quantifiers:
+
+| Quantifier | Meaning         |
+| ---------- | --------------- |
+| `*`        | 0 or more       |
+| `+`        | 1 or more       |
+| `?`        | 0 or 1          |
+| `{n}`      | Exactly n       |
+| `{n,}`     | n or more       |
+| `{n,m}`    | Between n and m |
+
+---
+
+# 21. `*` — Zero or More
+
+Example:
+
+```regex
+ab*
+```
+
+Matches:
+
+```text
+a
+ab
+abb
+abbb
+```
+
+Python:
+
+```python
+import re
+
+text = "abbb"
+
+result = re.search(r"ab*", text)
+
+print(result.group())
+```
+
+Output:
+
+```text
+abbb
+```
+
+---
+
+# 22. `+` — One or More
+
+Example:
+
+```regex
+ab+
+```
+
+Matches:
+
+```text
+ab
+abb
+abbb
+```
+
+But not:
+
+```text
+a
+```
+
+Python:
+
+```python
+import re
+
+text = "abbb"
+
+result = re.search(r"ab+", text)
+
+print(result.group())
+```
+
+---
+
+# 23. `?` — Zero or One
+
+Example:
+
+```regex
+colou?r
+```
+
+Matches:
+
+```text
+color
+colour
+```
+
+Python:
+
+```python
+import re
+
+text = "colour"
+
+result = re.search(r"colou?r", text)
+
+print(result.group())
+```
+
+---
+
+# 24. `{n}` — Exact Number
+
+To match exactly 4 digits:
+
+```regex
+\d{4}
+```
+
+Example:
+
+```python
+import re
+
+text = "My PIN is 1234"
+
+result = re.search(r"\d{4}", text)
+
+print(result.group())
+```
+
+Output:
+
+```text
+1234
+```
+
+---
+
+# 25. `{n,}` — Minimum Number
+
+```regex
+\d{4,}
+```
+
+Means:
+
+```text
+At least 4 digits
+```
+
+Example:
+
+```python
+import re
+
+text = "123456"
+
+result = re.search(r"\d{4,}", text)
+
+print(result.group())
+```
+
+Output:
+
+```text
+123456
+```
+
+---
+
+# 26. `{n,m}` — Range
+
+```regex
+\d{2,4}
+```
+
+Means:
+
+```text
+2 to 4 digits
+```
+
+Example:
+
+```python
+import re
+
+text = "1234"
+
+result = re.search(r"\d{2,4}", text)
+
+print(result.group())
+```
+
+Output:
+
+```text
+1234
+```
+
+---
+
+# 27. Anchors
+
+Anchors specify the position of a match.
+
+Important anchors:
+
+| Symbol | Meaning             |
+| ------ | ------------------- |
+| `^`    | Beginning of string |
+| `$`    | End of string       |
+| `\b`   | Word boundary       |
+| `\B`   | Not a word boundary |
+
+---
+
+# 28. `^` Beginning
+
+Example:
+
+```python
+import re
+
+text = "Python is easy"
+
+result = re.search(r"^Python", text)
+
+if result:
+    print("Starts with Python")
+```
+
+Output:
+
+```text
+Starts with Python
+```
+
+---
+
+# 29. `$` End
+
+Example:
+
+```python
+import re
+
+text = "I love Python"
+
+result = re.search(r"Python$", text)
+
+if result:
+    print("Ends with Python")
+```
+
+Output:
+
+```text
+Ends with Python
+```
+
+---
+
+# 30. Word Boundary `\b`
+
+`\b` checks the boundary between a word character and a non-word character.
+
+Example:
+
+```python
+import re
+
+text = "cat category"
+
+result = re.findall(r"\bcat\b", text)
+
+print(result)
+```
+
+Output:
+
+```text
+['cat']
+```
+
+It does not match the `cat` inside `category`.
+
+---
+
+# 31. Alternation `|`
+
+`|` means OR.
+
+Example:
+
+```regex
+cat|dog
+```
+
+Matches either:
+
+```text
+cat
+```
+
+or:
+
+```text
+dog
+```
+
+Python:
+
+```python
+import re
+
+text = "I have a dog"
+
+result = re.search(r"cat|dog", text)
+
+print(result.group())
+```
+
+Output:
+
+```text
+dog
+```
+
+---
+
+# 32. Groups `()`
+
+Parentheses are used to create groups.
+
+Example:
+
+```python
+import re
+
+text = "My date is 02-09-2026"
+
+pattern = r"(\d{2})-(\d{2})-(\d{4})"
+
+result = re.search(pattern, text)
+
+print(result.group())
+print(result.group(1))
+print(result.group(2))
+print(result.group(3))
+```
+
+Output:
+
+```text
+02-09-2026
+02
+09
+2026
+```
+
+---
+
+# 33. Named Groups
+
+We can give names to groups.
+
+Example:
+
+```python
+import re
+
+text = "Name: Niranjan, Age: 21"
+
+pattern = r"Name: (?P<name>\w+), Age: (?P<age>\d+)"
+
+result = re.search(pattern, text)
+
+print(result.group("name"))
+print(result.group("age"))
+```
+
+Output:
+
+```text
+Niranjan
+21
+```
+
+This makes complex regex easier to understand.
+
+---
+
+# 34. `re.findall()`
+
+`findall()` returns **all matches**.
+
+Example:
+
+```python
+import re
+
+text = "I have 10 apples and 20 oranges"
+
+numbers = re.findall(r"\d+", text)
+
+print(numbers)
+```
+
+Output:
+
+```text
+['10', '20']
+```
+
+---
+
+# 35. Extracting Emails
+
+A simple email pattern:
+
+```regex
+[\w.-]+@[\w.-]+\.\w+
+```
+
+Example:
+
+```python
+import re
+
+text = """
+Contact john@example.com
+or admin@company.org
+"""
+
+emails = re.findall(r"[\w.-]+@[\w.-]+\.\w+", text)
+
+print(emails)
+```
+
+Output:
+
+```text
+['john@example.com', 'admin@company.org']
+```
+
+---
+
+# 36. Extracting IP Addresses
+
+A simple pattern for IPv4-looking addresses:
+
+```regex
+\b(?:\d{1,3}\.){3}\d{1,3}\b
+```
+
+Example:
+
+```python
+import re
+
+log = """
+Connection from 192.168.1.10
+Connection from 10.0.0.5
+"""
+
+ips = re.findall(r"\b(?:\d{1,3}\.){3}\d{1,3}\b", log)
+
+print(ips)
+```
+
+Output:
+
+```text
+['192.168.1.10', '10.0.0.5']
+```
+
+### Important
+
+This pattern finds IP-shaped strings, but it does not strictly verify that every octet is between `0` and `255`.
+
+---
+
+# 37. Extracting Phone Numbers
+
+Example:
+
+```python
+import re
+
+text = "Call me at 9876543210"
+
+phone = re.findall(r"\b\d{10}\b", text)
+
+print(phone)
+```
+
+Output:
+
+```text
+['9876543210']
+```
+
+---
+
+# 38. `re.sub()`
+
+`sub()` is used to **replace matching text**.
+
+Example:
+
+```python
+import re
+
+text = "Python is difficult"
+
+new_text = re.sub(r"difficult", "easy", text)
+
+print(new_text)
+```
+
+Output:
+
+```text
+Python is easy
+```
+
+---
+
+# 39. Removing Extra Spaces
+
+```python
+import re
+
+text = "Hello     World     Python"
+
+cleaned = re.sub(r"\s+", " ", text)
+
+print(cleaned)
+```
+
+Output:
+
+```text
+Hello World Python
+```
+
+This is useful when cleaning data.
+
+---
+
+# 40. `re.split()`
+
+Regex can also be used to split text.
+
+Example:
+
+```python
+import re
+
+text = "apple,banana;orange|grape"
+
+result = re.split(r"[,;|]", text)
+
+print(result)
+```
+
+Output:
+
+```text
+['apple', 'banana', 'orange', 'grape']
+```
+
+---
+
+# 41. `re.finditer()`
+
+`finditer()` returns match objects.
+
+Example:
+
+```python
+import re
+
+text = "Python 123 Linux 456"
+
+matches = re.finditer(r"\d+", text)
+
+for match in matches:
+    print(match.group())
+    print(match.start())
+    print(match.end())
+```
+
+Output:
+
+```text
+123
+7
+10
+
+456
+17
+20
+```
+
+This is useful when we need the **position of matches**.
+
+---
+
+# 42. Match Object
+
+When regex finds a match, Python gives us a match object.
+
+Example:
+
+```python
+import re
+
+text = "My age is 21"
+
+result = re.search(r"\d+", text)
+
+print(result.group())
+print(result.start())
+print(result.end())
+```
+
+Possible output:
+
+```text
+21
+11
+13
+```
+
+Important methods:
+
+```python
+group()
+start()
+end()
+span()
+```
+
+---
+
+# 43. `re.compile()`
+
+If we use the same regex multiple times, we can compile it.
+
+Example:
+
+```python
+import re
+
+pattern = re.compile(r"\d+")
+
+text1 = "I have 10 apples"
+text2 = "I have 20 oranges"
+
+print(pattern.findall(text1))
+print(pattern.findall(text2))
+```
+
+Output:
+
+```text
+['10']
+['20']
+```
+
+This makes reusable regex patterns easier to manage.
+
+---
+
+# 44. Case-Insensitive Matching
+
+Normally:
+
+```python
+import re
+
+text = "Python PYTHON python"
+
+result = re.findall(r"python", text)
+
+print(result)
+```
+
+Output:
+
+```text
+['python']
+```
+
+We can use `re.IGNORECASE`:
+
+```python
+result = re.findall(r"python", text, re.IGNORECASE)
+
+print(result)
+```
+
+Output:
+
+```text
+['Python', 'PYTHON', 'python']
+```
+
+---
+
+# 45. Multiline Matching
+
+Python provides regex flags.
+
+Example:
+
+```python
+import re
+
+text = """Python
+Linux
+Cybersecurity
+"""
+
+result = re.findall(r"^.*$", text, re.MULTILINE)
+
+print(result)
+```
+
+`re.MULTILINE` allows `^` and `$` to work with individual lines.
+
+---
+
+# 46. Common Regex Symbols Cheat Sheet
+
+| Regex   | Meaning            |    |
+| ------- | ------------------ | -- |
+| `.`     | Any character      |    |
+| `^`     | Start              |    |
+| `$`     | End                |    |
+| `*`     | 0 or more          |    |
+| `+`     | 1 or more          |    |
+| `?`     | 0 or 1             |    |
+| `{n}`   | Exactly n          |    |
+| `{n,}`  | n or more          |    |
+| `{n,m}` | n to m             |    |
+| `[]`    | Character class    |    |
+| `()`    | Group              |    |
+| `       | `                  | OR |
+| `\d`    | Digit              |    |
+| `\D`    | Non-digit          |    |
+| `\w`    | Word character     |    |
+| `\W`    | Non-word character |    |
+| `\s`    | Whitespace         |    |
+| `\S`    | Non-whitespace     |    |
+| `\b`    | Word boundary      |    |
+
+---
+
+# 47. Real-World Cybersecurity Example — Log Analysis
+
+Imagine a server log:
+
+```text
+192.168.1.10 - LOGIN SUCCESS
+192.168.1.20 - LOGIN FAILED
+10.0.0.5 - LOGIN FAILED
+192.168.1.10 - LOGIN SUCCESS
+```
+
+We want to find failed login attempts.
+
+```python
+import re
+
+log = """
+192.168.1.10 - LOGIN SUCCESS
+192.168.1.20 - LOGIN FAILED
+10.0.0.5 - LOGIN FAILED
+192.168.1.10 - LOGIN SUCCESS
+"""
+
+failed = re.findall(r"(\d{1,3}(?:\.\d{1,3}){3}).*LOGIN FAILED", log)
+
+print(failed)
+```
+
+Output:
+
+```text
+['192.168.1.20', '10.0.0.5']
+```
+
+This demonstrates how regex can help a SOC analyst extract suspicious IP addresses from logs.
+
+---
+
+# 48. Real-World Cybersecurity Example — Find URLs
+
+```python
+import re
+
+text = """
+Visit https://example.com
+or http://test.org
+"""
+
+urls = re.findall(r"https?://[^\s]+", text)
+
+print(urls)
+```
+
+Output:
+
+```text
+['https://example.com', 'http://test.org']
+```
+
+This can be useful during:
+
+* Log analysis
+* Threat hunting
+* Malware analysis
+* Incident response
+* Security automation
+
+---
+
+# 49. Real-World Example — Detect Suspicious Commands
+
+Suppose a security tool receives logs containing commands.
+
+```python
+import re
+
+logs = """
+user executed ls
+user executed cat file.txt
+user executed whoami
+user executed rm file.txt
+"""
+
+commands = re.findall(r"executed (\w+)", logs)
+
+print(commands)
+```
+
+Output:
+
+```text
+['ls', 'cat', 'whoami', 'rm']
+```
+
+We can then analyze these commands for suspicious behavior.
+
+---
+
+# 50. Real-World Example — Extract Error Messages
+
+```python
+import re
+
+logs = """
+INFO Server started
+ERROR Database connection failed
+INFO User logged in
+ERROR Authentication failed
+"""
+
+errors = re.findall(r"ERROR.*", logs)
+
+for error in errors:
+    print(error)
+```
+
+Output:
+
+```text
+ERROR Database connection failed
+ERROR Authentication failed
+```
+
+---
+
+# 51. Regex for Password Validation
+
+A simple example requiring:
+
+* At least 8 characters
+* One uppercase letter
+* One lowercase letter
+* One digit
+
+```python
+import re
+
+password = "Hello123"
+
+pattern = r"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$"
+
+if re.fullmatch(pattern, password):
+    print("Password meets the basic requirements")
+else:
+    print("Password does not meet the requirements")
+```
+
+### Important
+
+Regex can check whether a password meets a format policy, but regex alone is **not a complete password-security solution**.
+
+---
+
+# 52. Email Validation Example
+
+```python
+import re
+
+email = "student@example.com"
+
+pattern = r"^[\w.-]+@[\w.-]+\.\w+$"
+
+if re.fullmatch(pattern, email):
+    print("Valid email format")
+else:
+    print("Invalid email format")
+```
+
+---
+
+# 53. Username Validation
+
+Suppose usernames should contain:
+
+* Letters
+* Numbers
+* Underscore
+* 3–15 characters
+
+```python
+import re
+
+username = "cyber_user123"
+
+pattern = r"^[A-Za-z0-9_]{3,15}$"
+
+if re.fullmatch(pattern, username):
+    print("Valid username")
+else:
+    print("Invalid username")
+```
+
+---
+
+# 54. Extracting Hashtags
+
+```python
+import re
+
+text = "Learning #Python #CyberSecurity #Linux"
+
+hashtags = re.findall(r"#\w+", text)
+
+print(hashtags)
+```
+
+Output:
+
+```text
+['#Python', '#CyberSecurity', '#Linux']
+```
+
+---
+
+# 55. Extracting Mentions
+
+```python
+import re
+
+text = "Hello @john and @admin"
+
+mentions = re.findall(r"@\w+", text)
+
+print(mentions)
+```
+
+Output:
+
+```text
+['@john', '@admin']
+```
+
+---
+
+# 56. Regex Pipeline
+
+Regex becomes especially powerful when combined with other Python features.
+
+Example:
+
+```python
+import re
+
+log = """
+2026-09-01 192.168.1.10 LOGIN FAILED
+2026-09-01 10.0.0.5 LOGIN SUCCESS
+2026-09-01 192.168.1.20 LOGIN FAILED
+"""
+
+ips = re.findall(
+    r"\b(?:\d{1,3}\.){3}\d{1,3}\b",
+    log
+)
+
+for ip in ips:
+    print(ip)
+```
+
+Output:
+
+```text
+192.168.1.10
+10.0.0.5
+192.168.1.20
+```
+
+Regex can therefore become part of an automated cybersecurity pipeline:
+
+```text
+Log File
+   ↓
+Python
+   ↓
+Regex
+   ↓
+Extract Data
+   ↓
+Analyze Data
+   ↓
+Generate Alert
+```
+
+---
+
+# 57. Regex vs Normal String Methods
+
+Sometimes regex is unnecessary.
+
+For simple operations:
+
+```python
+text.startswith("Hello")
+text.endswith("Python")
+"ERROR" in text
+```
+
+are easier to understand than regex.
+
+Use regex when the pattern becomes more complex.
+
+### Example
+
+Simple:
+
+```python
+if "ERROR" in log:
+    print("Error found")
+```
+
+Regex:
+
+```python
+re.findall(r"ERROR.*", log)
+```
+
+Regex is more useful when we need to describe a **pattern**, not just a fixed word.
+
+---
+
+# 58. Common Mistakes
+
+## Mistake 1 — Forgetting `r`
+
+Instead of:
+
+```python
+"\d+"
+```
+
+prefer:
+
+```python
+r"\d+"
+```
+
+---
+
+## Mistake 2 — Using `match()` when you need `search()`
+
+Remember:
+
+```text
+match()  → beginning
+search() → anywhere
+```
+
+---
+
+## Mistake 3 — Forgetting `+`
+
+This:
+
+```regex
+\d
+```
+
+matches one digit.
+
+This:
+
+```regex
+\d+
+```
+
+matches one or more digits.
+
+For:
+
+```text
+12345
+```
+
+`\d` finds individual digits, while `\d+` finds the whole number.
+
+---
+
+## Mistake 4 — Regex is not always the best solution
+
+Don't use complicated regex when a simple string operation is enough.
+
+Good programming means choosing the simplest tool that solves the problem.
+
+---
+
+# 59. Regex Learning Strategy
+
+I learned regex using the following progression:
+
+```text
+1. re module
+      ↓
+2. search()
+      ↓
+3. match()
+      ↓
+4. findall()
+      ↓
+5. Character classes
+      ↓
+6. Special characters
+      ↓
+7. Quantifiers
+      ↓
+8. Anchors
+      ↓
+9. Groups
+      ↓
+10. Flags
+      ↓
+11. sub()
+      ↓
+12. split()
+      ↓
+13. finditer()
+      ↓
+14. Real-world log analysis
+```
+
+---
+
+# 60. Practice Exercises
+
+## Beginner
+
+### Exercise 1
+
+Find all numbers:
+
+```text
+I have 10 apples, 20 oranges and 30 bananas.
+```
+
+Expected:
+
+```text
+['10', '20', '30']
+```
+
+---
+
+### Exercise 2
+
+Find all words beginning with `P`.
+
+```text
+Python Programming is Powerful
+```
+
+---
+
+### Exercise 3
+
+Find all uppercase letters:
+
+```text
+Hello PYTHON Linux
+```
+
+---
+
+### Exercise 4
+
+Find all email addresses:
+
+```text
+Contact admin@example.com and support@test.org
+```
+
+---
+
+### Exercise 5
+
+Find all IP addresses:
+
+```text
+192.168.1.1
+10.0.0.5
+172.16.0.10
+```
+
+---
+
+# 61. Intermediate Exercises
+
+### Exercise 6 — Log Analysis
+
+Given:
+
+```text
+192.168.1.10 LOGIN SUCCESS
+192.168.1.20 LOGIN FAILED
+10.0.0.5 LOGIN FAILED
+172.16.0.10 LOGIN SUCCESS
+```
+
+Extract only the IP addresses associated with:
+
+```text
+LOGIN FAILED
+```
+
+---
+
+### Exercise 7 — Phone Numbers
+
+Extract 10-digit phone numbers from:
+
+```text
+Call 9876543210 or 9123456780
+```
+
+---
+
+### Exercise 8 — URLs
+
+Extract URLs from:
+
+```text
+Visit https://example.com
+and http://test.org
+```
+
+---
+
+### Exercise 9 — Clean Data
+
+Convert:
+
+```text
+Hello     Python       World
+```
+
+into:
+
+```text
+Hello Python World
+```
+
+using `re.sub()`.
+
+---
+
+### Exercise 10 — Password Policy
+
+Create a regex that checks whether a password contains:
+
+* At least 8 characters
+* One uppercase letter
+* One lowercase letter
+* One number
+
+---
+
+# 62. Cybersecurity Practice Project
+
+## 🔐 Mini Project: Failed Login Detector
+
+Create a Python program that reads a log and identifies failed login attempts.
+
+Example log:
+
+```text
+192.168.1.10 LOGIN SUCCESS
+192.168.1.20 LOGIN FAILED
+192.168.1.30 LOGIN FAILED
+10.0.0.5 LOGIN SUCCESS
+```
+
+Expected output:
+
+```text
+Failed login detected from: 192.168.1.20
+Failed login detected from: 192.168.1.30
+```
+
+Possible solution:
+
+```python
+import re
+
+log = """
+192.168.1.10 LOGIN SUCCESS
+192.168.1.20 LOGIN FAILED
+192.168.1.30 LOGIN FAILED
+10.0.0.5 LOGIN SUCCESS
+"""
+
+pattern = r"\b(?:\d{1,3}\.){3}\d{1,3}\b.*LOGIN FAILED"
+
+matches = re.findall(pattern, log)
+
+for match in matches:
+    ip = re.search(r"\b(?:\d{1,3}\.){3}\d{1,3}\b", match)
+    print("Failed login detected from:", ip.group())
+```
+
+This is a simple example of how Python + Regex can be used for **security log analysis**.
+
+---
+
+# 63. Key Takeaways
+
+Today I learned:
+
+* What Regular Expressions are
+* Python's `re` module
+* `search()`
+* `match()`
+* `fullmatch()`
+* `findall()`
+* `finditer()`
+* `sub()`
+* `split()`
+* `compile()`
+* Character classes
+* `\d`
+* `\D`
+* `\w`
+* `\W`
+* `\s`
+* `\S`
+* Dot `.`
+* Quantifiers
+* `*`
+* `+`
+* `?`
+* `{n}`
+* `{n,}`
+* `{n,m}`
+* Anchors
+* `^`
+* `$`
+* `\b`
+* Groups `()`
+* Named groups
+* Alternation `|`
+* Regex flags
+* Email extraction
+* IP extraction
+* URL extraction
+* Phone number extraction
+* Log analysis
+* Basic cybersecurity automation using Regex
+
+---
+
+# 🎯 Day 16 Summary
+
+Regular Expressions are a powerful way to work with patterns in text.
+
+The most important concept I learned today is:
+
+> **Regex allows Python to find patterns instead of searching for exact text.**
+
+For cybersecurity, Regex is especially useful for:
+
+```text
+Logs
+ ↓
+Regex
+ ↓
+Extract IPs / Emails / URLs / Errors
+ ↓
+Analyze Patterns
+ ↓
+Detect Suspicious Activity
+ ↓
+Automate Security Tasks
+```
+
+### My next goal
+
+I will practice combining:
+
+```text
+Python
++
+Regex
++
+Linux
++
+Log Analysis
++
+Cybersecurity
+```
+
+to build practical automation and security tools.
+
+---
+
+## 🏆 Day 16 Completed
+
+**Topic:** Python Regular Expressions (Regex)
+**Focus:** Pattern Matching + Text Extraction + Automation
+**Practical Area:** Cybersecurity & Log Analysis
+**Status:** ✅ Completed

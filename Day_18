@@ -1,0 +1,573 @@
+🐍 Day 18 – Python Exception Handling: "try" and "except"
+
+Today I learned Exception Handling in Python, focusing mainly on "try" and "except".
+
+Exception handling is important because programs can encounter unexpected errors while running. Instead of allowing the program to crash, we can handle these errors gracefully and continue execution.
+
+---
+
+📌 What is an Exception?
+
+An exception is an error that occurs during program execution.
+
+For example:
+
+number = int(input("Enter a number: "))
+
+If the user enters:
+
+hello
+
+Python cannot convert ""hello"" into an integer and raises:
+
+ValueError
+
+Without exception handling, the program terminates.
+
+---
+
+🔹 Basic "try" and "except"
+
+The basic syntax is:
+
+try:
+    # Code that may cause an error
+except:
+    # Code executed when an error occurs
+
+Example:
+
+try:
+    number = int(input("Enter a number: "))
+    print("You entered:", number)
+
+except:
+    print("Invalid input!")
+
+Output:
+
+Enter a number: hello
+Invalid input!
+
+The program does not crash because the exception was handled.
+
+---
+
+🔹 Why Use Exception Handling?
+
+Exception handling helps us:
+
+- Prevent programs from crashing
+- Handle invalid user input
+- Handle missing files
+- Handle network-related errors
+- Handle database errors
+- Make applications more reliable
+- Provide meaningful error messages
+- Build robust automation and security tools
+
+---
+
+🔹 Handling Specific Exceptions
+
+It is better to catch specific exceptions instead of using a generic "except".
+
+Example:
+
+try:
+    number = int(input("Enter a number: "))
+
+except ValueError:
+    print("Please enter a valid number.")
+
+Here, "ValueError" specifically handles invalid integer conversion.
+
+---
+
+🔹 Multiple "except" Blocks
+
+A single "try" block can have multiple exception handlers.
+
+try:
+    number1 = int(input("Enter first number: "))
+    number2 = int(input("Enter second number: "))
+
+    result = number1 / number2
+
+    print("Result:", result)
+
+except ValueError:
+    print("Please enter numbers only.")
+
+except ZeroDivisionError:
+    print("You cannot divide by zero.")
+
+This allows us to handle different problems differently.
+
+---
+
+🔹 Understanding Common Exceptions
+
+1. "ValueError"
+
+Occurs when a value has the correct type but an inappropriate value.
+
+try:
+    age = int("twenty")
+
+except ValueError:
+    print("Invalid age.")
+
+---
+
+2. "ZeroDivisionError"
+
+Occurs when attempting to divide by zero.
+
+try:
+    result = 10 / 0
+
+except ZeroDivisionError:
+    print("Cannot divide by zero.")
+
+---
+
+3. "FileNotFoundError"
+
+Occurs when trying to open a file that does not exist.
+
+try:
+    file = open("logs.txt", "r")
+
+except FileNotFoundError:
+    print("Log file not found.")
+
+---
+
+4. "TypeError"
+
+Occurs when an operation is performed on incompatible data types.
+
+try:
+    result = "10" + 5
+
+except TypeError:
+    print("Cannot add a string and an integer.")
+
+---
+
+5. "KeyError"
+
+Commonly occurs when accessing a dictionary key that does not exist.
+
+user = {
+    "name": "Vikas",
+    "age": 21
+}
+
+try:
+    print(user["email"])
+
+except KeyError:
+    print("Email key does not exist.")
+
+---
+
+🔹 Getting the Error Message
+
+We can store the exception in a variable using "as".
+
+try:
+    number = int("abc")
+
+except ValueError as error:
+    print("Error:", error)
+
+Output:
+
+Error: invalid literal for int() with base 10: 'abc'
+
+This is useful when debugging programs.
+
+---
+
+🔹 "try" + "except" + "else"
+
+The "else" block runs only when no exception occurs.
+
+try:
+    number = int(input("Enter a number: "))
+
+except ValueError:
+    print("Invalid input.")
+
+else:
+    print("Successfully converted:", number)
+
+Flow:
+
+try
+ │
+ ├── Error → except
+ │
+ └── No Error → else
+
+---
+
+🔹 "try" + "except" + "finally"
+
+The "finally" block executes whether an exception occurs or not.
+
+try:
+    file = open("data.txt", "r")
+    print(file.read())
+
+except FileNotFoundError:
+    print("File not found.")
+
+finally:
+    print("Execution completed.")
+
+"finally" is useful for cleanup operations such as:
+
+- Closing files
+- Closing network connections
+- Releasing resources
+- Cleaning temporary data
+
+---
+
+🔹 Real-World Example 1 – Login System
+
+A login system can receive invalid input from users.
+
+correct_username = "admin"
+correct_password = "12345"
+
+try:
+    username = input("Username: ")
+    password = input("Password: ")
+
+    if username == correct_username and password == correct_password:
+        print("Login successful.")
+
+    else:
+        print("Invalid username or password.")
+
+except Exception as error:
+    print("An unexpected error occurred:", error)
+
+This demonstrates how exception handling can prevent unexpected failures in an authentication-related program.
+
+«Note: Real applications should never store passwords like this. Passwords should be securely hashed and verified.»
+
+---
+
+🔹 Real-World Example 2 – Reading Security Logs
+
+Security analysts often work with log files.
+
+Suppose we want to read an authentication log:
+
+try:
+    with open("auth.log", "r") as file:
+        logs = file.read()
+
+    print(logs)
+
+except FileNotFoundError:
+    print("Authentication log was not found.")
+
+except PermissionError:
+    print("You do not have permission to access this file.")
+
+This is useful because a security script should handle missing or inaccessible log files instead of crashing.
+
+---
+
+🔹 Real-World Example 3 – IP Address Processing
+
+Imagine a security tool processing IP addresses.
+
+ip_addresses = [
+    "192.168.1.10",
+    "10.0.0.5",
+    "invalid-ip",
+    "172.16.0.20"
+]
+
+for ip in ip_addresses:
+
+    try:
+        parts = ip.split(".")
+
+        if len(parts) != 4:
+            raise ValueError("Invalid IP format")
+
+        for part in parts:
+            number = int(part)
+
+            if number < 0 or number > 255:
+                raise ValueError("Invalid IP value")
+
+        print(ip, "-> Valid IP")
+
+    except ValueError as error:
+        print(ip, "-> Invalid IP:", error)
+
+This demonstrates how exception handling can be used when processing potentially unreliable input.
+
+---
+
+🔹 Real-World Example 4 – Safe User Input
+
+A program that continuously asks for a number can handle invalid input without crashing.
+
+while True:
+
+    try:
+        number = int(input("Enter a number: "))
+        print("You entered:", number)
+        break
+
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
+If the user enters:
+
+abc
+
+the program does not terminate.
+
+It asks again.
+
+---
+
+🔹 Real-World Example 5 – File Processing
+
+When processing multiple files, one missing or inaccessible file should not necessarily stop the entire process.
+
+files = [
+    "users.txt",
+    "logs.txt",
+    "missing.txt"
+]
+
+for filename in files:
+
+    try:
+        with open(filename, "r") as file:
+            data = file.read()
+
+        print(filename, "processed successfully.")
+
+    except FileNotFoundError:
+        print(filename, "does not exist.")
+
+    except PermissionError:
+        print(filename, "cannot be accessed.")
+
+This approach is useful in automation scripts and security log analysis.
+
+---
+
+🔹 Raising Exceptions with "raise"
+
+We can intentionally generate an exception using "raise".
+
+age = 15
+
+try:
+
+    if age < 18:
+        raise ValueError("User must be 18 or older.")
+
+    print("Access granted.")
+
+except ValueError as error:
+    print("Access denied:", error)
+
+Output:
+
+Access denied: User must be 18 or older.
+
+---
+
+🔹 Exception Handling Flow
+
+The overall structure can be represented as:
+
+              Start
+                │
+                ▼
+             try block
+                │
+         ┌──────┴──────┐
+         │             │
+      Error         No Error
+         │             │
+         ▼             ▼
+      except          else
+         │             │
+         └──────┬──────┘
+                ▼
+             finally
+                │
+                ▼
+               End
+
+---
+
+🔹 Important Best Practices
+
+✅ Catch specific exceptions
+
+Prefer:
+
+except ValueError:
+
+instead of:
+
+except:
+
+---
+
+✅ Avoid hiding errors
+
+This is usually bad practice:
+
+try:
+    risky_operation()
+
+except:
+    pass
+
+The error disappears and debugging becomes difficult.
+
+---
+
+✅ Use meaningful error messages
+
+except FileNotFoundError:
+    print("The security log file could not be found.")
+
+is better than:
+
+except:
+    print("Error")
+
+---
+
+✅ Use "finally" for cleanup
+
+finally:
+    print("Cleaning up resources...")
+
+---
+
+🔐 Cybersecurity Relevance
+
+Exception handling is particularly useful in cybersecurity programming.
+
+It can be used when developing:
+
+- Log analysis tools
+- File integrity monitoring scripts
+- Network utilities
+- Vulnerability scanners
+- Port scanners
+- Security automation scripts
+- Authentication systems
+- Incident-response tools
+- Malware-analysis utilities
+- SIEM data-processing scripts
+
+Security tools often process data from unreliable sources, so proper exception handling helps prevent unexpected crashes.
+
+---
+
+🧠 What I Learned Today
+
+Today I learned:
+
+- What exceptions are
+- Why exception handling is important
+- How "try" works
+- How "except" works
+- How to catch specific exceptions
+- How to handle multiple exceptions
+- How to use "as" to access error information
+- How "else" works with exception handling
+- How "finally" works
+- How to use "raise"
+- Common Python exceptions such as:
+  - "ValueError"
+  - "TypeError"
+  - "ZeroDivisionError"
+  - "FileNotFoundError"
+  - "PermissionError"
+  - "KeyError"
+- How exception handling can be applied to cybersecurity and automation
+
+---
+
+💻 Practice Tasks
+
+Task 1
+
+Create a calculator that handles:
+
+- Invalid numbers
+- Division by zero
+- Invalid operators
+
+Task 2
+
+Create a program that reads a log file and handles:
+
+- File not found
+- Permission errors
+
+Task 3
+
+Create an IP address validator using "try" and "except".
+
+Task 4
+
+Create a login system that handles invalid input.
+
+Task 5
+
+Create a program that accepts numbers until the user enters a valid number.
+
+---
+
+📌 Day 18 Summary
+
+«Exception handling allows Python programs to handle unexpected situations gracefully instead of crashing.»
+
+The most important structure I learned today is:
+
+try:
+    # Risky code
+
+except SomeError:
+    # Handle error
+
+else:
+    # Runs when no error occurs
+
+finally:
+    # Always runs
+
+Exception handling is an important Python skill for building reliable automation and cybersecurity tools.
+
+---
+
+🚀 Progress
+
+Day: 18
+Topic: Python Exception Handling
+Focus: "try", "except", "else", "finally", "raise"
+Practical Area: Automation + Cybersecurity
+Status: ✅ Completed
